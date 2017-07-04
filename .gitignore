@@ -39,4 +39,4 @@ Thumbs.db
 
 # Custom files #
 sftp-config.json
-sftp-config.json
+.DS_Store
