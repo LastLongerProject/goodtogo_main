@@ -1,31 +1,57 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title>好盒器</title>
 
-    <!-- GOOGLE ANALYTICS -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="zh-TW">
+    <meta name="distribution" content="global" />
 
-    <!--
+    <meta name="author" content="好盒器" />
+    <meta name="publisher" content="好盒器" />
+    <meta name="reply-to" content="futura.noreply@gmail.com" />
+    <meta name="rating" content="general" />
+    <meta name="copyright" content="© 2017 Last Longer Project. All rights reserved." />
+    <meta name="abstract" content="好盒器推動用玻璃杯取代免洗杯！透過店家與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
+    <meta name="distribution" content="global" />
+
+    <meta name="robots" content="all" />
+    <meta name="spiders" content="all" />
+    <meta name="webcrawlers" content="all" />
+    <meta name="googlebot" content="all" />
+
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-qeuiv="Pragma" content="no-cache" />
+
+    <meta name="url" content="http://goodtogo.com.tw">
+    <meta name="keywords" content="好盒器,環保,免洗餐具,免洗杯,愛地球,台灣,地球,人嶼物,台南,正興街" />
+    <meta name="description" content="好盒器推動用玻璃杯取代免洗杯！透過店家與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
+    <meta name="subject" content="好盒器" />
+
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="好盒器" />
+    <meta property="og:image" content="img/intro_bg.jpg" />
+    <meta property="og:site_name" content="好盒器" />
+    <meta property="og:url" content="http://goodtogo.com.tw" />
+    <meta property="og:description" content="好盒器推動用玻璃杯取代免洗杯！透過店家與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
+    
+    <!-- Google Analytics -->
+
     <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-99217788-1', 'auto');
-  ga('send', 'pageview');
+      ga('create', 'UA-99217788-1', 'auto');
+      ga('send', 'pageview');
 
-</script>
-
--->
+    </script>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
