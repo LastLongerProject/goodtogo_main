@@ -1,0 +1,22 @@
+{
+  "name": "goodtogo",
+  "version": "1.0.0",
+  "description": "goodtogo official website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LastLongerProject/goodtogo_main.git"
+  },
+  "author": "LastLongerProject",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LastLongerProject/goodtogo_main/issues"
+  },
+  "homepage": "https://github.com/LastLongerProject/goodtogo_main#readme",
+  "devDependencies": {
+    "gulp-browserify": "^0.5.1"
+  }
+}
