@@ -38,7 +38,7 @@
     <link href="css/scrolling-nav.css" rel="stylesheet">
 
     <!-- GoodToGo CSS -->
-    <link href="css/goodtogo.css" rel="stylesheet">
+    <link href="zx/css/goodtogo_zx.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
