@@ -5,11 +5,10 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     prefix = require('gulp-autoprefixer');
 
-
 gulp.task('sass', function() {
     sass('resources/sass/app.sass', {
             sourcemap: true,
-            style: 'compact'
+            style: 'compressed'
         })
         .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
         .pipe(sourcemaps.write('.'))
