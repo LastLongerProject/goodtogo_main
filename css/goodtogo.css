@@ -47,6 +47,23 @@ h6,
 	.navbar-externallink{
 	    float: right;
 	}
+	.navbar-externallink>li>a {
+    	padding-left: 0px;
+    	padding-right: 0px;
+    	letter-spacing: 2px;
+    	font-weight: 700;
+    	/*color: #9AD5E3;*/ 
+    	/*border-right: 1px solid #777;*/
+	}
+	.navbar-externallink>li>a>div {
+    	padding-left: 10px;
+    	padding-right: 10px;
+    	border-right: 1px solid #777;
+	}
+
+	.navbar-externallink>li:last-child>a>div {
+    	border-right: none;
+	}
 }
 
 .navbar-default .navbar-nav>.active>a, 
@@ -153,10 +170,8 @@ h6,
 #map-title{
 	font-family: 'cwTeXYen', sans-serif;
 	height:12vh;
-	text-align: center;
 	/*background:#ff0;*/
 	font-size: calc(22px + 0.2vw);
-	margin: 0 auto;
 	/*float: right;*/
 }
 
@@ -170,7 +185,6 @@ h6,
     margin: auto;
   }
 
-/*
  #map-panel{
  	height: 120px;
  	width: 100%;
@@ -185,8 +199,6 @@ h6,
  	}
  	
  }
-
- */
 
 .place-title{
 	font-weight: 500;
@@ -241,7 +253,7 @@ h6,
 
 .how-to-section{
 	padding-top: calc(10vh + 50px);
-	/*height: 100%;*/
+	height: 100%;
 	text-align: center;
 	/*background-color: #EFEFEF;*/
 }
@@ -266,29 +278,56 @@ h6,
 }
 #how-to-use-img{
 	width: 80%;
-	max-width: 540px;
-	height: calc(50vh - 50px);
+	height: calc(70vh - 50px);
 	margin: auto;
 	background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-	background-image: url("../img/how_to_use_zx.png");
+	background-image: url("../img/how_to_use.png");
 }
-
 
 @media all and (orientation:portrait) {
   /* Styles for Portrait screen */
-  
 	.how-to-section{
-		padding-top: calc(10vh + 50px);
+		padding-top: calc(5vh + 50px);
 	}
   	#how-to-use-img{
 		width: 100%;
-		/*height: calc(20vh - 50px);*/
-		height: 30vw;
+		margin: 8vh auto;
+		background-image: url("../img/how_to_use_v.png");
 	}
 }
 
 .services-section{
 	background-color: #ff0;
+}
+
+.footer-section{
+	padding-top: 24px;
+	padding-bottom: 24px;
+	/*height:20vh;*/
+	background-color: #9AD5E3;
+	color: #fff;
+}
+
+.footer-section li{
+	list-style-type: none;
+	margin: 8px 0 8px 3px;
+	padding-left: 6px;
+	/* line-height: 16px; */
+	/* padding: 4px 0; */
+	border-left: 3px #fff solid;
+}
+
+.footer-section ul{
+	padding: 10px 0;
+}
+
+.footer-section-list-title{
+	font-weight: 700;
+	letter-spacing: 2px;
+}
+
+#copyright{
+	font-size: 12px;
 }
