@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     connect = require('gulp-connect-php');
 	browserSync = require('browser-sync');
  
-gulp.task('connect-sync', function() {
+gulp.task('watch', function() {
   connect.server({}, function (){
     browserSync({
       proxy: '127.0.0.1:8000'
