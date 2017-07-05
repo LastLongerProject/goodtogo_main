@@ -52,9 +52,9 @@
       <!-- GOOGLE FONTS -->
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
       <!-- Bootstrap Core CSS -->
-      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="assets/css/bootstrap.min.css" rel="stylesheet">
       <!-- Custom CSS -->
-      <link href="css/scrolling-nav.css" rel="stylesheet">
+      <link href="assets/css/scrolling-nav.css" rel="stylesheet">
       <!-- GoodToGo CSS -->
       <link href="zx/css/goodtogo_zx.css" rel="stylesheet">
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -271,10 +271,10 @@
       <!-- jQuery -->
       <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
       <!-- Bootstrap Core JavaScript -->
-      <script src="js/bootstrap.min.js"></script>
+      <script src="assets/js/bootstrap.min.js"></script>
       <!-- Scrolling Nav JavaScript -->
-      <script src="js/jquery.easing.min.js"></script>
-      <script src="js/scrolling-nav.js"></script>
+  
+      <script src="assets/js/scrolling-nav.js"></script>
       <!-- Google Maps API -->
       <script>
          var today = new Date();
@@ -464,8 +464,40 @@
              /*return hour+':'+min+ampm;*/
          };  
       </script>
+      <script>
+       $(window).scroll(function() {
+   var hT = $('#result-number').offset().top,
+       hH = $('#result-number').outerHeight(),
+       wH = $(window).height(),
+       wS = $(this).scrollTop();
+      if (wS > (hT+hH-wH) && (hT > wS) && (wS+wH > hT+hH)){
+           $('#result-number').each(function() {
+             var $el = $(this);
+             var max = parseInt($el.text().replace(/\s/g, ''));
+             $(this).text('0');
+             var duration = 800;
+            var refresh = 50;
+            var frames = duration / refresh;
+            var start = 0;
+            var step = Math.max(Math.round(max / frames), 1);
+            var interval = window.setInterval(function() {
+             if(start + step < max) {
+                  start += step;
+            }
+                else {
+                 start = max;
+                  clearInterval(interval);
+            }
+            $(this).off();
+          $el.text(start);
+    }, refresh);
+    });
+}
+});
+      </script>
       <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initMap"
          async defer></script>
+      
    </body>
 </html>
