@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
    <head>
+      <!--  
+       _               _     _                                   _____           _           _   
+      | |             | |   | |                                 |  __ \         (_)         | |  
+      | |     __ _ ___| |_  | |     ___  _ __   __ _  ___ _ __  | |__) _ __ ___  _  ___  ___| |_ 
+      | |    / _` / __| __| | |    / _ \| '_ \ / _` |/ _ | '__| |  ___| '__/ _ \| |/ _ \/ __| __|
+      | |___| (_| \__ | |_  | |___| (_) | | | | (_| |  __| |    | |   | | | (_) | |  __| (__| |_ 
+      |______\__,_|___/\__| |______\___/|_| |_|\__, |\___|_|    |_|   |_|  \___/| |\___|\___|\__|
+                                               __/ |                          _/ |              
+                                               |___/                          |__/               
+      -->
 
       <title>正興杯杯計畫 | 好 盒 器 x 正 興 街 </title>
 
@@ -21,22 +31,25 @@
       <meta name="spiders" content="all" />
       <meta name="webcrawlers" content="all" />
       <meta name="googlebot" content="all" />
+
       <meta http-equiv="content-type" content="text/html;charset=utf-8" />
       <meta http-equiv="cache-control" content="no-cache" />
       <meta http-qeuiv="Pragma" content="no-cache" />
+
       <meta name="url" content="http://goodtogo.com.tw/zx">
       <meta name="keywords" content="好盒器,環保,免洗餐具,免洗杯,愛地球,台灣,地球,人嶼物,台南,正興街" />
       <meta name="description" content="好盒器推動用玻璃杯取代免洗杯！透過店家與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
       <meta name="subject" content="正興杯杯計畫 | 好 盒 器 x 正 興 街" />
+      
       <meta property="og:type" content="website" />
       <meta property="og:title" content="正興杯杯計畫 | 好 盒 器 x 正 興 街" />
-      <meta property="og:image" content="img/how_to_use_zx.png" />
+      <meta property="og:image" content="../assets/img/how_to_use_zx.png" />
       <meta property="og:site_name" content="正興杯杯計畫 | 好 盒 器 x 正 興 街" />
       <meta property="og:url" content="http://goodtogo.com.tw/zx" />
       <meta property="og:description" content="好盒器推動用玻璃杯取代免洗杯！透過正興街與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
 
       <!-- FAVICON -->
-      <link rel="icon" type="image/png" href="img/favicon-logo-16x16.png" sizes="16x16">
+      <link rel="icon" type="image/png" href="../assets/img/favicon-logo-16x16.png" sizes="16x16">
 
       <!-- GOOGLE ANALYTICS -->
       <script>
@@ -52,11 +65,11 @@
       <!-- GOOGLE FONTS -->
       <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
       <!-- Bootstrap Core CSS -->
-      <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+      <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
       <!-- Custom CSS -->
-      <link href="assets/css/scrolling-nav.css" rel="stylesheet">
+      <link href="../assets/css/scrolling-nav.css" rel="stylesheet">
       <!-- GoodToGo CSS -->
-      <link href="zx/css/goodtogo_zx.css" rel="stylesheet">
+      <link href="../assets/css/goodtogo_zx.css" rel="stylesheet">
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
       <!--[if lt IE 9]>
@@ -77,7 +90,7 @@
                <span class="icon-bar"></span>
                </button>
                <a class="navbar-brand page-scroll" href="#page-top">
-                  <div id="navbar-logo"><img src="img/header_logo_zx.png"></div>
+                  <div id="navbar-logo"><img src="../assets/img/header_logo_zx.png"></div>
                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -124,7 +137,7 @@
                      </li>
                      -->
                   <li>
-                     <a href="http://goodtogo.com.tw">
+                     <a href="/">
                         <div>
                            好盒器
                         </div>
@@ -136,7 +149,7 @@
                   <li>
                      <a target="_blank" href="https://www.facebook.com/good.to.go.tw">
                         <div>
-                           <img src="img/facebook-icon.svg" alt="Facebook粉專">
+                           <img src="../assets/img/facebook-icon.svg" alt="Facebook粉專">
                         </div>
                         <!--
                            <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" style="display: block; fill: rgb(118, 118, 118); height: 1em; width: 1em;"><path fill-rule="evenodd" d="M8 14.408v-4.165c0-.424.35-.812.77-.812h2.519V7.347c0-4.84 2.484-7.311 7.42-7.347 1.645 0 3.219.212 4.692.636.455.141.63.424.595.883l-.56 4.062c-.035.178-.14.354-.315.531-.21.105-.42.176-.63.14-.875-.247-1.784-.352-2.799-.352-1.399 0-1.61.283-1.61 1.73v1.8H22.6c.42 0 .805.423.805.883l-.349 4.17c0 .422-.35.705-.77.705H18.08v16c0 .424-.349.812-.769.812h-5.213c-.42 0-.804-.388-.804-.812V15.185h-2.52A.781.781 0 0 1 8 14.408"></path></svg>
@@ -270,234 +283,11 @@
           -->
       <!-- jQuery -->
       <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-      <!-- Bootstrap Core JavaScript -->
-      <script src="assets/js/bootstrap.min.js"></script>
-      <!-- Scrolling Nav JavaScript -->
   
-      <script src="assets/js/scrolling-nav.js"></script>
+      <script src="../assets/js/app.min.js"></script>
       <!-- Google Maps API -->
-      <script>
-         var today = new Date();
-         var todayDay = today.getDay();
-         var tomorrowDay=todayDay+1;
-         
-         if(tomorrowDay>6){
-             tomorrowDay=0;
-         };
-         
-           function initMap() {
-         
-             var map = new google.maps.Map(document.getElementById('map'), {
-               //zoom: 3,
-               //center: {lat: -28.024, lng: 140.887},
-         
-               // How you would like to style the map. 
-               // This is where you would paste any style found on Snazzy Maps.
-               styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#dfe5eb"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#f5f5f5"},{"visibility":"on"}]}]
-             });
-         
-             var infowindow = new google.maps.InfoWindow();
-             //var places=[];
-             var bounds = new google.maps.LatLngBounds();
-             var panel = document.getElementById('map-panel');
-         
-             for(var j=0; j<placeIDs.length;j++){
-                 var _service = new google.maps.places.PlacesService(map);
-                 _service.getDetails({
-                         placeId: placeIDs[j]
-                     }, 
-                     function(place, status) {
-                         //places.push(place);
-                         console.log(place.name,place.opening_hours);
-                         if (status === google.maps.places.PlacesServiceStatus.OK) {
-         
-                             var marker = new google.maps.Marker({
-                                     map: map,
-                                     icon: {
-                                         url: "img/map_marker_42x60.png",
-                                         //scaledSize: new google.maps.Size(64, 64)
-                                     },
-                                     position: place.geometry.location
-                                 });
-                             
-                             if(place.opening_hours.open_now){
-                     
-                             }else{
-                                 marker.setIcon('img/map_marker_disable_42x60.png');
-                             }
-         
-         
-                             google.maps.event.addListener(marker, 'click', function() {
-                                 
-                                 /*
-                                 panel.innerHTML='<div class="scrollFix"><span class="place-title">' + '<a href="' + place.url + '">' + place.name + '</a>' + '</span><br>' +
-                                 isOpeningString(place) + 
-                                 '</div>';
-         
-                                 */
-                                 
-                                 infowindow.setContent('<div class="scrollFix"><span class="place-title">' + '<a href="' + place.url + '">' + place.name + '</a>' + '</span><br>' +
-                                 isOpeningString(place) + 
-                                 '</div>');
-                                 infowindow.open(map, this);
-                                 
-                             });
-         
-                             bounds.extend(place.geometry.location);
-                             /*console.log(bounds.toString());*/
-                             map.fitBounds(bounds);
-                             
-         
-                         }
-                     }
-                 );
-             };
-         
-             // Create an array of alphabetical characters used to label the markers.
-             //var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-         
-             // Add some markers to the map.
-             // Note: The code uses the JavaScript Array.prototype.map() method to
-             // create an array of markers based on a given "locations" array.
-             // The map() method here has nothing to do with the Google Maps API.
-             
-             /*
-             var markers = locations.map(function(location, i) {
-               return new google.maps.Marker({
-                 position: location,
-                 //label: labels[i % labels.length]
-               });
-               
-             });
-             */
-             
-             /*
-         
-             // Add a marker clusterer to manage the markers.
-             var markerCluster = new MarkerClusterer(map, markers,
-                 {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-         
-             */
-             /*
-             for (var i = 0; i < locations.length; i++) {
-              bounds.extend(locations[i]);
-              console.log(locations[i]);
-              //bounds.extend(locations[i].geometry.location);
-             }
-         */
-             //console.log(bounds.toString());
-             //map.fitBounds(bounds);
-         
-         
-           };
-         
-           var placeIDs=[
-                 'ChIJ8c8g8WR2bjQRsgin1zcdMsk', //正興咖啡館
-                 'ChIJf8W9Aw52bjQRSFco26usHNI', //布萊恩紅茶
-                 'ChIJMSrK_mR2bjQR_2Zxa_Sjdcw', //N23度樂沏
-                 'ChIJNfVy9mR2bjQRJ4KJYNduVDQ', //魷樂園
-                 //'ChIJZwwrUJ52bjQRI6JtlpOqtkg', //午營咖啡
-                 //'ChIJjdOG92R2bjQRMfr4UpUQ3PQ', //泰成水果店
-                 //'ChIJE21O9GR2bjQRXP72KaEAtio', //阿婆魯麵
-                 //'ChIJseQKc2Z2bjQR26O10DtsIiU', //神榕147
-                 'ChIJfcgy-mR2bjQR27BbragwUV4', //彩虹來了
-                 //'ChIJDxWX_ZN2bjQRS4H3lUBCAII', //mos漢堡
-                 'ChIJi5oi-2R2bjQR23K2KGUP-cA' //My Way
-                 //'ChIJm8Bq9mR2bjQRfFum9sPochc' //Woogo加州果昔
-                 
-             ];
-         
-         /*
-           var locations = [
-             {lat: 22.994220, lng: 120.197352}, //正興咖啡館
-             {lat: 22.994260, lng: 120.197587}, //布萊恩
-             {lat: 22.994516, lng: 120.196778}, //N23度樂沏
-             {lat: 22.994529, lng: 120.197500}, //魷樂園
-             {lat: 22.993732, lng: 120.222158}, //人嶼物
-             {lat: 22.977713, lng: 120.224736}, //午營咖啡
-             {lat: 22.998397, lng: 120.195087}, //神榕147
-           ];
-         */
-         function isOpeningString(_place){
-             var _isOpening='';
-             var _willOpenAt='';
-             var _openedAt='';
-             var _willCloseAt='';
-             if(_place.opening_hours.open_now){
-                     for(var p=0;p<_place.opening_hours.periods.length;p++){
-                         if(_place.opening_hours.periods[p].open.day===todayDay){
-                             _openedAt=time0000ToTimeText(_place.opening_hours.periods[p].open.time);
-                             _willCloseAt=time0000ToTimeText(_place.opening_hours.periods[p].close.time);
-                             break;
-                         };
-                     };
-                     _isOpening='<span class="highlight-open">營業中</span><br>今日營業到 <span class="highlight-open">'+_willCloseAt+'</span>';
-                 }else{
-                      for(var p=0;p<_place.opening_hours.periods.length;p++){
-                         if(_place.opening_hours.periods[p].open.day===tomorrowDay){
-                             _willOpenAt= '明日 ' + time0000ToTimeText(_place.opening_hours.periods[p].open.time);
-                             break;
-                         }else if(_place.opening_hours.periods[p].open.day===todayDay){
-                             _willOpenAt= '今日 ' + time0000ToTimeText(_place.opening_hours.periods[p].open.time);
-                             break;
-                         }
-                      }
-                      if(_willOpenAt===''){
-                         _isOpening='<span class="highlight-close">休息中</span>';
-                      }else{
-                         _isOpening='<span class="highlight-close">休息中</span><br>將在 <span class="highlight-close">'+_willOpenAt+'</span> 開門';
-                      }
-                 }
-             return _isOpening;
-         };
-         
-         function time0000ToTimeText(time){
-             var hour=time.slice(0, 2);
-             var min=time.slice(2, 4);
-             var ampm='';
-             if(hour<12){
-                 ampm='AM';
-             }else{
-                 ampm='PM';
-             }
-             return hour+':'+min;
-             /*return hour+':'+min+ampm;*/
-         };  
-      </script>
-      <script>
-       $(window).scroll(function() {
-   var hT = $('#result-number').offset().top,
-       hH = $('#result-number').outerHeight(),
-       wH = $(window).height(),
-       wS = $(this).scrollTop();
-      if (wS > (hT+hH-wH) && (hT > wS) && (wS+wH > hT+hH)){
-           $('#result-number').each(function() {
-             var $el = $(this);
-             var max = parseInt($el.text().replace(/\s/g, ''));
-             $(this).text('0');
-             var duration = 800;
-            var refresh = 50;
-            var frames = duration / refresh;
-            var start = 0;
-            var step = Math.max(Math.round(max / frames), 1);
-            var interval = window.setInterval(function() {
-             if(start + step < max) {
-                  start += step;
-            }
-                else {
-                 start = max;
-                  clearInterval(interval);
-            }
-            $(this).off();
-          $el.text(start);
-    }, refresh);
-    });
-}
-});
-      </script>
       <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initMap"
          async defer></script>
-      
    </body>
 </html>

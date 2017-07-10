@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
    <head>
+      <!--  
+       _               _     _                                   _____           _           _   
+      | |             | |   | |                                 |  __ \         (_)         | |  
+      | |     __ _ ___| |_  | |     ___  _ __   __ _  ___ _ __  | |__) _ __ ___  _  ___  ___| |_ 
+      | |    / _` / __| __| | |    / _ \| '_ \ / _` |/ _ | '__| |  ___| '__/ _ \| |/ _ \/ __| __|
+      | |___| (_| \__ | |_  | |___| (_) | | | | (_| |  __| |    | |   | | | (_) | |  __| (__| |_ 
+      |______\__,_|___/\__| |______\___/|_| |_|\__, |\___|_|    |_|   |_|  \___/| |\___|\___|\__|
+                                               __/ |                          _/ |              
+                                               |___/                          |__/               
+      -->
       <title>好 盒 器 | 用玻璃杯取代免洗杯</title>
 
       <meta charset="utf-8">
@@ -20,16 +30,19 @@
       <meta name="spiders" content="all" />
       <meta name="webcrawlers" content="all" />
       <meta name="googlebot" content="all" />
+      
       <meta http-equiv="content-type" content="text/html;charset=utf-8" />
       <meta http-equiv="cache-control" content="no-cache" />
       <meta http-qeuiv="Pragma" content="no-cache" />
+
       <meta name="url" content="http://goodtogo.com.tw">
       <meta name="keywords" content="好盒器,環保,免洗餐具,免洗杯,愛地球,台灣,地球,人嶼物,台南,正興街" />
       <meta name="description" content="好盒器推動用玻璃杯取代免洗杯！透過店家與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
       <meta name="subject" content="好 盒 器 | 用玻璃杯取代免洗杯" />
+
       <meta property="og:type" content="website" />
       <meta property="og:title" content="好 盒 器 | 用玻璃杯取代免洗杯" />
-      <meta property="og:image" content="img/intro_bg.jpg" />
+      <meta property="og:image" content="http://goodtogo.com.tw/assets/img/intro_bg.jpg" />
       <meta property="og:site_name" content="好 盒 器 | 用玻璃杯取代免洗杯" />
       <meta property="og:url" content="http://goodtogo.com.tw" />
       <meta property="og:description" content="好盒器推動用玻璃杯取代免洗杯！透過店家與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
@@ -46,7 +59,7 @@
       </script>
 
       <!-- FAVICON -->
-      <link rel="icon" type="image/png" href="img/favicon-logo-16x16.png" sizes="16x16">
+      <link rel="icon" type="image/png" href="assets/img/favicon-logo-16x16.png" sizes="16x16">
 
       <!-- GOOGLE ANALYTICS -->
       <script>
@@ -60,13 +73,13 @@
       </script>
 
       <!-- Bootstrap Core CSS -->
-      <link href="css/bootstrap.min.css" rel="stylesheet">
+      <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 
       <!-- Custom CSS -->
-      <link href="css/scrolling-nav.css" rel="stylesheet">
+      <link href="assets/css/scrolling-nav.css" rel="stylesheet">
 
       <!-- GoodToGo CSS -->
-      <link href="css/goodtogo.css" rel="stylesheet">
+      <link href="assets/css/goodtogo.css" rel="stylesheet">
 
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -88,7 +101,7 @@
                <span class="icon-bar"></span>
                </button>
                <a class="navbar-brand page-scroll" href="#page-top">
-                  <div id="navbar-logo"><img src="img/header_logo.png"></div>
+                  <div id="navbar-logo"><img src="assets/img/header_logo.png"></div>
                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -137,7 +150,7 @@
                   <li>
                      <a target="_blank" href="https://www.facebook.com/good.to.go.tw">
                         <div>
-                           <img src="img/facebook-icon.svg" alt="Facebook粉專">
+                           <img src="assets/img/facebook-icon.svg" alt="Facebook粉專">
                         </div>
                         <!--
                            <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" style="display: block; fill: rgb(118, 118, 118); height: 1em; width: 1em;"><path fill-rule="evenodd" d="M8 14.408v-4.165c0-.424.35-.812.77-.812h2.519V7.347c0-4.84 2.484-7.311 7.42-7.347 1.645 0 3.219.212 4.692.636.455.141.63.424.595.883l-.56 4.062c-.035.178-.14.354-.315.531-.21.105-.42.176-.63.14-.875-.247-1.784-.352-2.799-.352-1.399 0-1.61.283-1.61 1.73v1.8H22.6c.42 0 .805.423.805.883l-.349 4.17c0 .422-.35.705-.77.705H18.08v16c0 .424-.349.812-.769.812h-5.213c-.42 0-.804-.388-.804-.812V15.185h-2.52A.781.781 0 0 1 8 14.408"></path></svg>
@@ -242,16 +255,11 @@
             </div>
          </div>
       </section>
-      <!-- jQuery -->
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-      <!-- Bootstrap Core JavaScript -->
-      <script src="js/bootstrap.min.js"></script>
-      <!-- Scrolling Nav JavaScript -->
-      <script src="js/jquery.easing.min.js"></script>
-      <script src="js/scrolling-nav.js"></script>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="assets/js/app.min.js"></script>
+
       <!-- Google Maps API -->
-      
-      <script type="text/javascript" src="js/shopmap.js"></script>
       <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initMap"
          async defer></script>

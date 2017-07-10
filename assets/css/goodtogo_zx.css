@@ -1,0 +1,415 @@
+@import url(//fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: 'Noto Sans TC', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+    font-smooth: always;
+}
+
+.valign-parent{
+    display: table;
+}
+
+.valign-child {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* nav bar */
+
+.navbar {
+    background-color: rgba(255,255,255,0.75);
+    border-bottom:none;
+}
+
+.navbar-toggle{
+	border: none;
+	border-radius:2px;
+}
+
+.navbar-collapse{
+	border-top: none;
+}
+
+
+.navbar-collapse.collapse.in{
+	border-bottom:1px solid #e7e7e7;
+}
+
+.nav>li>a {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/*
+.top-nav-collapse{
+	background-color: rgba(255,255,255,0.75);
+
+}
+*/
+
+.navbar-brand {
+	padding:10px 15px;
+}
+
+
+@media (min-width: 768px){
+	.navbar-externallink{
+	    float: right;
+	}
+	.navbar-externallink>li>a {
+    	padding-left: 0px;
+    	padding-right: 0px;
+    	letter-spacing: 2px;
+    	font-weight: 700;
+    	/*color: #9AD5E3;*/ 
+    	/*border-right: 1px solid #777;*/
+	}
+	.navbar-externallink>li>a>div {
+    	padding-left: 10px;
+    	padding-right: 10px;
+    	border-right: 1px solid #777;
+	}
+
+	.navbar-externallink>li:last-child>a>div {
+    	border-right: none;
+	}
+
+}
+
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:focus, 
+.navbar-default .navbar-nav>.active>a:hover{
+    color: #fff;
+    background-color: #9AD5E3;
+}
+
+.navbar-default .navbar-externallink>li>a:focus,
+.navbar-default .navbar-externallink>li>a:hover{
+	/*color: #40B9D8;*/
+	/*background-color: #ff0;*/
+
+}
+
+
+#navbar-logo{
+	height:40px;
+}
+
+#navbar-logo img{
+	height: 100%;
+}
+
+#join-now{
+	/*background-color: #9AD5E3;*/
+	color:#40B9D8;
+	font-size: 12px;
+	line-height: 20px;
+	letter-spacing: 2px;
+	padding: 4px 14px 4px 16px;
+	margin: 10px 14px;
+	border: 1px solid #40B9D8;
+	border-radius: 20px;
+	font-weight: 700;
+}
+
+#join-now:hover{
+	/*background-color: #9AD5E3;*/
+	background-color: #40B9D8;
+	color:#fff;
+}
+
+#fb-fanspage{
+	padding:0 0  0 15px;
+	margin-top:13px;
+	margin-bottom:13px;
+}
+
+#fb-icon-ctn{
+	width: 24px;
+	height: 24px;
+	background-image: url("../img/facebook_icon.png");
+	background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#fb-icon-ctn:hover{
+	/*background-image: url("../img/facebook_icon_hover.png");*/
+}
+
+/* intro section */
+
+.intro-section {
+	background-image: url("../img/intro_bg.jpg");
+	/* background-image: url("https://image.shutterstock.com/z/stock-photo-infused-water-in-mason-jars-healthy-and-fresh-trend-for-the-summer-453314332.jpg"); */
+	background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /*background-attachment:fixed;*/
+    text-align: left;
+    padding-top:0px;
+}
+
+#intro-slogan{
+	font-family: 'cwTeXYen', sans-serif;
+	position: absolute;
+	top:80vh;
+	/*padding:20px;*/
+	font-size: 4.8vh;
+	letter-spacing: 0.8vw;
+	/*background-color: rgba(255,255,255,0.5);*/
+	color: #3E3A39;
+}
+
+#intro-slogan .highlight{
+	border-bottom: 8px solid #9AD5E3;
+}
+
+/* about section 
+
+.about-section{
+	background-color: #EFEFEF;
+}
+*/
+
+/* where section */
+
+.where-section{
+	padding-top:50px;
+	height: 100%;
+	text-align: left;
+}
+
+#map-title{
+	font-family: 'cwTeXYen', sans-serif;
+	height:12vh;
+	text-align: center;
+	/*background:#ff0;*/
+	font-size: calc(22px + 0.2vw);
+	margin: 0 auto;
+	/*float: right;*/
+}
+
+#map-subtitle{
+	font-family: 'cwTeXYen', sans-serif;
+	height:6vh;
+	text-align: center;
+	/*background:#ff0;*/
+	font-size: calc(15px + 0.2vw);
+	margin: -3vh auto 0 auto;
+	/*float: right;*/
+}
+
+#map-title .highlight{
+	border-bottom: 4px solid #9AD5E3;
+}
+
+#map {
+    height: calc(85vh - 100px);
+    width: 100%;
+    margin: auto;
+  }
+
+/*
+ #map-panel{
+ 	height: 120px;
+ 	width: 100%;
+ 	margin-left:0;
+ 	background-color: #ff0;
+ }
+ @media (min-width: 992px) {
+ 	#map-panel{
+ 		width: calc(100% + 30px);
+ 		margin-left:-30px;
+ 		height: calc(100vw + 30px);
+ 	}
+ 	
+ }
+
+ */
+
+.place-title{
+	font-weight: 500;
+	/*font-size: 1.2em;*/
+}
+
+.place-title a{
+	color: #40B9D8;
+	text-decoration: none;
+}
+
+.place-title a:hover{
+	font-weight: 700;
+}
+
+.hour_icon{
+	width:16px;
+	height: 16px;
+	margin: 2px 2px 2px 0px;
+	/*background-color: #f00;*/
+	background-image: url("../img/map_icon_hours.png");
+	float: left;
+}
+
+#map .highlight-open{
+	/*letter-spacing: 1px;*/
+	/*border-bottom: 3px solid #9AD5E3;*/
+	/*color:#40B9D8;*/
+	/*background-color: #9AD5E3;*/
+	color: #35B38B;
+}
+
+#map .highlight-close{
+	/*letter-spacing: 1px;*/
+	/*border-bottom: 3px solid #9AD5E3;*/
+	/*color:#40B9D8;*/
+	/*background-color: #9AD5E3;*/
+	color: #CB5426;
+}
+
+.place-openinghours{
+	line-height: 20px;
+}
+
+.scrollFix {
+   overflow: hidden !important; 
+   line-height: 1.35;
+   white-space: nowrap;
+}
+
+/* how-to-section */
+
+.how-to-section{
+	padding-top: calc(10vh + 50px);
+	/*height: 100%;*/
+	text-align: center;
+	/*background-color: #EFEFEF;*/
+}
+
+#how-to-title{
+	background-color: #9AD5E3;
+	color: #fff;
+	font-size: 4vh;
+	letter-spacing: 0.5vw;
+	padding:1.5vh 2vw;
+	font-family: 'cwTeXYen', sans-serif;
+}
+
+#how-to-use-img-ctn{
+	width: 100%;
+	/*background-color: #ff0;*/
+	
+	/*background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+	background-image: url("../img/how_to_use.png");*/
+}
+#how-to-use-img{
+	width: 80%;
+	max-width: 540px;
+	height: calc(50vh - 50px);
+	margin: auto;
+	background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+	background-image: url("../img/how_to_use_zx.png");
+}
+
+
+@media all and (orientation:portrait) {
+  /* Styles for Portrait screen */
+  
+	.how-to-section{
+		padding-top: calc(10vh + 50px);
+	}
+  	#how-to-use-img{
+		width: 100%;
+		/*height: calc(20vh - 50px);*/
+		height: 30vw;
+	}
+}
+
+.result-section{
+	height: 100%;
+	background-image: url("../img/result_bg.jpg");
+	/* background-image: url("https://image.shutterstock.com/z/stock-photo-infused-water-in-mason-jars-healthy-and-fresh-trend-for-the-summer-453314332.jpg"); */
+	background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    /*background-attachment:fixed;*/
+    text-align: left;
+    padding-top:50px;
+}
+
+#result-title{
+	font-family: 'cwTeXYen', sans-serif;
+	height:12vh;
+	text-align: center;
+	/*background:#ff0;*/
+	font-size: calc(20px + 0.2vw);
+	margin: 0 auto;
+	line-height: calc(40px + 0.4vw);
+	/*float: right;*/
+}
+
+#result-title .highlight{
+	border-bottom: 4px solid #9AD5E3;
+	font-size: calc(30px + 0.2vw);
+}
+
+#result-number{
+	font-size: calc(96px + 0.2vw);
+	line-height: calc(144px + 0.3vw);
+	color: #9AD5E3;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+}
+
+.services-section{
+	background-color: #ff0;
+}
+
+.footer-section{
+	padding-top: 24px;
+	padding-bottom: 24px;
+	/*height:20vh;*/
+	background-color: #9AD5E3;
+	color: #fff;
+}
+
+.footer-section li{
+	list-style-type: none;
+	margin: 8px 0 8px 3px;
+	padding-left: 6px;
+	/* line-height: 16px; */
+	/* padding: 4px 0; */
+	border-left: 3px #fff solid;
+}
+
+.footer-section ul{
+	padding: 10px 0;
+}
+
+.footer-section-list-title{
+	font-weight: 700;
+	letter-spacing: 2px;
+}
+
+#copyright{
+	font-size: 12px;
+}
+
