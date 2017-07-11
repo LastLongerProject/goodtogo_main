@@ -33,8 +33,8 @@
       <meta name="googlebot" content="all" />
 
       <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-      <meta http-equiv="cache-control" content="no-cache" />
-      <meta http-qeuiv="Pragma" content="no-cache" />
+      <meta http-equiv="cache-control" content="public, max-age=3600" />
+      <meta http-qeuiv="Pragma" content="cache" />
 
       <meta name="url" content="http://goodtogo.com.tw/zx">
       <meta name="keywords" content="好盒器,環保,免洗餐具,免洗杯,愛地球,台灣,地球,人嶼物,台南,正興街" />
@@ -64,7 +64,14 @@
       </script>
 
       <!-- GoodToGo CSS -->
-      <link href="../assets/css/goodtogo_zx.css" rel="stylesheet">
+<!--       <link href="../assets/css/goodtogo_zx.css" rel="stylesheet"> -->
+       <script src="../assets/js/loadCSS.min.js"></script>
+      <script>
+          // load a file
+        loadCSS("../assets/css/goodtogo_zx.css");
+        loadCSS("https://fonts.googleapis.com/css?family=Roboto");
+        loadCSS("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
+      </script>
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
       <!--[if lt IE 9]>

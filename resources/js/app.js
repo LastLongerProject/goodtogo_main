@@ -87,7 +87,7 @@
                          var marker = new google.maps.Marker({
                              map: map,
                              icon: {
-                                 url: MarkerPath(1),
+                                 url: '/assets/img/map_marker_42x60.png',
                                  //scaledSize: new google.maps.Size(64, 64)
                              },
                              position: place.geometry.location
@@ -96,7 +96,7 @@
                          if (place.opening_hours.open_now) {
 
                          } else {
-                             marker.setIcon(MarkerPath(0));
+                             marker.setIcon('/assets/img/map_marker_disable_42x60.png');
                          }
 
 
@@ -239,34 +239,33 @@
          /*return hour+':'+min+ampm;*/
      };
 
-     function MarkerPath(marker){
-         if (window.location.pathname == '/') {
-            if (marker == 1){
-                 return 'assets/img/map_marker_42x60.png';
-            }
-            else{
-                return 'assets/img/map_marker_disable_42x60.png';
-            }
-         }
-         else if(window.location.pathname == '/zx'){
-            if (marker == 1){
-                 return '../assets/img/map_marker_42x60.png';   
-            }
-            else{
-                return '../assets/img/map_marker_disable_42x60.png';
+     // function MarkerPath(marker){
+     //     if (window.location.pathname == '/') {
+     //        if (marker == 1){
+     //             return 'assets/img/map_marker_42x60.png';
+     //        }
+     //        else{
+     //            return 'assets/img/map_marker_disable_42x60.png';
+     //        }
+     //     }
+     //     else if(window.location.pathname == '/zx/'){
+     //        if (marker == 1){
+     //             return '../assets/img/map_marker_42x60.png';   
+     //        }
+     //        else{
+     //            return '../assets/img/map_marker_disable_42x60.png';
                 
-            }
-         }
+     //        }
+     //     }
 
-     };
+     // };
 
 
      $(document).ready(function() {
 
 
-
-         if (window.location.pathname == '/zx') {
-             $(window).scroll(function() {
+function counter() {
+  
                  var hT = $('#result-number').offset().top, //元素的最高點
                      hH = $('#result-number').outerHeight(), //元素高度
                      wH = $(window).height(), //視窗高度
@@ -290,16 +289,20 @@
                                  start = max;
                                  clearInterval(interval);
                              }
-                             $(this).off();
+                              $('#result-number').unbind();
                              $el.text(start);
                          }, refresh);
+
                      });
+                     $(this).off('scroll',counter);
                  }
-             });
+}
+         if ($('#result-number').length > 0) {
+             $(window).on( "scroll", counter );
 
 }
 
-         if (window.location.pathname == '/') {
+         if (window.location.pathname == "/") {
              $('.intro-section').parallax({
                  imageSrc: 'assets/img/intro_bg.jpg'
              });
