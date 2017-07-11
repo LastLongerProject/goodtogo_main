@@ -72,12 +72,6 @@
          ga('send', 'pageview');
       </script>
 
-      <!-- Bootstrap Core CSS -->
-      <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
-      <!-- Custom CSS -->
-      <link href="assets/css/scrolling-nav.css" rel="stylesheet">
-
       <!-- GoodToGo CSS -->
       <link href="assets/css/goodtogo.css" rel="stylesheet">
 
@@ -256,12 +250,11 @@
          </div>
       </section>
 
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script src="assets/js/app.min.js"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initMap" async defer></script>
 
       <!-- Google Maps API -->
-      <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initMap"
-         async defer></script>
+
+
    </body>
 </html>

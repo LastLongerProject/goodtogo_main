@@ -1,0 +1,235 @@
+@import url(//fonts.googleapis.com/earlyaccess/cwtexyen.css)
+@import '../partials/_base.sass'
+
+
+#join-now, .place-openinghours
+  line-height: 20px
+
+#fb-icon-ctn, #how-to-use-img, .intro-section
+  background-position: center
+
+#how-to-title, #intro-slogan, #map-subtitle, #map-title, #result-title
+  font-family: cwTeXYen, sans-serif
+
+.valign-parent
+  display: table
+
+.valign-child
+  display: table-cell
+  vertical-align: middle
+
+.navbar
+  background-color: rgba(255, 255, 255, 0.75)
+  border-bottom: none
+
+.navbar-toggle
+  border: none
+  border-radius: 2px
+
+.navbar-collapse
+  border-top: none
+  &.collapse.in
+    border-bottom: 1px solid #e7e7e7
+
+.nav > li > a
+  padding-left: 20px
+  padding-right: 20px
+
+.navbar-brand
+  padding: 10px 15px
+
+@media (min-width: 768px)
+  .navbar-externallink
+    float: right
+    > li
+      > a
+        padding-left: 0
+        padding-right: 0
+        letter-spacing: 2px
+        font-weight: 700
+        > div
+          padding-left: 10px
+          padding-right: 10px
+          border-right: 1px solid #777
+      &:last-child > a > div
+        border-right: none
+
+.navbar-default .navbar-nav > .active > a
+  color: #fff
+  background-color: #9AD5E3
+  &:focus, &:hover
+    color: #fff
+    background-color: #9AD5E3
+
+#navbar-logo
+  height: 40px
+  img
+    height: 100%
+
+#join-now
+  color: #40B9D8
+  font-size: 12px
+  letter-spacing: 2px
+  padding: 4px 14px 4px 16px
+  margin: 10px 14px
+  border: 1px solid #40B9D8
+  border-radius: 20px
+  font-weight: 700
+  &:hover
+    background-color: #40B9D8
+    color: #fff
+
+#fb-fanspage
+  padding: 0 0 0 15px
+  margin-top: 13px
+  margin-bottom: 13px
+
+#fb-icon-ctn
+  width: 24px
+  height: 24px
+  background-image: url(../img/facebook_icon.png)
+  background-size: contain
+  background-repeat: no-repeat
+
+.intro-section
+  background-image: url(../img/intro_bg.jpg)
+  background-size: cover
+  background-repeat: no-repeat
+  text-align: left
+  padding-top: 0
+
+#how-to-use-img, .result-section
+  background-size: contain
+  background-repeat: no-repeat
+
+#intro-slogan
+  position: absolute
+  top: 80vh
+  font-size: 4.8vh
+  letter-spacing: .8vw
+  color: #3E3A39
+  .highlight
+    border-bottom: 8px solid #9AD5E3
+
+#map-title .highlight, #result-title .highlight
+  border-bottom: 4px solid #9AD5E3
+
+.where-section
+  padding-top: 50px
+  height: 100%
+  text-align: left
+
+#map-title
+  height: 12vh
+  text-align: center
+  font-size: calc(22px + .2vw)
+  margin: 0 auto
+
+#map-subtitle
+  height: 6vh
+  text-align: center
+  font-size: calc(15px + .2vw)
+  margin: -3vh auto 0
+
+#map
+  height: calc(85vh - 100px)
+  width: 100%
+  margin: auto
+
+.place-title
+  font-weight: 500
+  a
+    color: #40B9D8
+    text-decoration: none
+    &:hover
+      font-weight: 700
+
+.hour_icon
+  width: 16px
+  height: 16px
+  margin: 2px 2px 2px 0
+  background-image: url(../img/map_icon_hours.png)
+  float: left
+
+#map
+  .highlight-open
+    color: #35B38B
+  .highlight-close
+    color: #CB5426
+
+.scrollFix
+  overflow: hidden !important
+  line-height: 1.35
+  white-space: nowrap
+
+.how-to-section
+  padding-top: calc(10vh + 50px)
+  text-align: center
+
+#how-to-title
+  background-color: #9AD5E3
+  color: #fff
+  font-size: 4vh
+  letter-spacing: .5vw
+  padding: 1.5vh 2vw
+
+#how-to-use-img-ctn
+  width: 100%
+
+#how-to-use-img
+  width: 80%
+  max-width: 540px
+  height: calc(50vh - 50px)
+  margin: auto
+  background-image: url(../img/how_to_use_zx.png)
+
+@media all and (orientation: portrait)
+  .how-to-section
+    padding-top: calc(10vh + 50px)
+  #how-to-use-img
+    width: 100%
+    height: 30vw
+
+.result-section
+  height: 100%
+  background-image: url(../img/result_bg.jpg)
+  background-position: center bottom
+  text-align: left
+  padding-top: 50px
+  #result-title
+    height: 12vh
+    text-align: center
+    font-size: calc(20px + .2vw)
+    margin: 0 auto
+    line-height: calc(40px + .4vw)
+    .highlight
+      font-size: calc(30px + .2vw)x
+  #result-number
+    font-size: calc(96px + .2vw)
+    line-height: calc(144px + .3vw)
+    color: #9AD5E3
+    font-family: Roboto, sans-serif
+    font-weight: 100
+
+.services-section
+  background-color: #ff0
+
+.footer-section
+  padding-top: 24px
+  padding-bottom: 24px
+  background-color: #9AD5E3
+  color: #fff
+  li
+    list-style-type: none
+    margin: 8px 0 8px 3px
+    padding-left: 6px
+    border-left: 3px #fff solid
+  ul
+    padding: 10px 0
+
+.footer-section-list-title
+  font-weight: 700
+  letter-spacing: 2px
+
+#copyright
+  font-size: 12px

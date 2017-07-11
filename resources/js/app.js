@@ -168,16 +168,18 @@
          'ChIJ8c8g8WR2bjQRsgin1zcdMsk', //正興咖啡館
          'ChIJf8W9Aw52bjQRSFco26usHNI', //布萊恩紅茶
          'ChIJMSrK_mR2bjQR_2Zxa_Sjdcw', //N23度樂沏
-         'ChIJNfVy9mR2bjQRJ4KJYNduVDQ', //魷樂園
          //'ChIJZwwrUJ52bjQRI6JtlpOqtkg', //午營咖啡
          //'ChIJjdOG92R2bjQRMfr4UpUQ3PQ', //泰成水果店
          //'ChIJE21O9GR2bjQRXP72KaEAtio', //阿婆魯麵
          //'ChIJseQKc2Z2bjQR26O10DtsIiU', //神榕147
          'ChIJfcgy-mR2bjQR27BbragwUV4', //彩虹來了
          //'ChIJDxWX_ZN2bjQRS4H3lUBCAII', //mos漢堡
-         'ChIJi5oi-2R2bjQR23K2KGUP-cA' //My Way
          //'ChIJm8Bq9mR2bjQRfFum9sPochc' //Woogo加州果昔
-
+        'ChIJi5oi-2R2bjQR23K2KGUP-cA', //My Way
+        'ChIJseQKc2Z2bjQR26O10DtsIiU', //神榕147
+        // 'ChIJF2tEkGZ2bjQRktR-V6R6kBI', //有方公寓
+        'ChIJg5fxKGR2bjQRPBTkRd1qE6A', //初心地球社
+        'ChIJ3f9K-2R2bjQR2lJKpu-EIm4' // 未艾公寓
      ];
 
      /*

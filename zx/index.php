@@ -62,12 +62,7 @@
          ga('send', 'pageview');
          
       </script>
-      <!-- GOOGLE FONTS -->
-      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-      <!-- Bootstrap Core CSS -->
-      <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-      <!-- Custom CSS -->
-      <link href="../assets/css/scrolling-nav.css" rel="stylesheet">
+
       <!-- GoodToGo CSS -->
       <link href="../assets/css/goodtogo_zx.css" rel="stylesheet">
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -218,7 +213,7 @@
                   <div id="result-title">
                      <span class="highlight">因為有你</span><br>
                      正興街已經減少使用了<br>
-                     <span id="result-number">832</span><br>
+                     <span id="result-number">867</span><br>
                      個<br>
                      外帶免洗杯
                   </div>
@@ -282,12 +277,10 @@
          
           -->
       <!-- jQuery -->
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  
+
       <script src="../assets/js/app.min.js"></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initMap" async defer></script>
       <!-- Google Maps API -->
-      <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initMap"
-         async defer></script>
+
    </body>
 </html>
