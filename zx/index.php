@@ -37,7 +37,7 @@
       <meta http-qeuiv="Pragma" content="cache" />
 
       <meta name="url" content="http://goodtogo.com.tw/zx">
-      <meta name="keywords" content="好盒器,環保,免洗餐具,免洗杯,愛地球,台灣,地球,人嶼物,台南,正興街" />
+      <meta name="keywords" content="好盒器,環保,免洗餐具,免洗杯,愛地球,台灣,地球,人嶼物,台南,正興街,外帶玻璃杯,人嶼物,容器" />
       <meta name="description" content="好盒器推動用玻璃杯取代免洗杯！透過店家與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
       <meta name="subject" content="正興杯杯計畫 | 好 盒 器 x 正 興 街" />
       
@@ -64,11 +64,11 @@
       </script>
 
       <!-- GoodToGo CSS -->
-<!--       <link href="../assets/css/goodtogo_zx.css" rel="stylesheet"> -->
+      <link href="../assets/css/goodtogo_zx.css" rel="stylesheet">
        <script src="../assets/js/loadCSS.min.js"></script>
       <script>
           // load a file
-        loadCSS("../assets/css/goodtogo_zx.css");
+        // loadCSS("../assets/css/goodtogo_zx.css");
         loadCSS("https://fonts.googleapis.com/css?family=Roboto");
         loadCSS("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
       </script>
