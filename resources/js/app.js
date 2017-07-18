@@ -1,6 +1,8 @@
      var today = new Date();
      var todayDay = today.getDay();
      var tomorrowDay = todayDay + 1;
+     var markers = [];
+     var marker = null;
 
      if (tomorrowDay > 6) {
          tomorrowDay = 0;
@@ -11,9 +13,11 @@
          var map = new google.maps.Map(document.getElementById('map'), {
              //zoom: 3,
              //center: {lat: -28.024, lng: 140.887},
-
+             scrollwheel: false,
              // How you would like to style the map. 
              // This is where you would paste any style found on Snazzy Maps.
+
+
              styles: [{
                  "featureType": "administrative",
                  "elementType": "labels.text.fill",
@@ -66,7 +70,9 @@
                  }, {
                      "visibility": "on"
                  }]
+
              }]
+
          });
 
          var infowindow = new google.maps.InfoWindow();
@@ -74,17 +80,27 @@
          var bounds = new google.maps.LatLngBounds();
          var panel = document.getElementById('map-panel');
 
+
+
+
          for (var j = 0; j < placeIDs.length; j++) {
+
              var _service = new google.maps.places.PlacesService(map);
              _service.getDetails({
                      placeId: placeIDs[j]
                  },
+
                  function(place, status) {
-                     //places.push(place);
-                     console.log(place.name, place.opening_hours);
+
+                     markers.push(place);
+                     // console.log(place.name, place.opening_hours);
+
+
+
+
                      if (status === google.maps.places.PlacesServiceStatus.OK) {
 
-                         var marker = new google.maps.Marker({
+                         marker = new google.maps.Marker({
                              map: map,
                              icon: {
                                  url: '/assets/img/map_marker_42x60.png',
@@ -109,11 +125,11 @@
          
                                  */
 
+
                              infowindow.setContent('<div class="scrollFix"><span class="place-title">' + '<a href="' + place.url + '">' + place.name + '</a>' + '</span><br>' +
                                  isOpeningString(place) +
                                  '</div>');
                              infowindow.open(map, this);
-
                          });
 
                          bounds.extend(place.geometry.location);
@@ -125,7 +141,6 @@
                  }
              );
          };
-
          // Create an array of alphabetical characters used to label the markers.
          //var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -143,26 +158,41 @@
            
          });
          */
+google.maps.event.addListenerOnce(map, 'idle', function(){
+     for (var Item = 0; Item < markers.length; Item++) {
+   $('.vendorList').append(
 
-         /*
-         
-             // Add a marker clusterer to manage the markers.
-             var markerCluster = new MarkerClusterer(map, markers,
-                 {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-         
-             */
-         /*
-             for (var i = 0; i < locations.length; i++) {
-              bounds.extend(locations[i]);
-              console.log(locations[i]);
-              //bounds.extend(locations[i].geometry.location);
-             }
-         */
-         //console.log(bounds.toString());
-         //map.fitBounds(bounds);
+    '<div class="vendorItem">'+
+    '<img src="../assets/img/map_marker_42x60.png" height="60" width="42">'+
+    '<h3 class="Itemname mapTrigger">'+markers[Item].name +'</h3>'+
+
+    '</div>'
+
+    )
+
+
 
 
      };
+     $(".mapTrigger").click(function(){
+            new google.maps.event.trigger( marker, 'click' );
+        });
+});
+
+
+
+
+
+
+
+};// end of Maps
+
+
+
+
+
+
+
 
      var placeIDs = [
          'ChIJ8c8g8WR2bjQRsgin1zcdMsk', //正興咖啡館
@@ -175,11 +205,11 @@
          'ChIJfcgy-mR2bjQR27BbragwUV4', //彩虹來了
          //'ChIJDxWX_ZN2bjQRS4H3lUBCAII', //mos漢堡
          //'ChIJm8Bq9mR2bjQRfFum9sPochc' //Woogo加州果昔
-        'ChIJi5oi-2R2bjQR23K2KGUP-cA', //My Way
-        'ChIJseQKc2Z2bjQR26O10DtsIiU', //神榕147
-        // 'ChIJF2tEkGZ2bjQRktR-V6R6kBI', //有方公寓
-        'ChIJg5fxKGR2bjQRPBTkRd1qE6A', //初心地球社
-        'ChIJ3f9K-2R2bjQR2lJKpu-EIm4' // 未艾公寓
+         'ChIJi5oi-2R2bjQR23K2KGUP-cA', //My Way
+         'ChIJseQKc2Z2bjQR26O10DtsIiU', //神榕147
+         // 'ChIJF2tEkGZ2bjQRktR-V6R6kBI', //有方公寓
+         'ChIJg5fxKGR2bjQRPBTkRd1qE6A', //初心地球社
+         'ChIJ3f9K-2R2bjQR2lJKpu-EIm4' // 未艾公寓
      ];
 
      /*
@@ -224,6 +254,7 @@
              }
          }
          return _isOpening;
+
      };
 
      function time0000ToTimeText(time) {
@@ -238,6 +269,9 @@
          return hour + ':' + min;
          /*return hour+':'+min+ampm;*/
      };
+
+
+
 
      // function MarkerPath(marker){
      //     if (window.location.pathname == '/') {
@@ -254,53 +288,56 @@
      //        }
      //        else{
      //            return '../assets/img/map_marker_disable_42x60.png';
-                
+
      //        }
      //     }
 
      // };
 
 
+
+
+
      $(document).ready(function() {
 
 
-function counter() {
-  
-                 var hT = $('#result-number').offset().top, //元素的最高點
-                     hH = $('#result-number').outerHeight(), //元素高度
-                     wH = $(window).height(), //視窗高度
-                     wS = $(this).scrollTop(); //捲到哪裡
+         function counter() {
 
-                 if (wS > (hT + hH - wH) && (hT > wS) && (wS + wH > hT + hH)) {
-                     $('#result-number').each(function() {
-                         var $el = $(this);
-                         var max = parseInt($el.text().replace(/\s/g, ''));
-                         $(this).text('0');
-                         var duration = 1000;
-                         var refresh = Math.floor((Math.random() * 10));;
-                         var frames = duration / refresh;
-                         var start = 0;
-                         var step = Math.max(Math.round(max / frames), 1);
-                         var interval = window.setInterval(function() {
-                             if (start + step < max) {
-                                 start += step;
-                                  
-                             } else {
-                                 start = max;
-                                 clearInterval(interval);
-                             }
-                              $('#result-number').unbind();
-                             $el.text(start);
-                         }, refresh);
+             var hT = $('#result-number').offset().top, //元素的最高點
+                 hH = $('#result-number').outerHeight(), //元素高度
+                 wH = $(window).height(), //視窗高度
+                 wS = $(this).scrollTop(); //捲到哪裡
 
-                     });
-                     $(this).off('scroll',counter);
-                 }
-}
+             if (wS > (hT + hH - wH) && (hT > wS) && (wS + wH > hT + hH)) {
+                 $('#result-number').each(function() {
+                     var $el = $(this);
+                     var max = parseInt($el.text().replace(/\s/g, ''));
+                     $(this).text('0');
+                     var duration = 1000;
+                     var refresh = Math.floor((Math.random() * 10));;
+                     var frames = duration / refresh;
+                     var start = 0;
+                     var step = Math.max(Math.round(max / frames), 1);
+                     var interval = window.setInterval(function() {
+                         if (start + step < max) {
+                             start += step;
+
+                         } else {
+                             start = max;
+                             clearInterval(interval);
+                         }
+                         $('#result-number').unbind();
+                         $el.text(start);
+                     }, refresh);
+
+                 });
+                 $(this).off('scroll', counter);
+             }
+         }
          if ($('#result-number').length > 0) {
-             $(window).on( "scroll", counter );
+             $(window).on("scroll", counter);
 
-}
+         }
 
          if (window.location.pathname == "/") {
              $('.intro-section').parallax({

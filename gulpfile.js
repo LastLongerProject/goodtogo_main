@@ -18,7 +18,9 @@ gulp.task('js', function() {
         .pipe(addsrc.append('resources/js/app.js'))
         .pipe(sourcemaps.init())
         .pipe(concat('app.min.js'))
-        .pipe(uglify())
+        .pipe(uglify().on("error", gulpNotify.onError(function (error) {
+        return "Js 編譯發生錯誤： " + error;
+      })))
         .pipe(sourcemaps.write('source-maps'))
         .pipe(gulp.dest('assets/js/'))
         .pipe(gulpNotify("js 檔案混淆成功"));

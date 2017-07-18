@@ -1,6 +1,10 @@
 @import '../partials/_base.sass'
 
-
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+  font-family: 'Noto Sans TC', sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  font-smooth: always
 
 #join-now, .place-openinghours
   line-height: 20px
@@ -116,17 +120,63 @@
 
 #map-title .highlight, #result-title .highlight
   border-bottom: 4px solid #9AD5E3
+  
 
 .where-section
   padding-top: 50px
-  height: 100%
+  max-height: 100%
   text-align: left
+  padding-left: 0
+  padding-right: 0
+  padding-bottom: 50px
+  margin: 0
+  .col-lg-8 , .col-lg-4
+    padding: 0
+    margin: 0
+  .map-list
+    height: calc(85vh - 200px)
+    background-color: #fff
+    border: 1px #dfe5eb solid
+    border-left: none
+    .vendorList
+      overflow-y: scroll
 
+      height: calc(85vh - 248px)
+
+    .vendorTitle
+      height: 48px
+      background-color: #9ad5e3
+      text-align: center
+      color: #fff
+      h3
+        line-height: 48px
+        padding: 0
+        margin: 0
+    .vendorItem
+      padding: 6px 10px
+      border: 1px solid #dfe5eb
+      border-radius: 12px
+      width: calc(100% - 20px)
+      margin: 10px auto
+      transition: all .2s ease-out
+      &:hover
+        background: #9ad5e3
+        .Itemname
+          color: #fff
+      img
+        height: 45px
+        width: 31px
+        margin-left: 4px
+      .Itemname
+        display: inline-block
+        margin-left: 18px
+        font-size: calc(14px + .2vw)
+        color: #333333
 #map-title
   height: 12vh
   text-align: center
   font-size: calc(22px + .2vw)
-  margin: 0 auto
+  margin: 50px auto
 
 #map-subtitle
   height: 6vh
@@ -135,7 +185,8 @@
   margin: -3vh auto 0
 
 #map
-  height: calc(85vh - 100px)
+  // height: calc(85vh - 100px)
+  height: calc(85vh - 200px)
   width: 100%
   margin: auto
 
@@ -224,6 +275,8 @@
   padding-bottom: 24px
   background-color: #9AD5E3
   color: #fff
+  position: relative
+
   li
     list-style-type: none
     margin: 8px 0 8px 3px
@@ -238,3 +291,11 @@
 
 #copyright
   font-size: 12px
+
+@media(max-width:767px)
+  .footer-section
+    margin-top: calc(85vh - 200px)
+@media(min-width:768px)
+@media(min-width:992px)
+@media(min-width:1200px)
+    

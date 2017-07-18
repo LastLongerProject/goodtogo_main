@@ -79,7 +79,7 @@
         // load a file
         // loadCSS("assets/css/goodtogo.css");
         loadCSS("https://fonts.googleapis.com/css?family=Roboto");
-        loadCSS("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
+        loadCSS("https://fonts.googleapis.com/earlyaccess/notosanstc.css");
     </script>
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -196,13 +196,23 @@
       </section>
       <!-- Map Section -->
       <section id="where" class="where-section">
-         <div class="container">
+         <div class="container-fluid">
             <div class="row">
-               <div class="col-lg-12">
+            <div id="map-title" class="valign-parent"><span class="valign-child">合作店舖<span class="highlight">在哪兒</span>？</span></div>
+               <div class="col-lg-8">
                   <!-- <h1>這兒借，那兒還</h1> -->
-                  <div id="map-title" class="valign-parent"><span class="valign-child">合作店舖<span class="highlight">在哪兒</span>？</span></div>
+                  
                   <div id="map"></div>
                </div>
+
+               <div class="col-lg-4 map-list">
+               <div class="vendorTitle"><h3>這裡借，那裡還</h3></div>
+                    <div class="vendorList">
+<!--                         <div class="vendorItem">
+                          <h1>iojdwoidjweiod</h1>
+                        </div> -->
+                    </div>
+                </div>
             </div>
          </div>
       </section>
@@ -257,7 +267,7 @@
       </section>
 
       <script src="assets/js/app.min.js"></script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initMap" defer></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initMap" async defer></script>
 
       <!-- Google Maps API -->
 
