@@ -220,7 +220,7 @@
                   <div id="result-title">
                      <span class="highlight">因為有你</span><br>
                      正興街已經減少使用了<br>
-                     <span id="result-number">867</span><br>
+                     <span id="result-number">939</span><br>
                      個<br>
                      外帶免洗杯
                   </div>
