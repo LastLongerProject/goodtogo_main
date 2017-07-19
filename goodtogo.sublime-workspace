@@ -1,0 +1,486 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"load",
+				"loadCSS"
+			],
+			[
+				"sc",
+				"scrolling-nav.sass"
+			],
+			[
+				"boo",
+				"_bootstrap.scss"
+			],
+			[
+				"pa",
+				"partials/"
+			],
+			[
+				"pl",
+				"plugins/"
+			],
+			[
+				"ph",
+				"pathname"
+			],
+			[
+				"locat",
+				"location"
+			],
+			[
+				"ready",
+				"ready\t$(document).ready"
+			],
+			[
+				"re",
+				"resources/"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 557.0
+	},
+	"console":
+	{
+		"height": 181.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/zx/index.php",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/resources/sass/pages/goodtogo.sass",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/resources/js/app.js",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/gulpfile.js",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/assets/css/goodtogo.css",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/index.php",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/resources/sass/pages/goodtogo_zx.sass",
+		"/Volumes/Data/Users/Steven/Downloads/htdocs/zx/index.php",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/assets/js/app.min.js",
+		"/private/var/folders/6n/p6fbjz7s5yx2vw32ynpp0tkc0000gn/T/017a5154-4012-40de-a16c-8a12f33300a1/home/bitnami/htdocs/assets/js/app.min.js",
+		"/private/var/folders/6n/p6fbjz7s5yx2vw32ynpp0tkc0000gn/T/e35bba44-d064-4294-b97e-023e393b5bba/lamp0/web/vhosts/goodtogo.com.tw/index.php",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/resources/sass/partials/_base.sass",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/resources/sass/plugins/scrolling-nav.sass",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/assets/css/goodtogo_zx.css",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/node_modules/express/lib/view/partial.js",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/assets/css/converted_file.sass",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/resources/sass/app.sass",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/resources/sass/partials/_variable.sass",
+		"/Volumes/Data/Users/Steven/.hyper.js",
+		"/Volumes/Data/Users/Steven/Desktop/shopmap.js",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/assets/app.js",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/resources/js/bootstrap.min.js",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/css/goodtogo.css",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/zx/css/goodtogo_zx.css",
+		"/Volumes/Data/Users/Steven/Documents/goodtogo_main/package.json",
+		"/Volumes/Data/Users/Steven/Desktop/sunifu/resources/views/layouts/app.blade.php",
+		"/Volumes/Data/Users/Steven/Desktop/sunifu/resources/views/auth/login.blade.php",
+		"/Volumes/Data/Users/Steven/Desktop/sunifu/resources/views/welcome.blade.php",
+		"/Volumes/Data/Users/Steven/Desktop/sunifu/.env",
+		"/Volumes/Data/Users/Steven/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Volumes/REAL_SCL/WALLET~1.VBS",
+		"/Volumes/Data/Users/Steven/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 158.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"places",
+			"sans",
+			"script",
+			"link",
+			"10 * Math.random",
+			"10 * Math.random(",
+			"/assets/img/map_marker_42x60.png",
+			"img",
+			"intro",
+			"zx",
+			"marker",
+			"assets",
+			"MarkerPath",
+			"bug",
+			"’",
+			"‘",
+			"make",
+			"makerpath",
+			"’",
+			"‘",
+			"MARKERPATH",
+			"MARKER",
+			"’",
+			"‘",
+			"place",
+			"isOpeningString",
+			"marker",
+			"’",
+			"‘",
+			"place",
+			"杯子",
+			"832",
+			"‘",
+			"/markerclusterer.js",
+			"ug",
+			"',\n",
+			"assets",
+			"scrolling-nav.css",
+			"app",
+			"app.js",
+			"ro",
+			"robo",
+			"rob",
+			"result",
+			"\n       ",
+			"bootstrap",
+			"title",
+			"markerPath",
+			"windo.loaction",
+			"map_marker_42x60.png",
+			"$(document).ready",
+			"$(document).ready\n",
+			"$(document).ready",
+			"app.js",
+			"var refresh = 500; ",
+			"map_marker_disable_42x60.png",
+			"/img/map_marker_disable_42x60.png",
+			"map_marker_disable_42x60.png",
+			"/img/map_marker_disable_42x60.png",
+			"../img/map_marker_disable_42x60.png",
+			"map_marker_42x60.png",
+			"assets",
+			"/assets",
+			"img",
+			"spy",
+			"杯杯借還點",
+			"#where",
+			"img",
+			"assets/",
+			"mg",
+			"img",
+			"mg",
+			"img",
+			"..",
+			"spy",
+			"intro-secctio",
+			"intro-sec",
+			"#intro",
+			"-",
+			"- ",
+			"-   ",
+			"on()",
+			"on",
+			"script",
+			"scropt",
+			"- ",
+			"link",
+			"script",
+			"link",
+			"result",
+			"jquery",
+			"result-number",
+			"script",
+			"link",
+			"8",
+			"var ",
+			"zx",
+			"og:type",
+			"og",
+			"jquer",
+			"好 盒 器 | 用玻璃杯取代免洗杯",
+			"+ ",
+			"好盒器",
+			"result",
+			"result-section",
+			"link",
+			"因為",
+			"FUTURA 未來實習看版",
+			"google",
+			"link",
+			"scr",
+			"login",
+			"laravel",
+			"a href",
+			"This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit lon",
+			"This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+			"album",
+			"Album"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 68.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "goodtogo.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"goodto",
+				"assets/css/goodtogo.css"
+			],
+			[
+				"app.js",
+				"resources/js/app.js"
+			],
+			[
+				".sass",
+				"resources/sass/pages/goodtogo.sass"
+			],
+			[
+				"index",
+				"zx/index.php"
+			],
+			[
+				"index.ph",
+				"index.php"
+			],
+			[
+				"index.php",
+				"zx/index.php"
+			],
+			[
+				"goodtogo_zx",
+				"resources/sass/pages/goodtogo_zx.sass"
+			],
+			[
+				"goodtogo",
+				"resources/sass/pages/goodtogo.sass"
+			],
+			[
+				"app.min",
+				"assets/js/app.min.js"
+			],
+			[
+				"goodtogo.sass",
+				"resources/sass/pages/goodtogo.sass"
+			],
+			[
+				"index.",
+				"zx/index.php"
+			],
+			[
+				"gulp",
+				"gulpfile.js"
+			],
+			[
+				"goo",
+				"resources/sass/pages/goodtogo.sass"
+			],
+			[
+				"base.sas",
+				"resources/sass/partials/_base.sass"
+			],
+			[
+				"base.sass",
+				"resources/sass/partials/_base.sass"
+			],
+			[
+				"goodto.",
+				"assets/css/goodtogo.css"
+			],
+			[
+				"base.sa",
+				"resources/sass/partials/_base.sass"
+			],
+			[
+				"good",
+				"resources/sass/pages/goodtogo.sass"
+			],
+			[
+				"zx.sa",
+				"resources/sass/pages/goodtogo_zx.sass"
+			],
+			[
+				"zx",
+				"assets/css/goodtogo_zx.css"
+			],
+			[
+				"part",
+				"node_modules/express/lib/view/partial.js"
+			],
+			[
+				".css",
+				"assets/css/goodtogo.css"
+			],
+			[
+				"app.sas",
+				"resources/sass/app.sass"
+			],
+			[
+				"zx.css",
+				"assets/css/goodtogo_zx.css"
+			],
+			[
+				"app.",
+				"assets/js/app.min.js"
+			],
+			[
+				"app.min.js",
+				"assets/js/app.min.js"
+			],
+			[
+				"inde",
+				"index.php"
+			],
+			[
+				"gulpfi",
+				"gulpfile.js"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"pac",
+				"package.json"
+			],
+			[
+				"g",
+				"gulpfile.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 221.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

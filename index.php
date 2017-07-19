@@ -196,7 +196,7 @@
       </section>
       <!-- Map Section -->
       <section id="where" class="where-section">
-         <div class="container-fluid">
+         <div class="container">
             <div class="row">
             <div id="map-title" class="valign-parent"><span class="valign-child">合作店舖<span class="highlight">在哪兒</span>？</span></div>
                <div class="col-lg-8">

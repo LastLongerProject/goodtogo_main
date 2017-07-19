@@ -339,10 +339,16 @@ google.maps.event.addListenerOnce(map, 'idle', function(){
 
          }
 
-         if (window.location.pathname == "/") {
+         if (window.location.pathname == '/') {
+
              $('.intro-section').parallax({
                  imageSrc: 'assets/img/intro_bg.jpg'
              });
-         }
+
+
+
+             }
+         
+         
 
      });
