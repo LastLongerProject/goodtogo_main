@@ -69,8 +69,8 @@
       <script>
           // load a file
         // loadCSS("../assets/css/goodtogo_zx.css");
-        loadCSS("https://fonts.googleapis.com/css?family=Roboto");
         loadCSS("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
+        loadCSS("https://fonts.googleapis.com/css?family=Nunito");
       </script>
       <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -92,7 +92,7 @@
                <span class="icon-bar"></span>
                </button>
                <a class="navbar-brand page-scroll" href="#page-top">
-                  <div id="navbar-logo"><img src="../assets/img/header_logo_zx.png"></div>
+                  <div id="navbar-logo"><img alt="正興杯杯計畫 - 好盒器" src="../assets/img/header_logo_zx.png"></div>
                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -202,12 +202,18 @@
       <section id="where" class="where-section">
          <div class="container">
             <div class="row">
-               <div class="col-lg-12">
+            <div id="map-title" class="valign-parent"><span class="valign-child">合作店舖<span class="highlight">在哪兒</span>？</span></div>
+               <div class="col-lg-8">
                   <!-- <h1>這兒借，那兒還</h1> -->
-                  <div id="map-title" class="valign-parent"><span class="valign-child"><span class="highlight">杯杯借還點</span></span></div>
-                  <div id="map-subtitle" class="valign-parent">這裡借，那裡還</div>
+                  
                   <div id="map"></div>
                </div>
+
+               <div class="col-lg-4 map-list">
+               <div class="vendorTitle"><h3>這裡借，那裡還</h3></div>
+                    <div class="vendorList">
+                    </div>
+                </div>
             </div>
          </div>
       </section>
@@ -286,7 +292,8 @@
       <!-- jQuery -->
 
       <script src="../assets/js/app.min.js"></script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initMap" async defer></script>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initialize"
+  type="text/javascript"></script>
       <!-- Google Maps API -->
 
    </body>

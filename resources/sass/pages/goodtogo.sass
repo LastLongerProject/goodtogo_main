@@ -39,6 +39,8 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   padding-left: 20px
   padding-right: 20px
 
+
+
 .navbar-brand
   padding: 10px 15px
 
@@ -134,44 +136,44 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
     padding: 0
     margin: 0
   .map-list
-    height: calc(85vh - 200px)
+    height: calc(85vh - 150px)
     background-color: #fff
     border: 1px #dfe5eb solid
     border-left: none
     .vendorList
       overflow-y: scroll
-
-      height: calc(85vh - 248px)
-
+      height: calc(85vh - 150px)
     .vendorTitle
       height: 48px
       background-color: #9ad5e3
       text-align: center
       color: #fff
+      display: none //hidden // vendor list height orignal height: calc(85vh - 150px)
       h3
         line-height: 48px
         padding: 0
         margin: 0
     .vendorItem
-      padding: 6px 10px
-      border: 1px solid #dfe5eb
-      border-radius: 12px
-      width: calc(100% - 20px)
-      margin: 10px auto
+      padding: 4px 14px
+      border-bottom: 1px solid #dfe5eb
+      width: 100%
+      margin: 0 auto
       transition: all .1s ease-out
+      display: block
+      text-decoration: none
+      color: #444444
       &:hover
         background: #9ad5e3
-        .Itemname
+        h3
           color: #fff
       img
         height: 45px
         width: 31px
         margin-left: 4px
-      .Itemname
+      h3
         display: inline-block
-        margin-left: 18px
-        font-size: calc(14px + .2vw)
-        color: #333333
+        margin-left: 16px
+        font-size: calc(12px + .2vw)
 #map-title
   height: 12vh
   text-align: center
@@ -185,8 +187,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   margin: -3vh auto 0
 
 #map
-  // height: calc(85vh - 100px)
-  height: calc(85vh - 200px)
+  height: calc(85vh - 150px)
   width: 100%
   margin: auto
 
@@ -215,7 +216,6 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   overflow: hidden !important
   line-height: 1.35
   white-space: nowrap
-
 .how-to-section
   padding-top: calc(10vh + 50px)
   text-align: center
@@ -293,8 +293,23 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   font-size: 12px
 
 @media(max-width:767px)
-  .footer-section
-    margin-top: calc(85vh - 200px)
+  // .footer-section
+  //   margin-top: calc(85vh - 198px)
+  #map
+    height: calc(45vh)
+  .vendorTitle
+    height: 32px
+    background-color: #9ad5e3
+    text-align: center
+    color: #fff
+    h3
+      line-height: 32px
+      font-size: calc(14px + .2vw)
+      padding: 0
+      margin: 0
+  .map-list
+    display: none
+
 @media(min-width:768px)
 @media(min-width:992px)
 @media(min-width:1200px)

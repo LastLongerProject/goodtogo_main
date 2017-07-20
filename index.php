@@ -101,7 +101,7 @@
                <span class="icon-bar"></span>
                </button>
                <a class="navbar-brand page-scroll" href="#page-top">
-                  <div id="navbar-logo"><img src="assets/img/header_logo.png"></div>
+                  <div id="navbar-logo"><img alt="好盒器 - LOGO" src="assets/img/header_logo.png"></div>
                </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -208,9 +208,6 @@
                <div class="col-lg-4 map-list">
                <div class="vendorTitle"><h3>這裡借，那裡還</h3></div>
                     <div class="vendorList">
-<!--                         <div class="vendorItem">
-                          <h1>iojdwoidjweiod</h1>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -267,8 +264,9 @@
       </section>
 
       <script src="assets/js/app.min.js"></script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initMap" async defer></script>
-
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initialize"
+  type="text/javascript"></script>
+          
       <!-- Google Maps API -->
 
 
