@@ -2,7 +2,7 @@
 
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
-  font-family: cwTeXYen, sans-serif
+  font-family: 'Nunito', 'cwTeXYen'
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   font-smooth: always
@@ -22,7 +22,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
 .valign-child
   display: table-cell
   vertical-align: middle
-
+  font-size: calc(24px + .2vw)
 .navbar
   background-color: rgba(255, 255, 255, 0.75)
   border-bottom: none
@@ -36,9 +36,17 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   &.collapse.in
     border-bottom: 1px solid #e7e7e7
 
-.nav > li > a
+.nav
+  > li
+    > a
   padding-left: 20px
   padding-right: 20px
+  font-size: calc( 14px + .2vw)
+
+.navbar-externallink
+  > li
+    > a
+      font-size: calc( 14px + .2vw)
 
 .navbar-brand
   padding: 10px 15px
@@ -67,7 +75,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
     background-color: #9AD5E3
 
 #navbar-logo
-  height: 40px
+  height: 32px
   img
     height: 100%
 
@@ -121,23 +129,69 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
 
 .where-section
   padding-top: 50px
-  height: 100%
+  max-height: 100%
   text-align: left
+  padding-left: 0
+  padding-right: 0
+  padding-bottom: 50px
+  margin: 0
+  .col-lg-8 , .col-lg-4
+    padding: 0
+    margin: 0
+  .map-list
+    height: calc(85vh - 150px)
+    background-color: #fff
+    border: 1px #dfe5eb solid
+    border-left: none
+    .vendorList
+      overflow-y: scroll
+      height: calc(85vh - 150px)
+    .vendorTitle
+      height: 48px
+      background-color: #9ad5e3
+      text-align: center
+      color: #fff
+      display: none
+      h3
+        line-height: 48px
+        padding: 0
+        margin: 0
+    .vendorItem
 
+      padding: 4px 14px
+      border-bottom: 1px solid #dfe5eb
+      width: 100%
+      margin: 0 auto
+      transition: all .1s ease-out
+      display: block
+      text-decoration: none
+      color: #444444
+      &:hover
+        background: #9ad5e3
+        h3
+          color: #fff
+      img
+        height: 45px
+        width: 31px
+        margin-left: 4px
+      h3
+        
+        display: inline-block
+        margin-left: 16px
+        font-size: calc(14px + .2vw)
 #map-title
   height: 12vh
   text-align: center
   font-size: calc(22px + .2vw)
-  margin: 0 auto
+  margin: 50px auto
 
 #map-subtitle
   height: 6vh
   text-align: center
   font-size: calc(15px + .2vw)
   margin: -3vh auto 0
-
 #map
-  height: calc(85vh - 100px)
+  height: calc(85vh - 150px)
   width: 100%
   margin: auto
 
@@ -204,11 +258,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   #result-title
     height: 12vh
     text-align: center
-    font-size: calc(20px + .2vw)
+    font-size: calc(22px + .2vw)
     margin: 0 auto
     line-height: calc(40px + .4vw)
     .highlight
-      font-size: calc(30px + .2vw)x
+      font-size: calc(32px + .2vw)x
   #result-number
     font-size: calc(96px + .2vw)
     line-height: calc(144px + .3vw)
@@ -238,3 +292,22 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
 
 #copyright
   font-size: 12px
+
+@media(max-width:767px)
+  // .result-section
+  //   margin-top: calc(85vh - 198px)
+  #map
+    height: calc(45vh)
+  .vendorTitle
+    height: 32px
+    background-color: #9ad5e3
+    text-align: center
+    color: #fff
+    display: none //hidden // vendor list height orignal height: calc(85vh - 150px)
+    h3
+      line-height: 32px
+      font-size: calc(14px + .2vw)
+      padding: 0
+      margin: 0
+  .map-list
+    display: none
