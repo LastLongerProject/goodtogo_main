@@ -13,23 +13,46 @@ if (tomorrowDay > 6) {
 var infoWindows = [];
 
 var placeid_json = [{
-    "placeid": 'ChIJ8c8g8WR2bjQRsgin1zcdMsk'
+    "placeid": 'ChIJ8c8g8WR2bjQRsgin1zcdMsk',
+    "name": '正興咖啡館',
+    "borrow": true,
+    "return": true
 }, {
-    "placeid": 'ChIJf8W9Aw52bjQRSFco26usHNI'
+    "placeid": 'ChIJf8W9Aw52bjQRSFco26usHNI',
+    "name": '布萊恩紅茶',
+    "borrow": true,
+    "return": true
 }, {
-    "placeid": 'ChIJMSrK_mR2bjQR_2Zxa_Sjdcw'
+    "placeid": 'ChIJMSrK_mR2bjQR_2Zxa_Sjdcw',
+    "name": 'N23度樂沏',
+    "borrow": true,
+    "return": true
 }, {
-    "placeid": 'ChIJfcgy-mR2bjQR27BbragwUV4'
+    "placeid": 'ChIJfcgy-mR2bjQR27BbragwUV4',
+    "name": '彩虹來了',
+    "borrow": true,
+    "return": true
 }, {
-    "placeid": 'ChIJi5oi-2R2bjQR23K2KGUP-cA'
+    "placeid": 'ChIJi5oi-2R2bjQR23K2KGUP-cA',
+    "name": 'My Way',
+    "borrow": true,
+    "return": true
 }, {
-    "placeid": 'ChIJseQKc2Z2bjQR26O10DtsIiU'
+    "placeid": 'ChIJseQKc2Z2bjQR26O10DtsIiU',
+    "name": '神榕147',
+    "borrow": true,
+    "return": true
 }, {
-    "placeid": 'ChIJg5fxKGR2bjQRPBTkRd1qE6A'
+    "placeid": 'ChIJg5fxKGR2bjQRPBTkRd1qE6A',
+    "name": '初心地球社',
+    "borrow": false,
+    "return": true
 }, {
-    "placeid": 'ChIJ3f9K-2R2bjQR2lJKpu-EIm4'
+    "placeid": 'ChIJ3f9K-2R2bjQR2lJKpu-EIm4',
+    "name": '未艾公寓',
+    "borrow": false,
+    "return": true
 }];
-
 
 function initialize() {
     var radius = 8000,
@@ -96,11 +119,8 @@ function initialize() {
 
         }]
     };
-
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-
     setMarkers(map);
-
     google.maps.event.addListenerOnce(map, 'idle', function() {
         bounds = new google.maps.LatLngBounds();
         for (var Item = 0; Item < vendor.length; Item++) {
@@ -109,7 +129,6 @@ function initialize() {
                 '<img src="../assets/img/map_marker_42x60.png" height="60" width="42">'+ '<h3>'+
                 vendor[Item].name +
                 '</h3></a>'
-
             );
             bounds.extend(vendor[Item].geometry.location);
         };
@@ -120,7 +139,6 @@ function initialize() {
         map.fitBounds(bounds);
 
     });
-
 }
 
 function setMarkers(map) {
@@ -167,17 +185,11 @@ function createMarker(data, map) {
 }
 
 function infoBox(map, marker, data, result) {
-
-
-
-
     (function(marker) {
-
         var infoWindow = new google.maps.InfoWindow();
         var contentString = '<div class="scrollFix"><span class="place-title">' + '<a href="' + result.url + '">' + result.name + '</a>' + '</span><br>' +
             isOpeningString(result) +
             '</div>';
-
         infoWindow = new google.maps.InfoWindow({
             content: contentString
         });
@@ -235,7 +247,6 @@ function isOpeningString(_place) {
         }
     }
     return _isOpening;
-
 };
 
 function time0000ToTimeText(time) {
@@ -252,10 +263,7 @@ function time0000ToTimeText(time) {
 };
 
 $(document).ready(function() {
-
-
     function counter() {
-
         var hT = $('#result-number').offset().top, //元素的最高點
             hH = $('#result-number').outerHeight(), //元素高度
             wH = $(window).height(), //視窗高度
@@ -274,7 +282,6 @@ $(document).ready(function() {
                 var interval = window.setInterval(function() {
                     if (start + step < max) {
                         start += step;
-
                     } else {
                         start = max;
                         clearInterval(interval);
@@ -282,7 +289,6 @@ $(document).ready(function() {
                     $('#result-number').unbind();
                     $el.text(start);
                 }, refresh);
-
             });
             $(this).off('scroll', counter);
         }
@@ -290,11 +296,9 @@ $(document).ready(function() {
 
     if ($('#result-number').length > 0) {
         $(window).on("scroll", counter);
-
     }
 
     if (window.location.pathname == '/') {
-
         $('.intro-section').parallax({
             imageSrc: 'assets/img/intro_bg.jpg'
         });
