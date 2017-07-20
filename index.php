@@ -46,8 +46,20 @@
       <meta property="og:site_name" content="好 盒 器 | 用玻璃杯取代免洗杯" />
       <meta property="og:url" content="http://goodtogo.com.tw" />
       <meta property="og:description" content="好盒器推動用玻璃杯取代免洗杯！透過店家與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
+      
+      <!-- FAVICON -->
+      <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+      <link rel="manifest" href="/assets/img/favicon/manifest.json">
+      <link rel="mask-icon" href="/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+      <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico">
+      <meta name="apple-mobile-web-app-title" content="好盒器">
+      <meta name="application-name" content="好盒器">
+      <meta name="msapplication-config" content="/assets/img/favicon/browserconfig.xml">
+      <meta name="theme-color" content="#ffffff">
+      
       <!-- Google Analytics -->
-
       <script>
          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -58,37 +70,15 @@
          ga('send', 'pageview');
       </script>
 
-      <!-- FAVICON -->
-      <link rel="icon" type="image/png" href="assets/img/favicon-logo-16x16.png" sizes="16x16">
-
-      <!-- GOOGLE ANALYTICS -->
-      <script>
-         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-         
-         ga('create', 'UA-99234326-1', 'auto');
-         ga('send', 'pageview');
-      </script>
-
       <!-- GoodToGo CSS -->
       <link href="assets/css/goodtogo.css" rel="stylesheet">
      <script src="assets/js/loadCSS.min.js"></script>
     <script>
-        // load a file
-        // loadCSS("assets/css/goodtogo.css");
         loadCSS("https://fonts.googleapis.com/css?family=Roboto");
         loadCSS("https://fonts.googleapis.com/earlyaccess/notosanstc.css");
     </script>
-      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
+
    </head>
-   <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
       <!-- Navigation -->
       <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
