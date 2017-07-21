@@ -136,7 +136,7 @@ function createMarker(data, map) {
     service.getDetails({
         placeId: data.placeid
     }, function(result, status) {
-
+        vendor.push(result);
         if (status != google.maps.places.PlacesServiceStatus.OK) {
             console.log(status);
             return;
@@ -182,7 +182,7 @@ function infoBox(map, marker, data, result) {
             content: contentString
         });
 
-        vendor.push(result);
+
         markers.push(marker);
 
         google.maps.event.addListener(marker, "click", function(e) {

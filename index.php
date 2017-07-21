@@ -52,7 +52,7 @@
       <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
       <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
       <link rel="manifest" href="/assets/img/favicon/manifest.json">
-      <link rel="mask-icon" href="/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+      <link rel="mask-icon" href="/assets/img/favicon/safari-pinned-tab.svg" color="#8cd4e0">
       <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico">
       <meta name="apple-mobile-web-app-title" content="好盒器">
       <meta name="application-name" content="好盒器">
