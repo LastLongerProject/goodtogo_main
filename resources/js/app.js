@@ -1,5 +1,6 @@
 var vendor = new Array();
 var markers = new Array();
+var infoWindows = new Array();
 
 var today = new Date();
 var todayDay = today.getDay();
@@ -9,8 +10,6 @@ var tomorrowDay = todayDay + 1;
 if (tomorrowDay > 6) {
     tomorrowDay = 0;
 };
-
-var infoWindows = [];
 
 var placeid_json = [{
     "placeid": 'ChIJ8c8g8WR2bjQRsgin1zcdMsk',
@@ -130,6 +129,8 @@ function initialize() {
                 vendor[Item].name +
                 '</h3></a>'
             );
+
+       
             bounds.extend(vendor[Item].geometry.location);
         };
         $('.marker-link').on('click', function($e) {
@@ -137,9 +138,10 @@ function initialize() {
             $e.preventDefault();
         });
         map.fitBounds(bounds);
-
     });
 }
+
+
 
 function setMarkers(map) {
     var json = placeid_json;
@@ -154,7 +156,7 @@ function createMarker(data, map) {
     service.getDetails({
         placeId: data.placeid
     }, function(result, status) {
-
+        vendor.push(result);
         if (status != google.maps.places.PlacesServiceStatus.OK) {
             console.log(status);
             return;
@@ -194,7 +196,7 @@ function infoBox(map, marker, data, result) {
             content: contentString
         });
 
-        vendor.push(result);
+
         markers.push(marker);
 
         google.maps.event.addListener(marker, "click", function(e) {
@@ -263,6 +265,8 @@ function time0000ToTimeText(time) {
 };
 
 $(document).ready(function() {
+
+
     function counter() {
         var hT = $('#result-number').offset().top, //元素的最高點
             hH = $('#result-number').outerHeight(), //元素高度
@@ -302,5 +306,10 @@ $(document).ready(function() {
         $('.intro-section').parallax({
             imageSrc: 'assets/img/intro_bg.jpg'
         });
+
+        for (var place = 0; place < placeid_json.length; place++) {
+         
+        console.log(placeid_json[place].name + placeid_json[place].borrow + placeid_json[place].return);
+        }
     }
 });
