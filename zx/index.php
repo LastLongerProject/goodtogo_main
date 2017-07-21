@@ -49,7 +49,16 @@
       <meta property="og:description" content="好盒器推動用玻璃杯取代免洗杯！透過正興街與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
 
       <!-- FAVICON -->
-      <link rel="icon" type="image/png" href="../assets/img/favicon-logo-16x16.png" sizes="16x16">
+      <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon/favicon-16x16.png">
+      <link rel="manifest" href="../assets/img/favicon/manifest.json">
+      <link rel="mask-icon" href="../assets/img/favicon/safari-pinned-tab.svg" color="#8cd4e0">
+      <link rel="shortcut icon" href="../assets/img/favicon/favicon.ico">
+      <meta name="apple-mobile-web-app-title" content="好盒器">
+      <meta name="application-name" content="好盒器">
+      <meta name="msapplication-config" content="../assets/img/favicon/browserconfig.xml">
+      <meta name="theme-color" content="#ffffff">
 
       <!-- GOOGLE ANALYTICS -->
       <script>
@@ -67,19 +76,11 @@
       <link href="../assets/css/goodtogo_zx.css" rel="stylesheet">
        <script src="../assets/js/loadCSS.min.js"></script>
       <script>
-          // load a file
-        // loadCSS("../assets/css/goodtogo_zx.css");
         loadCSS("https://fonts.googleapis.com/earlyaccess/cwtexyen.css");
         loadCSS("https://fonts.googleapis.com/css?family=Nunito");
       </script>
-      <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
    </head>
-   <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
    <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
       <!-- Navigation -->
       <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
