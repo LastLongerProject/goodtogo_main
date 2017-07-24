@@ -61,11 +61,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
         border-right: none
 
 .navbar-default .navbar-nav > .active > a
-  color: #fff
   background-color: #9AD5E3
+  color: #fff
   &:focus, &:hover
-    color: #fff
     background-color: #9AD5E3
+    color: #fff
 
 #navbar-logo
   height: 30px
@@ -74,14 +74,14 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
     vertical-align: middle
 
 #join-now
-  color: #40B9D8
   font-size: 12px
-  letter-spacing: 2px
+  font-weight: 700
+  color: #40B9D8
   padding: 4px 14px 4px 16px
   margin: 10px 14px
   border: 1px solid #40B9D8
   border-radius: 20px
-  font-weight: 700
+  letter-spacing: 2px
   &:hover
     background-color: #40B9D8
     color: #fff
@@ -92,31 +92,31 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   margin-bottom: 13px
 
 #fb-icon-ctn
+  background-image: url(../img/facebook_icon.png)
+  background-repeat: no-repeat
+  background-size: contain
   width: 24px
   height: 24px
-  background-image: url(../img/facebook_icon.png)
-  background-size: contain
-  background-repeat: no-repeat
 
 .intro-section
-  // background-image: url(../img/intro_bg.jpg)
-  background-size: cover
-  background-repeat: no-repeat
-  text-align: left
-  padding-top: 0
-  min-height: 400px
   background: transparent
+  background-repeat: no-repeat
+  background-size: cover
+  padding-top: 0
+  text-align: left
+  min-height: 400px
+  // background-image: url(../img/intro_bg.jpg)
 
 #how-to-use-img, .result-section
-  background-size: contain
   background-repeat: no-repeat
+  background-size: contain
 
 #intro-slogan
   position: absolute
   top: 80vh
   font-size: 4.8vh
-  letter-spacing: .8vw
   color: #3E3A39
+  letter-spacing: .8vw
   .highlight
     border-bottom: 8px solid #9AD5E3
 
@@ -125,71 +125,86 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   
 
 .where-section
-  padding-top: 50px
-  max-height: 100%
-  text-align: left
-  padding-left: 0
-  padding-right: 0
-  padding-bottom: 50px
   margin: 0
+  text-align: left
   .col-lg-8 , .col-lg-4
     padding: 0
     margin: 0
   .map-list
-    height: calc(85vh - 150px)
     background-color: #fff
     border: 1px #dfe5eb solid
     border-left: none
+    height: calc(85vh - 100px)
     .vendorList
       overflow-y: scroll
-      height: calc(85vh - 150px)
+      height: calc(85vh - 100px)
     .vendorTitle
-      height: 48px
-      background-color: #9ad5e3
-      text-align: center
-      color: #fff
       display: none //hidden // vendor list height orignal height: calc(85vh - 150px)
+      background-color: #9ad5e3
+      color: #fff
+      text-align: center
+      height: 48px
       h3
-        line-height: 48px
         padding: 0
         margin: 0
+        line-height: 48px
+
     .vendorItem
-      padding: 4px 14px
+      display: inline-block
+      margin: 0 auto
       border-bottom: 1px solid #dfe5eb
       width: 100%
-      margin: 0 auto
+      height: 100px
       transition: all .1s ease-out
-      display: block
       text-decoration: none
-      color: #444444
       &:hover
         background: #9ad5e3
-        h3
+        .vendorName
           color: #fff
-      img
-        height: 45px
-        width: 31px
-        margin-left: 4px
-      h3
+      .vendorInfo
         display: inline-block
-        margin-left: 16px
-        font-size: calc(12px + .2vw)
+        width: calc(100% - 150px)
+      .vendorPhoto
+        display: inline-block
+        float: left
+        width: 150px
+        height: 100px
+
+        img
+          object-fit: cover
+          overflow: hidden
+          width: 100%
+          height: 100%
+      .vendorName
+        font-size: calc(14px + .2vw)
+        font-weight: 300
+        color: #3C3C3C
+        margin: 8px 6px
+      .vendorAddress
+        font-size: calc(8px + .2vw)
+        color: #9D9D9D
+        margin: 0 6px
+      .vendorType
+        font-size: calc(8px + .2vw)
+        font-weight: 300
+        color: #9D9D9D
+        margin-left: 6px
 #map-title
-  height: 12vh
-  text-align: center
   font-size: calc(22px + .2vw)
   margin: 50px auto
+  text-align: center
+  height: 12vh
 
 #map-subtitle
-  height: 6vh
-  text-align: center
   font-size: calc(15px + .2vw)
   margin: -3vh auto 0
+  text-align: center
+  height: 6vh
 
 #map
-  height: calc(85vh - 150px)
-  width: 100%
   margin: auto
+  width: 100%
+  height: calc(85vh - 100px)
 
 .place-title
   font-weight: 500
@@ -200,11 +215,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
       font-weight: 700
 
 .hour_icon
+  background-image: url(../img/map_icon_hours.png)
+  margin: 2px 2px 2px 0
+  float: left
   width: 16px
   height: 16px
-  margin: 2px 2px 2px 0
-  background-image: url(../img/map_icon_hours.png)
-  float: left
 
 #map
   .highlight-open
@@ -213,29 +228,29 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
     color: #CB5426
 
 .scrollFix
-  overflow: hidden !important
   line-height: 1.35
+  overflow: hidden !important
   white-space: nowrap
 .how-to-section
   padding-top: calc(10vh + 50px)
   text-align: center
 
 #how-to-title
+  font-size: 4vh
   background-color: #9AD5E3
   color: #fff
-  font-size: 4vh
-  letter-spacing: .5vw
   padding: 1.5vh 2vw
+  letter-spacing: .5vw
 
 #how-to-use-img-ctn
   width: 100%
 
 #how-to-use-img
-  width: 80%
-  max-width: 540px
-  height: calc(50vh - 50px)
-  margin: auto
   background-image: url(../img/how_to_use_zx.png)
+  margin: auto
+  width: 80%
+  height: calc(50vh - 50px)
+  max-width: 540px
 
 @media all and (orientation: portrait)
   .how-to-section
@@ -245,43 +260,44 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
     height: 30vw
 
 .result-section
-  height: 100%
   background-image: url(../img/result_bg.jpg)
   background-position: center bottom
-  text-align: left
   padding-top: 50px
+  text-align: left
+  height: 100%
 
 #result-title
-  height: 12vh
-  text-align: center
   font-size: calc(20px + .2vw)
   margin: 0 auto
   line-height: calc(40px + .4vw)
+  text-align: center
+  height: 12vh
   .highlight
     font-size: calc(30px + .2vw)
 
 #result-number
-  font-size: calc(96px + .2vw)
-  line-height: calc(144px + .3vw)
-  color: #9AD5E3
   font-family: Roboto, sans-serif
+  font-size: calc(96px + .2vw)
   font-weight: 100
+  color: #9AD5E3
+  line-height: calc(144px + .3vw)
 
 .services-section
   background-color: #ff0
 
 .footer-section
-  padding-top: 24px
-  padding-bottom: 24px
+  position: relative
   background-color: #9AD5E3
   color: #fff
-  position: relative
+  padding-top: 24px
+  padding-bottom: 24px
+  margin-top: 150px
 
   li
-    list-style-type: none
-    margin: 8px 0 8px 3px
     padding-left: 6px
+    margin: 8px 0 8px 3px
     border-left: 3px #fff solid
+    list-style-type: none
   ul
     padding: 10px 0
 
@@ -293,32 +309,24 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   font-size: 12px
 
 @media(max-width:767px)
-  .footer-section
-    margin-top: calc(85vh - 198px)
+  // .footer-section
+  //   margin-top: calc(85vh - 198px)
   #map
     height: calc(45vh)
   .vendorTitle
-    height: 32px
     background-color: #9ad5e3
-    text-align: center
     color: #fff
+    text-align: center
+    height: 32px
     h3
-      line-height: 32px
       font-size: calc(14px + .2vw)
       padding: 0
       margin: 0
-  .vendorItem
-    display: inline
-    border: 1px solid #000
-    border-radius: 5px
-    width: calc(100% - 40%)
+      line-height: 32px
+  .map-list
+    display: none
+
 @media(min-width:768px)
-  .footer-section
-    margin-top: calc(85vh - 198px)
 @media(min-width:992px)
-  .footer-section
-    margin-top: calc(85vh - 198px)
 @media(min-width:1200px)
-  .footer-section
-    margin-top: calc(85vh - 198px)
     
