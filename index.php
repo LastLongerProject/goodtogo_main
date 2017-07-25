@@ -75,6 +75,7 @@
      <script src="assets/js/loadCSS.min.js"></script>
     <script>
         loadCSS("https://fonts.googleapis.com/css?family=Roboto");
+        loadCSS("http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css")
         loadCSS("https://fonts.googleapis.com/earlyaccess/notosanstc.css");
     </script>
 
@@ -256,7 +257,8 @@
       <script src="assets/js/app.min.js"></script>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initialize"
   type="text/javascript"></script>
-          
+      <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
       <!-- Google Maps API -->
 
 

@@ -60,7 +60,18 @@ var placeid_json = [{
     "borrow": true,
     "return": true,
     "type": '展演空間, 住宿'
-}];
+}
+
+// , {
+//     "placeid": 'ChIJF2tEkGZ2bjQRktR-V6R6kBI',
+//     "name": '有方公寓',
+//     "borrow": true,
+//     "return": true,
+//     "type": ''
+
+// }
+
+];
 
 
 function initialize() {
@@ -70,7 +81,7 @@ function initialize() {
         center = new google.maps.LatLng(latitude, longitude)
     mapOptions = {
         center: center,
-        zoom: 5,
+        zoom: 20,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         scrollwheel: false,
         styles: [{
@@ -150,17 +161,51 @@ function initialize() {
                 '<div class="vendorPhoto"><img src="'+photos+'"></div>'+'<div class="vendorInfo">'+'<h3 class="vendorName">'+
                 vendor[Item].name +
                 '</h3>' + '<p class="vendorAddress">' + vendor[Item].formatted_address +
-                '</p>' + '<p class="vendorType">' + placeid_json[Item].type + '</p>' + '</div>'+'</a>'
+                '</p>' + '<p class="vendorType">' + placeid_json[Item].type + '</p>' + isOpeningList(vendor[Item]) + '</div>'+'</a>'
 
             );
             bounds.extend(vendor[Item].geometry.location);
             console.log('listload');
         };
-        $('.marker-link').on('mouseover', function($e) {
+        $('.marker-link').on('mouseenter', function($e) {
+            google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
+            $e.preventDefault();
+        });
+
+        $('.marker-link').on('click', function($e) {
             google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
             $e.preventDefault();
         });
         map.fitBounds(bounds);
+        $('.vendorList').slick({
+          centerMode: true,
+          centerPadding: '60px',
+          slidesToShow: 3,
+          arrows: false,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+        if($(window).width() > 1024) {
+            $('.vendorList').slick('unslick');
+        }
         console.log('fitmap');
     //this part runs when the mapobject is created and rendered
 });
@@ -216,12 +261,12 @@ function infoBox(map, marker, data, result) {
 
 
     (function(marker) {
-
         var infoWindow = new google.maps.InfoWindow();
-        var contentString = '<div class="scrollFix"><span class="place-title">' + '<a href="' + result.url + '">' + result.name + '</a>' + '</span><br>' +
-            isOpeningString(result) +
+        // var contentString = '<div class="scrollFix"><span class="place-title">' + '<a href="' + result.url + '">' + result.name + '</a>' + '</span><br>' +
+        //     isOpeningString(result) +
+        //     '</div>';
+        var contentString = '<div class="scrollFix"><span class="place-title">' + '<a href="' + result.url + '">' + result.name + '</a>' + '</span>' +
             '</div>';
-
         infoWindow = new google.maps.InfoWindow({
             content: contentString
         });
@@ -230,13 +275,15 @@ function infoBox(map, marker, data, result) {
         markers.push(marker);
 
         google.maps.event.addListener(marker, "click", function(e) {
-
+                        // map.setZoom(18);
+                        // map.setCenter(marker.getPosition());
             if (infoWindow) {
                 closeAllInfoWindows();
             }
 
             infoWindow.open(map, marker);
             infoWindows.push(infoWindow);
+
         });
     })(marker);
 
@@ -281,6 +328,43 @@ function isOpeningString(_place) {
     return _isOpening;
 
 };
+
+
+function isOpeningList(_place) {
+    var _isOpening = '';
+    var _willOpenAt = '';
+    var _openedAt = '';
+    var _willCloseAt = '';
+    if (_place.opening_hours.open_now) {
+        for (var p = 0; p < _place.opening_hours.periods.length; p++) {
+            if (_place.opening_hours.periods[p].open.day === todayDay) {
+                _openedAt = time0000ToTimeText(_place.opening_hours.periods[p].open.time);
+                _willCloseAt = time0000ToTimeText(_place.opening_hours.periods[p].close.time);
+                break;
+            };
+        };
+        _isOpening = '<div class="vendorOpening"><div class="open-dot"></div>'+'營業中 ' + _openedAt + '~' + _willCloseAt + '</div>';
+    } else {
+        for (var p = 0; p < _place.opening_hours.periods.length; p++) {
+            if (_place.opening_hours.periods[p].open.day === tomorrowDay) {
+                _willOpenAt = '明日 ' + time0000ToTimeText(_place.opening_hours.periods[p].open.time);
+                break;
+            } else if (_place.opening_hours.periods[p].open.day === todayDay) {
+                _willOpenAt = '今日 ' + time0000ToTimeText(_place.opening_hours.periods[p].open.time);
+                break;
+            }
+        }
+        if (_willOpenAt === '') {
+            _isOpening = '<div class="vendorOpening"><div class="close-dot"></div>休息中 </div>';
+        } else {
+            _isOpening = '<div class="vendorOpening"><div class="close-dot"></div>休息中 ' + _willOpenAt + ' 營業</div>';
+        }
+    }
+    return _isOpening;
+
+};
+
+
 
 function time0000ToTimeText(time) {
     var hour = time.slice(0, 2);
