@@ -146,6 +146,9 @@ function initialize() {
 
     google.maps.event.addListenerOnce(map, 'tilesloaded', function(){
                 bounds = new google.maps.LatLngBounds();
+
+
+
         for (var Item = 0; Item < vendor.length; Item++) {
             if (vendor[Item].photos !== undefined ){
                 var photos = vendor[Item].photos[0].getUrl({maxWidth: 200, maxHeight: 150});
@@ -154,14 +157,25 @@ function initialize() {
                 var photos = "/assets/img/no-image.jpg";
             };
             
+            var vendorType = '';
+
+            for (var type = 0; type < vendor.length; type++){
+                if (window.vendor[Item].place_id !== window.placeid_json[type].placeid) {
+                    continue;
+                }
+                else {
+                    vendorType = window.placeid_json[type].type;
+                    break;
+                }
+            }
 
             $('.vendorList').append(
                 
                 '<a class="vendorItem marker-link" data-markerid="'+ Item +'"href="#">' +
                 '<div class="vendorPhoto"><img src="'+photos+'"></div>'+'<div class="vendorInfo">'+'<h3 class="vendorName">'+
-                vendor[Item].name +
+                 vendor[Item].name +
                 '</h3>' + '<p class="vendorAddress">' + vendor[Item].formatted_address +
-                '</p>' + '<p class="vendorType">' + placeid_json[Item].type + '</p>' + isOpeningList(vendor[Item]) + '</div>'+'</a>'
+                '</p>' + '<p class="vendorType">' + vendorType + '</p>' + isOpeningList(vendor[Item]) + '</div>'+'</a>'
 
             );
             bounds.extend(vendor[Item].geometry.location);
@@ -173,14 +187,18 @@ function initialize() {
         });
 
         $('.marker-link').on('click', function($e) {
-            google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
+            var number = $(this).data('markerid');
+            var link = window.open(vendor[number].url, '_blank');
+
+            google.maps.event.trigger(markers[number], 'click');
+
             $e.preventDefault();
         });
         map.fitBounds(bounds);
         $('.vendorList').slick({
           centerMode: true,
-          centerPadding: '60px',
-          slidesToShow: 3,
+          centerPadding: '20px',
+          slidesToShow: 2,
           arrows: false,
           responsive: [
             {
@@ -188,7 +206,7 @@ function initialize() {
               settings: {
                 arrows: false,
                 centerMode: true,
-                centerPadding: '40px',
+                centerPadding: '20px',
                 slidesToShow: 2
               }
             },
@@ -197,7 +215,7 @@ function initialize() {
               settings: {
                 arrows: false,
                 centerMode: true,
-                centerPadding: '40px',
+                centerPadding: '25px',
                 slidesToShow: 1
               }
             }
@@ -235,6 +253,7 @@ function createMarker(data, map) {
         } else {
             var icon_url = '/assets/img/map_marker_disable_42x60.png'
         };
+
         var marker = new google.maps.Marker({
             map: map,
             place: {
@@ -275,15 +294,26 @@ function infoBox(map, marker, data, result) {
         markers.push(marker);
 
         google.maps.event.addListener(marker, "click", function(e) {
-                        // map.setZoom(18);
-                        // map.setCenter(marker.getPosition());
             if (infoWindow) {
                 closeAllInfoWindows();
             }
 
             infoWindow.open(map, marker);
             infoWindows.push(infoWindow);
+           for (var i = window.markers.length - 1; i >= 0; i--) {
+                window.markers[i].setAnimation();
+                if(window.markers[i].id === this.id) {
+                    marker.setAnimation(google.maps.Animation.oo);
+                    
+                }
+            };
 
+            position = new google.maps.LatLng(marker.place.location.lat(), marker.place.location.lng());
+            map.panTo(position);
+            if(map.getZoom() != 18) {
+                map.setZoom(18);
+            }
+            
         });
     })(marker);
 
@@ -294,6 +324,8 @@ function closeAllInfoWindows() {
         infoWindows[i].close();
     }
 }
+
+
 
 function isOpeningString(_place) {
     var _isOpening = '';
@@ -328,6 +360,14 @@ function isOpeningString(_place) {
     return _isOpening;
 
 };
+
+function toggleBounce() {
+  if (marker.getAnimation() !== null) {
+    marker.setAnimation(null);
+  } else {
+    marker.setAnimation(google.maps.Animation.BOUNCE);
+  }
+}
 
 
 function isOpeningList(_place) {

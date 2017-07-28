@@ -154,6 +154,7 @@
          </div>
          <!-- /.container -->
       </nav>
+      
       <!-- Intro Section -->
       <section id="intro" class="intro-section">
          <div class="container">
@@ -198,7 +199,7 @@
 
                <div class="col-lg-4 map-list">
                <div class="vendorTitle"><h3>這裡借，那裡還</h3></div>
-                    <div class="vendorList">
+                    <div class="vendorList noselect">
                     </div>
                 </div>
             </div>
