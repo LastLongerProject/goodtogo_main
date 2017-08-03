@@ -4,6 +4,11 @@ var markers = new Array();
 var today = new Date();
 var todayDay = today.getDay();
 
+var marker_open = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAA8CAMAAAAnktjvAAAAjVBMVEUAAACa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eNfeoJBTVGEs758qLJtkZo5QUUjHyBQY2mLvsua1eMqKiw/OzxaV1iDgYLk4+O6ubl2c3T////Ix8dMSUqRj5Ca1eOfnZ2tq6vW1dVoZWYxLS6a1eMyNjhIWF2a1eOTytfx8fFmhY51nKbdnYjSAAAAK3RSTlMAIGCvz/+/QN8QMO////////////9w//////////////+A//////9Q//+fxh1NpwAAAcdJREFUeAGN1dXCwjAMhuFOMkWDTGCK6/3f3e+Sb1L2HL9YmwyFDNOy6YttmYbqZzoEHFN1cz1q8dyO0Leok+U3y8CjHl7QKEPqFQZDS2z9Zjkajyey/f++cEbT2WjOzIulPLXfciXDdRQnnKYb5hn9W7U/frneZlnORczbctz+CpV8U47qNMs3u312mJNQqU/yN014yxzF8TY+MsMpfJYnks5FvSviQ1QcDheSTh/plYTbuWCOizj6eNfxjYTrRwo3Oi+KbZmU5TY6FtEC7lcpg4RZdM/y8lO9z/IzSYZySVgk2b+UIXWVScK4zASekGCqSpNO8WQxrYen+K5LTN2hqatNCVOlSeG6YK61qdMY7NGheQIw3H5/SoKvcLQeMaY4WDAwU77/l3uGYWluzLz4b5M17ssn3/4f7Xmx+47TrfhVtt/xcLkt1p+7FRc8n3Y9XnC/Js/RhyfslWCShqmAqS2RG1Kn0FUthk0dbKPZ4fnieSI8NDwkXYulpoVSawUTqueJh9QLJpy8XiievS9c5djrnWCatHyxdq848KemVcHlawWfaaAGCeGotCwia2C6gvvXcolcNRCRGspxBqdVNTh1XdXhHZiPQZhUio4OAAAAAElFTkSuQmCC";
+var marker_close = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAA8CAMAAAAnktjvAAAAjVBMVEUAAAC6urq6urq6urq6urq6urq6urq6urq6urq6urq6urq6urqmpaWbmpqysrKwr6+rqqqZl5eRj4+gn5+1tbW6urqUkpKfnZ2tq6vBwMDx8fHd3Ny6ubn////k4+OmpKTIx8e6urrPzs7W1dXq6uqzsrKYlpa6urqWlJSenJy6urq3t7f4+Piop6etra3bnkrLAAAAK3RSTlMAIGCvz/+/QN8QMO////////////9w//////////////+A//////9Q//+fxh1NpwAAAcdJREFUeAGN1dXCwjAMhuFOMkWDTGCK6/3f3e+Sb1L2HL9YmwyFDNOy6YttmYbqZzoEHFN1cz1q8dyO0Leok+U3y8CjHl7QKEPqFQZDS2z9Zjkajyey/f++cEbT2WjOzIulPLXfciXDdRQnnKYb5hn9W7U/frneZlnORczbctz+CpV8U47qNMs3u312mJNQqU/yN014yxzF8TY+MsMpfJYnks5FvSviQ1QcDheSTh/plYTbuWCOizj6eNfxjYTrRwo3Oi+KbZmU5TY6FtEC7lcpg4RZdM/y8lO9z/IzSYZySVgk2b+UIXWVScK4zASekGCqSpNO8WQxrYen+K5LTN2hqatNCVOlSeG6YK61qdMY7NGheQIw3H5/SoKvcLQeMaY4WDAwU77/l3uGYWluzLz4b5M17ssn3/4f7Xmx+47TrfhVtt/xcLkt1p+7FRc8n3Y9XnC/Js/RhyfslWCShqmAqS2RG1Kn0FUthk0dbKPZ4fnieSI8NDwkXYulpoVSawUTqueJh9QLJpy8XiievS9c5djrnWCatHyxdq848KemVcHlawWfaaAGCeGotCwia2C6gvvXcolcNRCRGspxBqdVNTh1XdXhHZiPQZhUio4OAAAAAElFTkSuQmCC";
+
+
+
 var tomorrowDay = todayDay + 1;
 
 if (tomorrowDay > 6) {
@@ -13,63 +18,69 @@ if (tomorrowDay > 6) {
 var infoWindows = [];
 
 var placeid_json = [{
-    "placeid": 'ChIJ8c8g8WR2bjQRsgin1zcdMsk',
-    "name": '正興咖啡館',
-    "borrow": true,
-    "return": true,
-    "type": '咖啡, 生活小物, 住宿'
-}, {
-    "placeid": 'ChIJf8W9Aw52bjQRSFco26usHNI',
-    "name": '布萊恩紅茶',
-    "borrow": true,
-    "return": true,
-    "type": '茶飲'
-}, {
-    "placeid": 'ChIJMSrK_mR2bjQR_2Zxa_Sjdcw',
-    "name": 'N23度樂沏',
-    "borrow": true,
-    "return": true,
-    "type": '茶飲'
-}, {
-    "placeid": 'ChIJfcgy-mR2bjQR27BbragwUV4',
-    "name": '彩虹來了',
-    "borrow": true,
-    "return": true,
-    "type": '生活小物'
-}, {
-    "placeid": 'ChIJi5oi-2R2bjQR23K2KGUP-cA',
-    "name": 'My Way',
-    "borrow": true,
-    "return": true,
-    "type": '展演空間, 住宿'
-}, {
-    "placeid": 'ChIJseQKc2Z2bjQR26O10DtsIiU',
-    "name": '神榕147',
-    "borrow": true,
-    "return": true,
-    "type": '咖啡, 生活小物, 住宿'
-}, {
-    "placeid": 'ChIJg5fxKGR2bjQRPBTkRd1qE6A',
-    "name": '初心地球社',
-    "borrow": true,
-    "return": true,
-    "type": '生活小物'
-}, {
-    "placeid": 'ChIJ3f9K-2R2bjQR2lJKpu-EIm4',
-    "name": '未艾公寓',
-    "borrow": true,
-    "return": true,
-    "type": '展演空間, 住宿'
-}
+        "placeid": 'ChIJ8c8g8WR2bjQRsgin1zcdMsk',
+        "name": '正興咖啡館',
+        "borrow": true,
+        "return": true,
+        "type": '咖啡, 生活小物, 住宿'
+    }, {
+        "placeid": 'ChIJf8W9Aw52bjQRSFco26usHNI',
+        "name": '布萊恩紅茶',
+        "borrow": true,
+        "return": true,
+        "type": '茶飲'
+    }, {
+        "placeid": 'ChIJMSrK_mR2bjQR_2Zxa_Sjdcw',
+        "name": 'N23度樂沏',
+        "borrow": true,
+        "return": true,
+        "type": '茶飲'
+    }, {
+        "placeid": 'ChIJfcgy-mR2bjQR27BbragwUV4',
+        "name": '彩虹來了',
+        "borrow": true,
+        "return": true,
+        "type": '生活小物'
+    }, {
+        "placeid": 'ChIJi5oi-2R2bjQR23K2KGUP-cA',
+        "name": 'My Way',
+        "borrow": true,
+        "return": true,
+        "type": '展演空間, 住宿'
+    }, {
+        "placeid": 'ChIJseQKc2Z2bjQR26O10DtsIiU',
+        "name": '神榕147',
+        "borrow": true,
+        "return": true,
+        "type": '咖啡, 生活小物, 住宿'
+    }, {
+        "placeid": 'ChIJg5fxKGR2bjQRPBTkRd1qE6A',
+        "name": '初心地球社',
+        "borrow": true,
+        "return": true,
+        "type": '生活小物'
+    }, {
+        "placeid": 'ChIJ3f9K-2R2bjQR2lJKpu-EIm4',
+        "name": '未艾公寓',
+        "borrow": true,
+        "return": true,
+        "type": '展演空間, 住宿'
+    }, {
+        "placeid": 'ChIJ_bV5wol2bjQRRUmhHnWYg9o',
+        "name": '慕紅豆',
+        "borrow": true,
+        "return": true,
+        "type": '紅豆湯'
+    }
 
-// , {
-//     "placeid": 'ChIJF2tEkGZ2bjQRktR-V6R6kBI',
-//     "name": '有方公寓',
-//     "borrow": true,
-//     "return": true,
-//     "type": ''
+    // , {
+    //     "placeid": 'ChIJF2tEkGZ2bjQRktR-V6R6kBI',
+    //     "name": '有方公寓',
+    //     "borrow": true,
+    //     "return": true,
+    //     "type": ''
 
-// }
+    // }
 
 ];
 
@@ -144,89 +155,97 @@ function initialize() {
 
     setMarkers(map);
 
-    google.maps.event.addListenerOnce(map, 'tilesloaded', function(){
-                bounds = new google.maps.LatLngBounds();
+    google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
+        bounds = new google.maps.LatLngBounds();
 
 
 
         for (var Item = 0; Item < vendor.length; Item++) {
-            if (vendor[Item].photos !== undefined ){
-                var photos = vendor[Item].photos[0].getUrl({maxWidth: 200, maxHeight: 150});
-            }
-            else {
+            if (vendor[Item].photos !== undefined) {
+                var photos = vendor[Item].photos[0].getUrl({
+                    maxWidth: 200,
+                    maxHeight: 150
+                });
+            } else {
                 var photos = "/assets/img/no-image.jpg";
             };
-            
+
             var vendorType = '';
 
-            for (var type = 0; type < vendor.length; type++){
+            for (var type = 0; type < vendor.length; type++) {
                 if (window.vendor[Item].place_id !== window.placeid_json[type].placeid) {
                     continue;
-                }
-                else {
+                } else {
                     vendorType = window.placeid_json[type].type;
                     break;
                 }
             }
 
             $('.vendorList').append(
-                
-                '<a class="vendorItem marker-link" data-markerid="'+ Item +'"href="#">' +
-                '<div class="vendorPhoto"><img src="'+photos+'"></div>'+'<div class="vendorInfo">'+'<h3 class="vendorName">'+
-                 vendor[Item].name +
+
+                '<div class="vendorItem marker-link" data-markerid="' + Item + '">' +
+                '<div class="vendorPhoto"><img src="' + photos + '"></div>' + '<div class="vendorInfo">' + '<h3 class="vendorName">' +
+                vendor[Item].name +
                 '</h3>' + '<p class="vendorAddress">' + vendor[Item].formatted_address +
-                '</p>' + '<p class="vendorType">' + vendorType + '</p>' + isOpeningList(vendor[Item]) + '</div>'+'</a>'
+                '</p>' + '<p class="vendorType">' + vendorType + '</p>' + isOpeningList(vendor[Item]) + '</div>' + '</div>'
 
             );
             bounds.extend(vendor[Item].geometry.location);
-            console.log('listload');
+            map.fitBounds(bounds);
         };
         $('.marker-link').on('mouseenter', function($e) {
             google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
-            $e.preventDefault();
         });
+        var $carousel = $('.vendorList');
 
-        $('.marker-link').on('click', function($e) {
-            var number = $(this).data('markerid');
-            var link = window.open(vendor[number].url, '_blank');
+        function showSliderScreen($widthScreen) {
 
-            google.maps.event.trigger(markers[number], 'click');
+            if ($widthScreen <= "920") {
 
-            $e.preventDefault();
-        });
-        map.fitBounds(bounds);
-        $('.vendorList').slick({
-          centerMode: true,
-          centerPadding: '20px',
-          slidesToShow: 2,
-          arrows: false,
-          responsive: [
-            {
-              breakpoint: 768,
-              settings: {
-                arrows: false,
-                centerMode: true,
-                centerPadding: '20px',
-                slidesToShow: 2
-              }
-            },
-            {
-              breakpoint: 480,
-              settings: {
-                arrows: false,
-                centerMode: true,
-                centerPadding: '25px',
-                slidesToShow: 1
-              }
+                if (!$carousel.hasClass('slick-initialized')) {
+                    $carousel.slick({
+                        centerMode: true,
+                        arrows: false,
+
+                        responsive: [{
+                                breakpoint: 1024,
+                                settings: {
+                                    arrows: false,
+                                    centerMode: true,
+                                    slidesToShow: 1
+                                }
+                            },
+                            {
+                                breakpoint: 480,
+                                settings: {
+                                    arrows: false,
+                                    centerMode: true,
+                                    centerPadding: '10px',
+                                    slidesToShow: 1
+                                }
+                            }
+                        ]
+                    });
+
+                }
+
+            } else {
+                $.scrollify.disable();
+                if ($carousel.hasClass('slick-initialized')) {
+                    $carousel.slick('unslick');
+                }
             }
-          ]
-        });
-        if($(window).width() > 1024) {
-            $('.vendorList').slick('unslick');
         }
-        console.log('fitmap');
-    //this part runs when the mapobject is created and rendered
-});
+
+        var widthScreen = $(window).width();
+        $(window).ready(showSliderScreen(widthScreen)).resize(
+            function() {
+                var widthScreen = $(window).width();
+                showSliderScreen(widthScreen);
+            }
+        );
+
+    });
 }
 
 function setMarkers(map) {
@@ -234,7 +253,6 @@ function setMarkers(map) {
     for (var i = 0, length = json.length; i < length; i++) {
         var data = json[i];
         createMarker(data, map);
-        console.log('createmarker');
     }
 }
 
@@ -249,9 +267,9 @@ function createMarker(data, map) {
             return;
         }
         if (result.opening_hours.open_now) {
-            var icon_url = '/assets/img/map_marker_42x60.png';
+            var icon_url = marker_open;
         } else {
-            var icon_url = '/assets/img/map_marker_disable_42x60.png'
+            var icon_url = marker_close;
         };
 
         var marker = new google.maps.Marker({
@@ -294,26 +312,22 @@ function infoBox(map, marker, data, result) {
         markers.push(marker);
 
         google.maps.event.addListener(marker, "click", function(e) {
-            if (infoWindow) {
-                closeAllInfoWindows();
-            }
+            if (infoWindow) closeAllInfoWindows();
 
-            infoWindow.open(map, marker);
-            infoWindows.push(infoWindow);
-           for (var i = window.markers.length - 1; i >= 0; i--) {
+            for (var i = window.markers.length - 1; i >= 0; i--) {
                 window.markers[i].setAnimation();
-                if(window.markers[i].id === this.id) {
+                if (window.markers[i].id === this.id) {
                     marker.setAnimation(google.maps.Animation.oo);
-                    
                 }
             };
+            infoWindow.open(map, marker);
+            infoWindows.push(infoWindow);
 
             position = new google.maps.LatLng(marker.place.location.lat(), marker.place.location.lng());
             map.panTo(position);
-            if(map.getZoom() != 18) {
-                map.setZoom(18);
-            }
-            
+
+            // if (map.getZoom() != 18) map.setZoom(18);
+
         });
     })(marker);
 
@@ -362,11 +376,11 @@ function isOpeningString(_place) {
 };
 
 function toggleBounce() {
-  if (marker.getAnimation() !== null) {
-    marker.setAnimation(null);
-  } else {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  }
+    if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+    } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
 }
 
 
@@ -383,7 +397,7 @@ function isOpeningList(_place) {
                 break;
             };
         };
-        _isOpening = '<div class="vendorOpening"><div class="open-dot"></div>'+'營業中 ' + _openedAt + '~' + _willCloseAt + '</div>';
+        _isOpening = '<div class="vendorOpening"><div class="open-dot"></div>' + _openedAt + ' ~ ' + _willCloseAt + '</div>';
     } else {
         for (var p = 0; p < _place.opening_hours.periods.length; p++) {
             if (_place.opening_hours.periods[p].open.day === tomorrowDay) {
@@ -420,7 +434,16 @@ function time0000ToTimeText(time) {
 };
 
 $(document).ready(function() {
+    $.scrollify({
+        section: ".scrollify",
+        interstitialSection: ".footer-section",
+        easing: "easeOutExpo",
+        scrollSpeed: 1000
+    });
+    $('.vendorList').on('afterChange', function(event, slick, currentSlide, nextSlide) {
 
+        google.maps.event.trigger(markers[currentSlide], 'click');
+    });
 
     function counter() {
 
@@ -464,7 +487,9 @@ $(document).ready(function() {
     if (window.location.pathname == '/') {
 
         $('.intro-section').parallax({
-            imageSrc: 'assets/img/intro_bg.jpg'
+            imageSrc: 'assets/img/intro_bg.jpg',
+            naturalHeight: '1440',
+            naturalWidth: '1920'
         });
     }
 });

@@ -128,57 +128,83 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   border-bottom: 4px solid #9AD5E3
 
 .where-section
-  padding-top: 50px
-  max-height: 100%
-  text-align: left
-  padding-left: 0
-  padding-right: 0
-  padding-bottom: 50px
   margin: 0
+  .container-fluid
+    margin: 0 76px
   .col-lg-8 , .col-lg-4
     padding: 0
     margin: 0
   .map-list
-    height: calc(85vh - 150px)
     background-color: #fff
     border: 1px #dfe5eb solid
     border-left: none
+    height: calc(85vh - 100px)
     .vendorList
       overflow-y: scroll
-      height: calc(85vh - 150px)
+      height: calc(85vh - 100px)
     .vendorTitle
-      height: 48px
+      display: none //hidden // vendor list height orignal height: calc(85vh - 150px)
       background-color: #9ad5e3
-      text-align: center
       color: #fff
-      display: none
+      text-align: center
+      height: 48px
       h3
-        line-height: 48px
         padding: 0
         margin: 0
-    .vendorItem
+        line-height: 48px
 
-      padding: 4px 14px
-      border-bottom: 1px solid #dfe5eb
-      width: 100%
+    .vendorItem
       margin: 0 auto
+      width: 100%
+      height: 120px
       transition: all .1s ease-out
-      display: block
-      text-decoration: none
-      color: #444444
+
+      
       &:hover
         background: #9ad5e3
-        h3
+        cursor: default
+        .vendorName, .vendorAddress, .vendorType, .vendorOpening
           color: #fff
-      img
-        height: 45px
-        width: 31px
-        margin-left: 4px
-      h3
-        
+      .vendorInfo
         display: inline-block
-        margin-left: 16px
-        font-size: calc(14px + .2vw)
+        width: calc(100% - 150px)
+      .vendorPhoto
+        display: inline-block
+        padding: 10px
+        float: left
+        width: 150px
+        height: 120px
+
+        img
+          object-fit: cover
+          overflow: hidden
+          width: 100%
+          height: 100%
+      .vendorName
+        font-size: calc(16px + .2vw)
+        font-weight: 300
+        color: #3C3C3C
+        margin-top: 10px
+        margin-left: 6px
+
+      .vendorAddress
+        font-size: calc(8px + .2vw)
+        color: #9D9D9D
+        margin-top: 0
+        margin-bottom: 0
+        margin-left: 6px
+        text-overflow: ellipsis
+      .vendorType
+        font-size: calc(8px + .2vw)
+        font-weight: 300
+        color: #9D9D9D
+        margin-top: 4px
+        margin-left: 6px
+      .vendorOpening
+        font-size: calc(8px + .2vw)
+        color: #3C3C3C
+        margin-top: 0
+
 #map-title
   height: 12vh
   text-align: center
@@ -190,10 +216,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   text-align: center
   font-size: calc(15px + .2vw)
   margin: -3vh auto 0
+
 #map
-  height: calc(85vh - 150px)
-  width: 100%
   margin: auto
+  width: 100%
+  height: calc(85vh - 100px)
 
 .place-title
   font-weight: 500
@@ -233,6 +260,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   padding: 1.5vh 2vw
 
 #how-to-use-img-ctn
+  margin-top: 52px
   width: 100%
 
 #how-to-use-img
@@ -311,3 +339,99 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
       margin: 0
   // .map-list
   //   display: none
+.open-dot
+  display: inline-block
+  background-color: #79d127
+  margin: 0 8px
+  border-radius: 50px
+  width: 8px
+  height: 8px
+
+.close-dot
+  display: inline-block
+  background-color: #bbbfc8
+  margin: 0 8px
+  border-radius: 50px
+  width: 8px
+  height: 8px
+
+// @media(max-width:767px)
+
+  // // .footer-section
+  // //   margin-top: calc(85vh - 198px)
+  // #map
+  //   height: calc(45vh)
+  // .vendorTitle
+  //   background-color: #9ad5e3
+  //   color: #fff
+  //   text-align: center
+  //   height: 32px
+  //   h3
+  //     font-size: calc(14px + .2vw)
+  //     padding: 0
+  //     margin: 0
+  //     line-height: 32px
+  // // .map-list
+  // //   display: none
+  // .where-section
+
+  //   height: calc(120vh)
+  //   .container-fluid
+  //     margin: 0
+
+
+@media screen and (max-width: 767px) and (max-width: 992px)
+  .where-section
+    .map-list
+      border: none
+    .container-fluid
+      margin: 0 0
+    .vendorList
+      margin-top: calc(8px + .2vw)
+      .slick-center
+        transform: scale(1.08)
+      .vendorItem
+        margin: 0 8px
+        &:hover
+          background-color: #fff !important
+          .vendorName, .vendorOpening
+            color: #3c3c3c !important
+          .vendorType, .vendorAddress
+            color: #9d9d9d !important
+        .vendorPhoto
+          width: 100px
+    #map
+      height: calc(80vh - 128px)
+  .map-list
+    height: calc(18vh) !important
+    .vendorList
+      height: calc(18vh)
+  // .footer-section
+  //   margin-top: calc(2vh)
+
+
+@media screen and (min-width: 375px) and (max-width: 736px) and (orientation: landscape)
+  #map-title
+    margin: 2px auto
+  .where-section
+    .map-list
+      border: none
+    .container-fluid
+      margin: 0 0
+    .vendorList
+      margin-top: 0
+    #map
+      height: calc(80vh - 120px)
+    .vendorList
+      .vendorItem 
+      .vendorPhoto
+        width: 80px !important
+        height: 95px !important
+  .footer-section
+    margin-top: calc(8vh)
+
+
+@media(min-width:992px)
+
+@media(min-width:1200px)
+    
