@@ -158,7 +158,7 @@ function initialize() {
     google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
         bounds = new google.maps.LatLngBounds();
 
-
+        var $listcontent = '';
 
         for (var Item = 0; Item < vendor.length; Item++) {
             if (vendor[Item].photos !== undefined) {
@@ -181,18 +181,16 @@ function initialize() {
                 }
             }
 
-            $('.vendorList').append(
-
-                '<div class="vendorItem marker-link" data-markerid="' + Item + '">' +
+            var $listcontent = $listcontent + '<div class="vendorItem marker-link" data-markerid="' + Item + '">' +
                 '<div class="vendorPhoto"><img src="' + photos + '"></div>' + '<div class="vendorInfo">' + '<h3 class="vendorName">' +
                 vendor[Item].name +
                 '</h3>' + '<p class="vendorAddress">' + vendor[Item].formatted_address +
-                '</p>' + '<p class="vendorType">' + vendorType + '</p>' + isOpeningList(vendor[Item]) + '</div>' + '</div>'
+                '</p>' + '<p class="vendorType">' + vendorType + '</p>' + isOpeningList(vendor[Item]) + '</div>' + '</div>';
 
-            );
             bounds.extend(vendor[Item].geometry.location);
             map.fitBounds(bounds);
         };
+            $('.vendorList').append($listcontent);
         $('.marker-link').on('mouseenter', function($e) {
             google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
         });
