@@ -159,7 +159,6 @@ function initialize() {
         bounds = new google.maps.LatLngBounds();
 
         var $listcontent = '';
-
         for (var Item = 0; Item < vendor.length; Item++) {
             if (vendor[Item].photos !== undefined) {
                 var photos = vendor[Item].photos[0].getUrl({
