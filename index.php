@@ -26,7 +26,6 @@
     <meta name="rating" content="general" />
     <meta name="copyright" content="© 2017 Last Longer Project. All rights reserved." />
     <meta name="abstract" content="好盒器推動用玻璃杯取代免洗杯！透過店家與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
-    <meta name="distribution" content="global" />
     <meta name="robots" content="all" />
     <meta name="spiders" content="all" />
     <meta name="webcrawlers" content="all" />
