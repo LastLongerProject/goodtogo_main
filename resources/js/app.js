@@ -71,6 +71,34 @@ var placeid_json = [{
         "borrow": true,
         "return": true,
         "type": '紅豆湯'
+    },
+    {
+        "placeid": 'ChIJ_6XE3YR2bjQRRRlO77NBeqE',
+        "name": '方糖咖啡',
+        "borrow": true,
+        "return": true,
+        "type": '咖啡'
+    },
+    {
+        "placeid": 'ChIJIedNaHt2bjQRj1vUuHI6p6w',
+        "name": '烘大師鮮焙咖啡',
+        "borrow": true,
+        "return": true,
+        "type": '咖啡'
+    },
+    {
+        "placeid": 'ChIJZwwrUJ52bjQRI6JtlpOqtkg',
+        "name": '午營咖啡',
+        "borrow": true,
+        "return": true,
+        "type": '咖啡'
+    },
+    {
+        "placeid": 'ChIJZ1OzC4h2bjQR72tnDTaR3PE',
+        "name": '樹有風',
+        "borrow": true,
+        "return": true,
+        "type": '咖啡'
     }
 
     // , {
@@ -156,8 +184,10 @@ function initialize() {
     setMarkers(map);
 
     google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
-        bounds = new google.maps.LatLngBounds();
+  setTimeout(function(){
 
+        bounds = new google.maps.LatLngBounds();
+        
         var $listcontent = '';
         for (var Item = 0; Item < vendor.length; Item++) {
             if (vendor[Item].photos !== undefined) {
@@ -190,6 +220,7 @@ function initialize() {
             map.fitBounds(bounds);
         };
             $('.vendorList').append($listcontent);
+}, 2000);
         $('.marker-link').on('mouseenter', function($e) {
             google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
         });
@@ -243,7 +274,9 @@ function initialize() {
         );
 
     });
+
 }
+
 
 function setMarkers(map) {
     var json = placeid_json;
@@ -258,11 +291,9 @@ function createMarker(data, map) {
     service.getDetails({
         placeId: data.placeid
     }, function(result, status) {
-        vendor.push(result);
-        if (status != google.maps.places.PlacesServiceStatus.OK) {
-            console.log(status);
-            return;
-        }
+        
+        if (status === google.maps.GeocoderStatus.OK) {
+         vendor.push(result);
         if (result.opening_hours.open_now) {
             var icon_url = marker_open;
         } else {
@@ -285,6 +316,18 @@ function createMarker(data, map) {
 
         });
         infoBox(map, marker, data, result);
+
+        } else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {    
+            setTimeout(function() {
+                createMarker(data, map);
+            }, 200);
+        } else {
+            alert("Geocode was not successful for the following reason:" 
+                  + status);
+        }
+
+
+
     });
 
 }
