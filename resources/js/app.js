@@ -220,11 +220,10 @@ function initialize() {
             map.fitBounds(bounds);
         };
             $('.vendorList').append($listcontent);
-}, 2000);
-        $('.marker-link').on('mouseenter', function($e) {
+                $('.marker-link').on('mouseenter', function($e) {
             google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
-        });
-        var $carousel = $('.vendorList');
+    });
+var $carousel = $('.vendorList');
 
         function showSliderScreen($widthScreen) {
 
@@ -272,10 +271,14 @@ function initialize() {
                 showSliderScreen(widthScreen);
             }
         );
+}, 1500);
 
-    });
 
-}
+
+
+ 
+ });
+};
 
 
 function setMarkers(map) {
