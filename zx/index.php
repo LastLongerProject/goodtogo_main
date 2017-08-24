@@ -161,9 +161,6 @@
                     <div id="map"></div>
                 </div>
                 <div class="col-lg-4 map-list">
-                    <div class="vendorTitle">
-                        <h3>這裡借，那裡還</h3>
-                    </div>
                     <div class="vendorList noselect">
                     </div>
                 </div>

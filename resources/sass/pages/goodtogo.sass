@@ -141,11 +141,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
       overflow-y: scroll
       height: calc(85vh - 100px)
     .vendorTitle
-      display: none //hidden // vendor list height orignal height: calc(85vh - 150px)
       background-color: #9ad5e3
       color: #fff
       text-align: center
-      height: 48px
+      height: 32px
+      dispaly: none
       h3
         padding: 0
         margin: 0
@@ -218,6 +218,33 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   margin: auto
   width: 100%
   height: calc(85vh - 100px)
+
+.map-filter
+  position: absolute
+  bottom: 5px
+  left: 5px
+  z-index: 5000
+  height: 62px
+  background-color: #fff
+  width: 200px
+  box-shadow: 1px 1px 5px #ececec
+  border: 1px solid #e5eaef
+  border-radius: 3px
+  line-height: 62px
+  .active-filter
+    background: #ffe95c
+    border: none
+  span
+    padding: 8px 10px
+    border-radius: 3px
+    margin-left: 14px
+    background-color: transparent
+    border: solid 1px #524B1D
+    a
+      text-decoration: none
+      color: #524B1D
+      font-size: .8em
+
 
 .place-title
   font-size: calc(10px + .2vw)
@@ -385,7 +412,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
     .vendorList
       height: calc(18vh)
   .footer-section
-    margin-top: calc(2vh)
+    margin-top: calc(10vh)
 
 
 
@@ -407,7 +434,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
         width: 80px !important
         height: 95px !important
   .footer-section
-    margin-top: calc(8vh)
+    margin-top: calc(20vh)
   
 
 @media(min-width:992px)

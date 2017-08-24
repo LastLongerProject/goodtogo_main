@@ -20,14 +20,14 @@ var infoWindows = [];
 var placeid_json = [{
         "placeid": 'ChIJ8c8g8WR2bjQRsgin1zcdMsk',
         "name": '正興咖啡館',
-        "borrow": true,
-        "return": true,
+        "borrow": false,
+        "return": false,
         "type": '咖啡, 生活小物, 住宿'
     }, {
         "placeid": 'ChIJf8W9Aw52bjQRSFco26usHNI',
         "name": '布萊恩紅茶',
-        "borrow": true,
-        "return": true,
+        "borrow": false,
+        "return": false,
         "type": '茶飲'
     }, {
         "placeid": 'ChIJMSrK_mR2bjQR_2Zxa_Sjdcw',
@@ -477,6 +477,52 @@ function time0000ToTimeText(time) {
 };
 
 $(document).ready(function() {
+
+
+    $('.filter-link-lend').on('click touchstart', function(e) {
+       e.preventDefault();
+       if ($(this).hasClass('active-filter')){
+        $(this).removeClass('active-filter');
+       markers.forEach(function(element, index) {
+            if(placeid_json[index].borrow == false){
+                element.setVisible(false);
+            }
+        });
+        
+    }
+           
+       else{
+        $(this).addClass('active-filter');
+        markers.forEach(function(element, index) {
+            if(placeid_json[index].borrow == false){
+                element.setVisible(true);
+            }
+        });
+       }
+    });
+
+    $('.filter-link-recover').on('click touchstart', function(e) {
+       e.preventDefault();
+       if ($(this).hasClass('active-filter')){
+        $(this).removeClass('active-filter');
+
+              markers.forEach(function(element, index) {
+            if(placeid_json[index].return == false){
+                element.setVisible(false);
+                }
+        });
+       }
+       else{
+        $(this).addClass('active-filter');
+         markers.forEach(function(element, index) {
+            if(placeid_json[index].return == false){
+                element.setVisible(true);
+            }
+        });
+       }
+        
+    });
+
     $.scrollify({
         section: ".scrollify",
         interstitialSection: ".footer-section",
