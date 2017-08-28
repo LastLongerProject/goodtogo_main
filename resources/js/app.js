@@ -20,92 +20,92 @@ var infoWindows = [];
 var placeid_json = [{
         "placeid": 'ChIJ8c8g8WR2bjQRsgin1zcdMsk',
         "name": '正興咖啡館',
-        "borrow": false,
-        "return": false,
+        "lend": true,
+        "recover": true,
         "type": '咖啡, 生活小物, 住宿'
     }, {
         "placeid": 'ChIJf8W9Aw52bjQRSFco26usHNI',
         "name": '布萊恩紅茶',
-        "borrow": false,
-        "return": false,
+        "lend": true,
+        "recover": true,
         "type": '茶飲'
     }, {
         "placeid": 'ChIJMSrK_mR2bjQR_2Zxa_Sjdcw',
         "name": 'N23度樂沏',
-        "borrow": true,
-        "return": true,
+        "lend": true,
+        "recover": true,
         "type": '茶飲'
     }, {
         "placeid": 'ChIJfcgy-mR2bjQR27BbragwUV4',
         "name": '彩虹來了',
-        "borrow": true,
-        "return": true,
+        "lend": true,
+        "recover": true,
         "type": '生活小物'
     }, {
         "placeid": 'ChIJi5oi-2R2bjQR23K2KGUP-cA',
         "name": 'My Way',
-        "borrow": true,
-        "return": true,
+        "lend": true,
+        "recover": true,
         "type": '展演空間, 住宿'
     }, {
         "placeid": 'ChIJseQKc2Z2bjQR26O10DtsIiU',
         "name": '神榕147',
-        "borrow": true,
-        "return": true,
+        "lend": true,
+        "recover": true,
         "type": '咖啡, 生活小物, 住宿'
     }, {
         "placeid": 'ChIJg5fxKGR2bjQRPBTkRd1qE6A',
         "name": '初心地球社',
-        "borrow": true,
-        "return": true,
+        "lend": true,
+        "recover": true,
         "type": '生活小物'
     }, {
         "placeid": 'ChIJ3f9K-2R2bjQR2lJKpu-EIm4',
         "name": '未艾公寓',
-        "borrow": true,
-        "return": true,
+        "lend": true,
+        "recover": true,
         "type": '展演空間, 住宿'
     }, {
         "placeid": 'ChIJ_bV5wol2bjQRRUmhHnWYg9o',
         "name": '慕紅豆',
-        "borrow": true,
-        "return": true,
+        "lend": true,
+        "recover": true,
         "type": '紅豆湯'
     },
     {
         "placeid": 'ChIJ_6XE3YR2bjQRRRlO77NBeqE',
         "name": '方糖咖啡',
-        "borrow": true,
-        "return": true,
+        "lend": true,
+        "recover": true,
         "type": '咖啡'
     },
     {
         "placeid": 'ChIJIedNaHt2bjQRj1vUuHI6p6w',
         "name": '烘大師鮮焙咖啡',
-        "borrow": true,
-        "return": true,
+        "lend": true,
+        "recover": true,
         "type": '咖啡'
     },
     {
         "placeid": 'ChIJZwwrUJ52bjQRI6JtlpOqtkg',
         "name": '午營咖啡',
-        "borrow": true,
-        "return": true,
+        "lend": true,
+        "recover": true,
         "type": '咖啡'
     },
     {
         "placeid": 'ChIJZ1OzC4h2bjQR72tnDTaR3PE',
         "name": '樹有風',
-        "borrow": true,
-        "return": true,
+        "lend": true,
+        "recover": true,
         "type": '咖啡'
     }
 
     // , {
     //     "placeid": 'ChIJF2tEkGZ2bjQRktR-V6R6kBI',
     //     "name": '有方公寓',
-    //     "borrow": true,
-    //     "return": true,
+    //     "lend": true,
+    //     "recover": true,
     //     "type": ''
 
     // }
@@ -184,100 +184,92 @@ function initialize() {
     setMarkers(map);
 
     google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
-  setTimeout(function(){
+        setTimeout(function() {
 
-        bounds = new google.maps.LatLngBounds();
-        
-        var $listcontent = '';
-        for (var Item = 0; Item < vendor.length; Item++) {
-            if (vendor[Item].photos !== undefined) {
-                var photos = vendor[Item].photos[0].getUrl({
-                    maxWidth: 200,
-                    maxHeight: 150
-                });
-            } else {
-                var photos = "/assets/img/no-image.jpg";
-            };
+            bounds = new google.maps.LatLngBounds();
 
-            var vendorType = '';
-
-            for (var type = 0; type < vendor.length; type++) {
-                if (window.vendor[Item].place_id !== window.placeid_json[type].placeid) {
-                    continue;
-                } else {
-                    vendorType = window.placeid_json[type].type;
-                    break;
-                }
-            }
-
-            var $listcontent = $listcontent + '<div class="vendorItem marker-link" data-markerid="' + Item + '">' +
-                '<div class="vendorPhoto"><img src="' + photos + '"></div>' + '<div class="vendorInfo">' + '<h3 class="vendorName">' +
-                vendor[Item].name +
-                '</h3>' + '<p class="vendorAddress">' + vendor[Item].formatted_address +
-                '</p>' + '<p class="vendorType">' + vendorType + '</p>' + isOpeningList(vendor[Item]) + '</div>' + '</div>';
-
-            bounds.extend(vendor[Item].geometry.location);
-            map.fitBounds(bounds);
-        };
-            $('.vendorList').append($listcontent);
-                $('.marker-link').on('mouseenter', function($e) {
-            google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
-    });
-var $carousel = $('.vendorList');
-
-        function showSliderScreen($widthScreen) {
-
-            if ($widthScreen <= "920") {
-
-                if (!$carousel.hasClass('slick-initialized')) {
-                    $carousel.slick({
-                        centerMode: true,
-                        arrows: false,
-
-                        responsive: [{
-                                breakpoint: 1024,
-                                settings: {
-                                    arrows: false,
-                                    centerMode: true,
-                                    slidesToShow: 1
-                                }
-                            },
-                            {
-                                breakpoint: 480,
-                                settings: {
-                                    arrows: false,
-                                    centerMode: true,
-                                    centerPadding: '10px',
-                                    slidesToShow: 1
-                                }
-                            }
-                        ]
+            var $listcontent = '';
+            for (var Item = 0; Item < vendor.length; Item++) {
+                if (vendor[Item].photos !== undefined) {
+                    var photos = vendor[Item].photos[0].getUrl({
+                        maxWidth: 200,
+                        maxHeight: 150
                     });
+                } else {
+                    var photos = "/assets/img/no-image.jpg";
+                };
 
-                }
+                var vendorType = '';
 
-            } else {
-                $.scrollify.disable();
-                if ($carousel.hasClass('slick-initialized')) {
-                    $carousel.slick('unslick');
+
+
+                var $listcontent = $listcontent + '<div class="vendorItem marker-link" data-markerid="' + Item + '">' +
+                    '<div class="vendorPhoto"><img src="' + photos + '"></div>' + '<div class="vendorInfo">' + '<h3 class="vendorName">' +
+                    vendor[Item].name +
+                    '</h3>' + '<p class="vendorAddress">' + vendor[Item].formatted_address +
+                    '</p>' + '<p class="vendorType">' + vendorType + '</p>' + isOpeningList(vendor[Item]) + '</div>' + '</div>';
+
+                bounds.extend(vendor[Item].geometry.location);
+                map.fitBounds(bounds);
+            };
+            $('.vendorList').append($listcontent);
+            $('.marker-link').on('mouseenter', function($e) {
+                google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
+            });
+            var $carousel = $('.vendorList');
+
+            function showSliderScreen($widthScreen) {
+
+                if ($widthScreen <= "920") {
+
+                    if (!$carousel.hasClass('slick-initialized')) {
+                        $carousel.slick({
+                            centerMode: true,
+                            arrows: false,
+
+                            responsive: [{
+                                    breakpoint: 1024,
+                                    settings: {
+                                        arrows: false,
+                                        centerMode: true,
+                                        slidesToShow: 1
+                                    }
+                                },
+                                {
+                                    breakpoint: 480,
+                                    settings: {
+                                        arrows: false,
+                                        centerMode: true,
+                                        centerPadding: '10px',
+                                        slidesToShow: 1
+                                    }
+                                }
+                            ]
+                        });
+
+                    }
+
+                } else {
+                    $.scrollify.disable();
+                    if ($carousel.hasClass('slick-initialized')) {
+                        $carousel.slick('unslick');
+                    }
                 }
             }
-        }
 
-        var widthScreen = $(window).width();
-        $(window).ready(showSliderScreen(widthScreen)).resize(
-            function() {
-                var widthScreen = $(window).width();
-                showSliderScreen(widthScreen);
-            }
-        );
-}, 1500);
-
+            var widthScreen = $(window).width();
+            $(window).ready(showSliderScreen(widthScreen)).resize(
+                function() {
+                    var widthScreen = $(window).width();
+                    showSliderScreen(widthScreen);
+                }
+            );
+        }, 1500);
 
 
 
- 
- });
+
+    });
 };
 
 
@@ -294,39 +286,39 @@ function createMarker(data, map) {
     service.getDetails({
         placeId: data.placeid
     }, function(result, status) {
-        
+
         if (status === google.maps.GeocoderStatus.OK) {
-         vendor.push(result);
-        if (result.opening_hours.open_now) {
-            var icon_url = marker_open;
-        } else {
-            var icon_url = marker_close;
-        };
+            vendor.push(result);
+            if (result.opening_hours.open_now) {
+                var icon_url = marker_open;
+            } else {
+                var icon_url = marker_close;
+            };
 
-        var marker = new google.maps.Marker({
-            map: map,
-            place: {
-                placeId: data.placeid,
-                location: result.geometry.location
-            },
-            icon: {
-                url: icon_url,
+            var marker = new google.maps.Marker({
+                map: map,
+                place: {
+                    placeId: data.placeid,
+                    location: result.geometry.location
+                },
+                icon: {
+                    url: icon_url,
 
-            }
-            // position: result.geometry.location
+                }
+                // position: result.geometry.location
 
 
 
-        });
-        infoBox(map, marker, data, result);
+            });
+            infoBox(map, marker, data, result);
 
-        } else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {    
+        } else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
             setTimeout(function() {
                 createMarker(data, map);
             }, 200);
         } else {
-            alert("Geocode was not successful for the following reason:" 
-                  + status);
+            alert("Geocode was not successful for the following reason:" +
+                status);
         }
 
 
@@ -480,47 +472,81 @@ $(document).ready(function() {
 
 
     $('.filter-link-lend').on('click touchstart', function(e) {
-       e.preventDefault();
-       if ($(this).hasClass('active-filter')){
-        $(this).removeClass('active-filter');
-       markers.forEach(function(element, index) {
-            if(placeid_json[index].borrow == false){
-                element.setVisible(false);
-            }
-        });
-        
-    }
-           
-       else{
-        $(this).addClass('active-filter');
-        markers.forEach(function(element, index) {
-            if(placeid_json[index].borrow == false){
-                element.setVisible(true);
-            }
-        });
-       }
+        e.preventDefault();
+        var status = "";
+        if ($(this).hasClass('active-filter')) {
+            $(this).removeClass('active-filter');
+            markers.forEach(function(element, index) {
+                for (var lend = 0; lend < placeid_json.length; lend++) {
+                    if (element.place.placeId !== window.placeid_json[lend].placeid) {
+                        continue;
+                    } else {
+                        status = window.placeid_json[lend].lend;
+                        break;
+                    }
+                }
+                if (status == false) {
+                    element.setVisible(false);
+                }
+            });
+
+        } else {
+            $(this).addClass('active-filter');
+            markers.forEach(function(element, index) {
+                for (var lend = 0; lend < placeid_json.length; lend++) {
+                    if (element.place.placeId !== window.placeid_json[lend].placeid) {
+                        continue;
+                    } else {
+                        status = window.placeid_json[lend].lend;
+                        break;
+                    }
+                }
+                if (status == false) {
+                    element.setVisible(true);
+                }
+            });
+        }
     });
 
     $('.filter-link-recover').on('click touchstart', function(e) {
-       e.preventDefault();
-       if ($(this).hasClass('active-filter')){
-        $(this).removeClass('active-filter');
+        var status = "";
+        e.preventDefault();
+        if ($(this).hasClass('active-filter')) {
+            $(this).removeClass('active-filter');
+            markers.forEach(function(element, index) {
 
-              markers.forEach(function(element, index) {
-            if(placeid_json[index].return == false){
-                element.setVisible(false);
+                for (var recover = 0; recover < placeid_json.length; recover++) {
+                    if (element.place.placeId !== window.placeid_json[recover].placeid) {
+                        continue;
+                    } else {
+                        status = window.placeid_json[recover].recover;
+                        break;
+                    }
                 }
-        });
-       }
-       else{
-        $(this).addClass('active-filter');
-         markers.forEach(function(element, index) {
-            if(placeid_json[index].return == false){
-                element.setVisible(true);
-            }
-        });
-       }
-        
+                if (status == false) {
+                    element.setVisible(false);
+                }
+
+            });
+        } else {
+            $(this).addClass('active-filter');
+            markers.forEach(function(element, index) {
+
+                for (var recover = 0; recover < placeid_json.length; recover++) {
+                    if (element.place.placeId !== window.placeid_json[recover].placeid) {
+                        continue;
+                    } else {
+                        status = window.placeid_json[recover].recover;
+                        break;
+                    }
+                }
+                if (status == false) {
+                    element.setVisible(true);
+                }
+
+            });
+        }
+
     });
 
     $.scrollify({
