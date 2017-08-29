@@ -20,13 +20,13 @@ var infoWindows = [];
 var placeid_json = [{
         "placeid": 'ChIJ8c8g8WR2bjQRsgin1zcdMsk',
         "name": '正興咖啡館',
-        "lend": true,
+        "lend": false,
         "recover": true,
         "type": '咖啡, 生活小物, 住宿'
     }, {
         "placeid": 'ChIJf8W9Aw52bjQRSFco26usHNI',
         "name": '布萊恩紅茶',
-        "lend": true,
+        "lend": false,
         "recover": true,
         "type": '茶飲'
     }, {
@@ -470,84 +470,105 @@ function time0000ToTimeText(time) {
 
 $(document).ready(function() {
 
+    // $('.filter-link-lend').on('click touchstart', function(e) {
+    //     e.preventDefault();
+    //     var status = "";
+    //     if ($(this).hasClass('active-filter')) {
+    //         $(this).removeClass('active-filter');
 
-    $('.filter-link-lend').on('click touchstart', function(e) {
-        e.preventDefault();
-        var status = "";
-        if ($(this).hasClass('active-filter')) {
-            $(this).removeClass('active-filter');
-            markers.forEach(function(element, index) {
-                for (var lend = 0; lend < placeid_json.length; lend++) {
-                    if (element.place.placeId !== window.placeid_json[lend].placeid) {
-                        continue;
-                    } else {
-                        status = window.placeid_json[lend].lend;
-                        break;
-                    }
-                }
-                if (status == false) {
-                    element.setVisible(false);
-                }
-            });
+    //         markers.forEach(function(element, index) {
+    //             for (var lend = 0; lend < placeid_json.length; lend++) {
+    //                 if (element.place.placeId !== window.placeid_json[lend].placeid) {
+    //                     continue;
+    //                 } else {
+    //                     status = window.placeid_json[lend].lend;
+    //                     break;
+    //                 }
+    //             }
+    //             if (status == true) {
+    //                 element.setVisible(true);
+    //                 $( "div[data-markerid='"+index+"']" ).show(200);
+    //             }
+    //             else {
+    //                 element.setVisible(true);
+    //                 $( "div[data-markerid='"+index+"']" ).show(200);
+    //             }
+    //         });
 
-        } else {
-            $(this).addClass('active-filter');
-            markers.forEach(function(element, index) {
-                for (var lend = 0; lend < placeid_json.length; lend++) {
-                    if (element.place.placeId !== window.placeid_json[lend].placeid) {
-                        continue;
-                    } else {
-                        status = window.placeid_json[lend].lend;
-                        break;
-                    }
-                }
-                if (status == false) {
-                    element.setVisible(true);
-                }
-            });
-        }
-    });
+    //     } else {
+    //         $(this).addClass('active-filter');
+    //         markers.forEach(function(element, index) {
+    //             for (var lend = 0; lend < placeid_json.length; lend++) {
+    //                 if (element.place.placeId !== window.placeid_json[lend].placeid) {
+    //                     continue;
+    //                 } else {
+    //                     status = window.placeid_json[lend].lend;
+    //                     break;
+    //                 }
+    //             }
+    //             if (status == true) {
+    //                 element.setVisible(true);
+    //                 $( "div[data-markerid='"+index+"']" ).show(200);
+    //             }
+    //             else {
+    //                 element.setVisible(false);
+    //                 $( "div[data-markerid='"+index+"']" ).hide(200);
+    //             }
+    //         });
+    //     }
+    // });
 
-    $('.filter-link-recover').on('click touchstart', function(e) {
-        var status = "";
-        e.preventDefault();
-        if ($(this).hasClass('active-filter')) {
-            $(this).removeClass('active-filter');
-            markers.forEach(function(element, index) {
+    // $('.filter-link-recover').on('click touchstart', function(e) {
+    //     var status = "";
+    //     e.preventDefault();
 
-                for (var recover = 0; recover < placeid_json.length; recover++) {
-                    if (element.place.placeId !== window.placeid_json[recover].placeid) {
-                        continue;
-                    } else {
-                        status = window.placeid_json[recover].recover;
-                        break;
-                    }
-                }
-                if (status == false) {
-                    element.setVisible(false);
-                }
+    //     if ($(this).hasClass('active-filter')) {
+    //         $(this).removeClass('active-filter');
+    //         markers.forEach(function(element, index) {
 
-            });
-        } else {
-            $(this).addClass('active-filter');
-            markers.forEach(function(element, index) {
+    //             for (var recover = 0; recover < placeid_json.length; recover++) {
+    //                 if (element.place.placeId !== window.placeid_json[recover].placeid) {
+    //                     continue;
+    //                 } else {
+    //                     status = window.placeid_json[recover].recover;
+    //                     break;
+    //                 }
+    //             }
+    //             if (status == true) {
+    //                 element.setVisible(true);
+    //                 $( "div[data-markerid='"+index+"']" ).show(200);
+    //             }
+    //             else {
+    //                 element.setVisible(true);
+    //                 $( "div[data-markerid='"+index+"']" ).show(200);
+    //             }
 
-                for (var recover = 0; recover < placeid_json.length; recover++) {
-                    if (element.place.placeId !== window.placeid_json[recover].placeid) {
-                        continue;
-                    } else {
-                        status = window.placeid_json[recover].recover;
-                        break;
-                    }
-                }
-                if (status == false) {
-                    element.setVisible(true);
-                }
+    //         });
+    //     } else {
+    //         $(this).addClass('active-filter');
+    //         markers.forEach(function(element, index) {
 
-            });
-        }
+    //             for (var recover = 0; recover < placeid_json.length; recover++) {
+    //                 if (element.place.placeId !== window.placeid_json[recover].placeid) {
+    //                     continue;
+    //                 } else {
+    //                     status = window.placeid_json[recover].recover;
+    //                     break;
+    //                 }
+    //             }
+    //             if (status == true) {
+    //                 element.setVisible(true);
+    //                 $( "div[data-markerid='"+index+"']" ).show(200);
+    //             }
+    //             else {
+    //                 element.setVisible(false);
+    //                 $( "div[data-markerid='"+index+"']" ).hide(200);
+    //             }
 
-    });
+    //         });
+    //     }
+
+    // });
 
     $.scrollify({
         section: ".scrollify",

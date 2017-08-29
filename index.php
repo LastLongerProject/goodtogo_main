@@ -171,7 +171,7 @@
                 <div class="col-lg-8">
                     <div id="map"></div>
                        <div class="map-filter">
-                        <span class="filter-link-lend active-filter"><a href="#">可使用店鋪</a></span> <span class="filter-link-recover active-filter"><a href="#">可歸還店鋪</a></span>
+                        <span class="filter-link-lend"><a href="#">可使用店鋪</a></span> <span class="filter-link-recover"><a href="#">可歸還店鋪</a></span>
                        </div>
                 </div>
                 <div class="col-lg-4 map-list">
