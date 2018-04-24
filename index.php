@@ -226,6 +226,7 @@
         </div>
     </section>
     <!-- Javascript -->
+    <script src="https://app.goodtogo.tw/test/stores/list.js"></script>
     <script src="assets/js/app.min.js"></script>
     <!-- Google Maps API -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiratbJ2JyrGPhATeVw1CnYAReEV6NZvs&libraries=places&callback=initialize&language=zh-TW&region=zh-TW" type="text/javascript"></script>
