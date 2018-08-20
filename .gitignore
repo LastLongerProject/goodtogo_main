@@ -44,3 +44,5 @@ sftp-config.json
 node_modules
 
 sublime
+
+.sass-cache
