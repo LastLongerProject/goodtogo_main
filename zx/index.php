@@ -204,7 +204,7 @@
                 </div>
                 <div class="col-sm-12">
                     <div id="copyright">
-                        © 2017 人嶼物股份有限公司
+                        © 2017 人嶼物股份有限公司｜<a href="/">合作店鋪APP</a>
                     </div>
                 </div>
             </div>

@@ -24,27 +24,26 @@
     <meta name="publisher" content="好盒器" />
     <meta name="reply-to" content="lastlongerproject@gmail.com" />
     <meta name="rating" content="general" />
-    <meta name="copyright" content="© 2017 Last Longer Project. All rights reserved." />
+    <meta name="copyright" content="© 2018 Last Longer Project. All rights reserved." />
     <meta name="abstract" content="好盒器推動用玻璃杯取代免洗杯！透過店家與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
     <meta name="robots" content="all" />
     <meta name="spiders" content="all" />
     <meta name="webcrawlers" content="all" />
     <meta name="googlebot" content="all" />
 
-    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta http-equiv="cache-control" content="public, max-age=3600" />
     <meta http-qeuiv="Pragma" content="cache" />
 
-    <meta name="url" content="http://goodtogo.com.tw">
+    <meta name="url" content="http://goodtogo.tw">
     <meta name="keywords" content="好盒器,環保,免洗餐具,免洗杯,愛地球,台灣,地球,人嶼物,台南,正興街,外帶玻璃杯,人嶼物,容器" />
     <meta name="description" content="好盒器推動用玻璃杯取代免洗杯！透過店家與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
     <meta name="subject" content="好 盒 器 | 用玻璃杯取代免洗杯" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="好 盒 器 | 用玻璃杯取代免洗杯" />
-    <meta property="og:image" content="http://goodtogo.com.tw/assets/img/og_img.jpg" />
+    <meta property="og:image" content="http://goodtogo.tw/assets/img/og_img.jpg" />
     <meta property="og:site_name" content="好 盒 器 | 用玻璃杯取代免洗杯" />
-    <meta property="og:url" content="http://goodtogo.com.tw" />
+    <meta property="og:url" content="http://goodtogo.tw" />
     <meta property="og:description" content="好盒器推動用玻璃杯取代免洗杯！透過店家與民眾一同參與，從源頭落實垃圾減量，讓地球變得更美麗。" />
 
     <!-- FAVICON -->
@@ -219,7 +218,7 @@
                 </div>
                 <div class="col-sm-12">
                     <div id="copyright">
-                        © 2017 人嶼物股份有限公司
+                        © 2017 人嶼物股份有限公司｜<a href="/">合作店鋪APP</a>
                     </div>
                 </div>
             </div>

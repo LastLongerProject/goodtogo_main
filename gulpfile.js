@@ -20,9 +20,9 @@ gulp.task('js', function() {
         .pipe(addsrc.append('resources/js/app.js'))
         .pipe(sourcemaps.init())
         .pipe(concat('app.min.js'))
-        .pipe(uglify().on("error", gulpNotify.onError(function (error) {
-        return "Js 編譯發生錯誤： " + error;
-      })))
+        .pipe(uglify().on("error", gulpNotify.onError(function(error) {
+            return "Js 編譯發生錯誤： " + error;
+        })))
         .pipe(sourcemaps.write('source-maps'))
         .pipe(gulp.dest('assets/js/'))
         .pipe(gulpNotify("js 檔案混淆成功"));
@@ -38,7 +38,7 @@ gulp.task('css', function() {
         .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./assets/css'))
-        .pipe(gulpNotify("css 編譯成功"));;
+        .pipe(gulpNotify("css 編譯成功"));
 });
 
 gulp.task('browser-sync', function() {
