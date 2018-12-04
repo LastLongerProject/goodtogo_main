@@ -24,7 +24,7 @@ gulp.task('js', function () {
             return "Js 編譯發生錯誤： " + error;
         })))
         .pipe(sourcemaps.write('source-maps'))
-        .pipe(gulp.dest('assets/js/'))
+        .pipe(gulp.dest('build/assets/js/'))
         .pipe(gulpNotify("js 檔案混淆成功"));
 });
 
@@ -37,7 +37,7 @@ gulp.task('css', function () {
         }).on('error', sass.logError)
         .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./assets/css'))
+        .pipe(gulp.dest('build/assets/css'))
         .pipe(gulpNotify("css 編譯成功"));
 });
 
@@ -48,7 +48,7 @@ gulp.task('browser-sync', ['css', 'js'], function () {
         });
     });
 
-    gulp.watch(['assets/css/*.css', 'assets/js/*.js', '*.php']).on('change', function () {
+    gulp.watch(['build/*.*']).on('change', function () {
         browserSync.reload();
     });
 
