@@ -1,6 +1,6 @@
 {
   "name": "goodtogo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "goodtogo official website",
   "main": "index.js",
   "scripts": {
@@ -18,8 +18,8 @@
   "homepage": "https://github.com/LastLongerProject/goodtogo_main#readme",
   "devDependencies": {
     "browser-sync": "^2.24.6",
-    "gulp": "^3.9.1",
-    "gulp-add-src": "^0.2.0",
+    "gulp": "^4.0.0",
+    "gulp-add-src": "^1.0.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-connect-php": "^1.0.1",
