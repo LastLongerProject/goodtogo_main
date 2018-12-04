@@ -1,5 +1,5 @@
 @import '../partials/_base.sass'
-
+$a-tags: 'a, a:active, a:hover, a:visited'
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   font-family: 'Nunito', 'cwTeXYen'
@@ -320,6 +320,8 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
 
 #copyright
   font-size: 12px
+  #{$a-tags}
+    color: white
 
 @media(max-width:767px)
   .result-section

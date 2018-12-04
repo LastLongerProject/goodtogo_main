@@ -7,7 +7,7 @@ var todayDay = today.getDay();
 var marker_open = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAA8CAMAAAAnktjvAAAAjVBMVEUAAACa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eNfeoJBTVGEs758qLJtkZo5QUUjHyBQY2mLvsua1eMqKiw/OzxaV1iDgYLk4+O6ubl2c3T////Ix8dMSUqRj5Ca1eOfnZ2tq6vW1dVoZWYxLS6a1eMyNjhIWF2a1eOTytfx8fFmhY51nKbdnYjSAAAAK3RSTlMAIGCvz/+/QN8QMO////////////9w//////////////+A//////9Q//+fxh1NpwAAAcdJREFUeAGN1dXCwjAMhuFOMkWDTGCK6/3f3e+Sb1L2HL9YmwyFDNOy6YttmYbqZzoEHFN1cz1q8dyO0Leok+U3y8CjHl7QKEPqFQZDS2z9Zjkajyey/f++cEbT2WjOzIulPLXfciXDdRQnnKYb5hn9W7U/frneZlnORczbctz+CpV8U47qNMs3u312mJNQqU/yN014yxzF8TY+MsMpfJYnks5FvSviQ1QcDheSTh/plYTbuWCOizj6eNfxjYTrRwo3Oi+KbZmU5TY6FtEC7lcpg4RZdM/y8lO9z/IzSYZySVgk2b+UIXWVScK4zASekGCqSpNO8WQxrYen+K5LTN2hqatNCVOlSeG6YK61qdMY7NGheQIw3H5/SoKvcLQeMaY4WDAwU77/l3uGYWluzLz4b5M17ssn3/4f7Xmx+47TrfhVtt/xcLkt1p+7FRc8n3Y9XnC/Js/RhyfslWCShqmAqS2RG1Kn0FUthk0dbKPZ4fnieSI8NDwkXYulpoVSawUTqueJh9QLJpy8XiievS9c5djrnWCatHyxdq848KemVcHlawWfaaAGCeGotCwia2C6gvvXcolcNRCRGspxBqdVNTh1XdXhHZiPQZhUio4OAAAAAElFTkSuQmCC";
 var marker_close = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAA8CAMAAAAnktjvAAAAjVBMVEUAAAC6urq6urq6urq6urq6urq6urq6urq6urq6urq6urq6urqmpaWbmpqysrKwr6+rqqqZl5eRj4+gn5+1tbW6urqUkpKfnZ2tq6vBwMDx8fHd3Ny6ubn////k4+OmpKTIx8e6urrPzs7W1dXq6uqzsrKYlpa6urqWlJSenJy6urq3t7f4+Piop6etra3bnkrLAAAAK3RSTlMAIGCvz/+/QN8QMO////////////9w//////////////+A//////9Q//+fxh1NpwAAAcdJREFUeAGN1dXCwjAMhuFOMkWDTGCK6/3f3e+Sb1L2HL9YmwyFDNOy6YttmYbqZzoEHFN1cz1q8dyO0Leok+U3y8CjHl7QKEPqFQZDS2z9Zjkajyey/f++cEbT2WjOzIulPLXfciXDdRQnnKYb5hn9W7U/frneZlnORczbctz+CpV8U47qNMs3u312mJNQqU/yN014yxzF8TY+MsMpfJYnks5FvSviQ1QcDheSTh/plYTbuWCOizj6eNfxjYTrRwo3Oi+KbZmU5TY6FtEC7lcpg4RZdM/y8lO9z/IzSYZySVgk2b+UIXWVScK4zASekGCqSpNO8WQxrYen+K5LTN2hqatNCVOlSeG6YK61qdMY7NGheQIw3H5/SoKvcLQeMaY4WDAwU77/l3uGYWluzLz4b5M17ssn3/4f7Xmx+47TrfhVtt/xcLkt1p+7FRc8n3Y9XnC/Js/RhyfslWCShqmAqS2RG1Kn0FUthk0dbKPZ4fnieSI8NDwkXYulpoVSawUTqueJh9QLJpy8XiievS9c5djrnWCatHyxdq848KemVcHlawWfaaAGCeGotCwia2C6gvvXcolcNRCRGspxBqdVNTh1XdXhHZiPQZhUio4OAAAAAElFTkSuQmCC";
 
-
+var globalUsedAmount = 0;
 
 var tomorrowDay = todayDay + 1;
 
@@ -16,102 +16,6 @@ if (tomorrowDay > 6) {
 };
 
 var infoWindows = [];
-
-var placeid_json = [{
-        "placeid": 'ChIJ8c8g8WR2bjQRsgin1zcdMsk',
-        "name": '正興咖啡館',
-        "borrow": true,
-        "return": true,
-        "type": '咖啡, 生活小物, 住宿'
-    }, {
-        "placeid": 'ChIJf8W9Aw52bjQRSFco26usHNI',
-        "name": '布萊恩紅茶',
-        "borrow": true,
-        "return": true,
-        "type": '茶飲'
-    }, {
-        "placeid": 'ChIJMSrK_mR2bjQR_2Zxa_Sjdcw',
-        "name": 'N23度樂沏',
-        "borrow": true,
-        "return": true,
-        "type": '茶飲'
-    }, {
-        "placeid": 'ChIJfcgy-mR2bjQR27BbragwUV4',
-        "name": '彩虹來了',
-        "borrow": true,
-        "return": true,
-        "type": '生活小物'
-    }, {
-        "placeid": 'ChIJi5oi-2R2bjQR23K2KGUP-cA',
-        "name": 'My Way',
-        "borrow": true,
-        "return": true,
-        "type": '展演空間, 住宿'
-    }, {
-        "placeid": 'ChIJseQKc2Z2bjQR26O10DtsIiU',
-        "name": '神榕147',
-        "borrow": true,
-        "return": true,
-        "type": '咖啡, 生活小物, 住宿'
-    }, {
-        "placeid": 'ChIJg5fxKGR2bjQRPBTkRd1qE6A',
-        "name": '初心地球社',
-        "borrow": true,
-        "return": true,
-        "type": '生活小物'
-    }, {
-        "placeid": 'ChIJ3f9K-2R2bjQR2lJKpu-EIm4',
-        "name": '未艾公寓',
-        "borrow": true,
-        "return": true,
-        "type": '展演空間, 住宿'
-    }, {
-        "placeid": 'ChIJ_bV5wol2bjQRRUmhHnWYg9o',
-        "name": '慕紅豆',
-        "borrow": true,
-        "return": true,
-        "type": '紅豆湯'
-    },
-    {
-        "placeid": 'ChIJ_6XE3YR2bjQRRRlO77NBeqE',
-        "name": '方糖咖啡',
-        "borrow": true,
-        "return": true,
-        "type": '咖啡'
-    },
-    {
-        "placeid": 'ChIJIedNaHt2bjQRj1vUuHI6p6w',
-        "name": '烘大師鮮焙咖啡',
-        "borrow": true,
-        "return": true,
-        "type": '咖啡'
-    },
-    {
-        "placeid": 'ChIJZwwrUJ52bjQRI6JtlpOqtkg',
-        "name": '午營咖啡',
-        "borrow": true,
-        "return": true,
-        "type": '咖啡'
-    },
-    {
-        "placeid": 'ChIJZ1OzC4h2bjQR72tnDTaR3PE',
-        "name": '樹有風',
-        "borrow": true,
-        "return": true,
-        "type": '咖啡'
-    }
-
-    // , {
-    //     "placeid": 'ChIJF2tEkGZ2bjQRktR-V6R6kBI',
-    //     "name": '有方公寓',
-    //     "borrow": true,
-    //     "return": true,
-    //     "type": ''
-
-    // }
-
-];
-
 
 function initialize() {
     var radius = 8000,
@@ -184,100 +88,100 @@ function initialize() {
     setMarkers(map);
 
     google.maps.event.addListenerOnce(map, 'tilesloaded', function() {
-  setTimeout(function(){
+        setTimeout(function() {
 
-        bounds = new google.maps.LatLngBounds();
-        
-        var $listcontent = '';
-        for (var Item = 0; Item < vendor.length; Item++) {
-            if (vendor[Item].photos !== undefined) {
-                var photos = vendor[Item].photos[0].getUrl({
-                    maxWidth: 200,
-                    maxHeight: 150
-                });
-            } else {
-                var photos = "/assets/img/no-image.jpg";
-            };
+            bounds = new google.maps.LatLngBounds();
 
-            var vendorType = '';
-
-            for (var type = 0; type < vendor.length; type++) {
-                if (window.vendor[Item].place_id !== window.placeid_json[type].placeid) {
-                    continue;
-                } else {
-                    vendorType = window.placeid_json[type].type;
-                    break;
-                }
-            }
-
-            var $listcontent = $listcontent + '<div class="vendorItem marker-link" data-markerid="' + Item + '">' +
-                '<div class="vendorPhoto"><img src="' + photos + '"></div>' + '<div class="vendorInfo">' + '<h3 class="vendorName">' +
-                vendor[Item].name +
-                '</h3>' + '<p class="vendorAddress">' + vendor[Item].formatted_address +
-                '</p>' + '<p class="vendorType">' + vendorType + '</p>' + isOpeningList(vendor[Item]) + '</div>' + '</div>';
-
-            bounds.extend(vendor[Item].geometry.location);
-            map.fitBounds(bounds);
-        };
-            $('.vendorList').append($listcontent);
-                $('.marker-link').on('mouseenter', function($e) {
-            google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
-    });
-var $carousel = $('.vendorList');
-
-        function showSliderScreen($widthScreen) {
-
-            if ($widthScreen <= "920") {
-
-                if (!$carousel.hasClass('slick-initialized')) {
-                    $carousel.slick({
-                        centerMode: true,
-                        arrows: false,
-
-                        responsive: [{
-                                breakpoint: 1024,
-                                settings: {
-                                    arrows: false,
-                                    centerMode: true,
-                                    slidesToShow: 1
-                                }
-                            },
-                            {
-                                breakpoint: 480,
-                                settings: {
-                                    arrows: false,
-                                    centerMode: true,
-                                    centerPadding: '10px',
-                                    slidesToShow: 1
-                                }
-                            }
-                        ]
+            var $listcontent = '';
+            for (var Item = 0; Item < vendor.length; Item++) {
+                if (vendor[Item].photos !== undefined) {
+                    var photos = vendor[Item].photos[0].getUrl({
+                        maxWidth: 200,
+                        maxHeight: 150
                     });
+                } else {
+                    var photos = "/assets/img/no-image.jpg";
+                };
 
+                var vendorType = '';
+
+                for (var type = 0; type < vendor.length; type++) {
+                    if (window.vendor[Item].place_id !== window.placeid_json[type].placeid) {
+                        continue;
+                    } else {
+                        vendorType = window.placeid_json[type].type;
+                        break;
+                    }
                 }
 
-            } else {
-                $.scrollify.disable();
-                if ($carousel.hasClass('slick-initialized')) {
-                    $carousel.slick('unslick');
+                var $listcontent = $listcontent + '<div class="vendorItem marker-link" data-markerid="' + Item + '">' +
+                    '<div class="vendorPhoto"><img src="' + photos + '"></div>' + '<div class="vendorInfo">' + '<h3 class="vendorName">' +
+                    vendor[Item].name +
+                    '</h3>' + '<p class="vendorAddress">' + vendor[Item].formatted_address +
+                    '</p>' + '<p class="vendorType">' + vendorType + '</p>' + isOpeningList(vendor[Item]) + '</div>' + '</div>';
+
+                bounds.extend(vendor[Item].geometry.location);
+                map.fitBounds(bounds);
+            };
+            $('.vendorList').append($listcontent);
+            $('.marker-link').on('mouseenter', function($e) {
+                google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
+            });
+            var $carousel = $('.vendorList');
+
+            function showSliderScreen($widthScreen) {
+
+                if ($widthScreen <= "920") {
+
+                    if (!$carousel.hasClass('slick-initialized')) {
+                        $carousel.slick({
+                            centerMode: true,
+                            arrows: false,
+
+                            responsive: [{
+                                    breakpoint: 1024,
+                                    settings: {
+                                        arrows: false,
+                                        centerMode: true,
+                                        slidesToShow: 1
+                                    }
+                                },
+                                {
+                                    breakpoint: 480,
+                                    settings: {
+                                        arrows: false,
+                                        centerMode: true,
+                                        centerPadding: '10px',
+                                        slidesToShow: 1
+                                    }
+                                }
+                            ]
+                        });
+
+                    }
+
+                } else {
+                    $.scrollify.disable();
+                    if ($carousel.hasClass('slick-initialized')) {
+                        $carousel.slick('unslick');
+                    }
                 }
             }
-        }
 
-        var widthScreen = $(window).width();
-        $(window).ready(showSliderScreen(widthScreen)).resize(
-            function() {
-                var widthScreen = $(window).width();
-                showSliderScreen(widthScreen);
-            }
-        );
-}, 1500);
-
+            var widthScreen = $(window).width();
+            $(window).ready(showSliderScreen(widthScreen)).resize(
+                function() {
+                    var widthScreen = $(window).width();
+                    showSliderScreen(widthScreen);
+                }
+            );
+        }, 1500);
 
 
 
- 
- });
+
+
+    });
 };
 
 
@@ -294,39 +198,39 @@ function createMarker(data, map) {
     service.getDetails({
         placeId: data.placeid
     }, function(result, status) {
-        
+
         if (status === google.maps.GeocoderStatus.OK) {
-         vendor.push(result);
-        if (result.opening_hours.open_now) {
-            var icon_url = marker_open;
-        } else {
-            var icon_url = marker_close;
-        };
+            vendor.push(result);
+            if (result.opening_hours && result.opening_hours.open_now) {
+                var icon_url = marker_open;
+            } else {
+                var icon_url = marker_close;
+            };
 
-        var marker = new google.maps.Marker({
-            map: map,
-            place: {
-                placeId: data.placeid,
-                location: result.geometry.location
-            },
-            icon: {
-                url: icon_url,
+            var marker = new google.maps.Marker({
+                map: map,
+                place: {
+                    placeId: data.placeid,
+                    location: result.geometry.location
+                },
+                icon: {
+                    url: icon_url,
 
-            }
-            // position: result.geometry.location
+                }
+                // position: result.geometry.location
 
 
 
-        });
-        infoBox(map, marker, data, result);
+            });
+            infoBox(map, marker, data, result);
 
-        } else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {    
+        } else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
             setTimeout(function() {
                 createMarker(data, map);
             }, 200);
         } else {
-            alert("Geocode was not successful for the following reason:" 
-                  + status);
+            alert("Geocode was not successful for the following reason:" +
+                status);
         }
 
 
@@ -432,31 +336,34 @@ function isOpeningList(_place) {
     var _willOpenAt = '';
     var _openedAt = '';
     var _willCloseAt = '';
-    if (_place.opening_hours.open_now) {
-        for (var p = 0; p < _place.opening_hours.periods.length; p++) {
-            if (_place.opening_hours.periods[p].open.day === todayDay) {
-                _openedAt = time0000ToTimeText(_place.opening_hours.periods[p].open.time);
-                _willCloseAt = time0000ToTimeText(_place.opening_hours.periods[p].close.time);
-                break;
+    if (_place.opening_hours) {
+        if (_place.opening_hours.open_now) {
+            for (var p = 0; p < _place.opening_hours.periods.length; p++) {
+                if (_place.opening_hours.periods[p].open.day === todayDay) {
+                    _openedAt = time0000ToTimeText(_place.opening_hours.periods[p].open.time);
+                    _willCloseAt = time0000ToTimeText(_place.opening_hours.periods[p].close.time);
+                    break;
+                };
             };
-        };
-        _isOpening = '<div class="vendorOpening"><div class="open-dot"></div>' + _openedAt + ' ~ ' + _willCloseAt + '</div>';
-    } else {
-        for (var p = 0; p < _place.opening_hours.periods.length; p++) {
-            if (_place.opening_hours.periods[p].open.day === tomorrowDay) {
-                _willOpenAt = '明日 ' + time0000ToTimeText(_place.opening_hours.periods[p].open.time);
-                break;
-            } else if (_place.opening_hours.periods[p].open.day === todayDay) {
-                _willOpenAt = '今日 ' + time0000ToTimeText(_place.opening_hours.periods[p].open.time);
-                break;
+            _isOpening = '<div class="vendorOpening"><div class="open-dot"></div>' + _openedAt + ' ~ ' + _willCloseAt + '</div>';
+        } else {
+            for (var p = 0; p < _place.opening_hours.periods.length; p++) {
+                if (_place.opening_hours.periods[p].open.day === tomorrowDay) {
+                    _willOpenAt = '明日 ' + time0000ToTimeText(_place.opening_hours.periods[p].open.time);
+                    break;
+                } else if (_place.opening_hours.periods[p].open.day === todayDay) {
+                    _willOpenAt = '今日 ' + time0000ToTimeText(_place.opening_hours.periods[p].open.time);
+                    break;
+                }
+            }
+            if (_willOpenAt === '') {
+                _isOpening = '<div class="vendorOpening"><div class="close-dot"></div>休息中 </div>';
+            } else {
+                _isOpening = '<div class="vendorOpening"><div class="close-dot"></div>休息中 ' + _willOpenAt + ' 營業</div>';
             }
         }
-        if (_willOpenAt === '') {
-            _isOpening = '<div class="vendorOpening"><div class="close-dot"></div>休息中 </div>';
-        } else {
-            _isOpening = '<div class="vendorOpening"><div class="close-dot"></div>休息中 ' + _willOpenAt + ' 營業</div>';
-        }
     }
+
     return _isOpening;
 
 };
@@ -498,7 +405,7 @@ $(document).ready(function() {
         if (wS > (hT + hH - wH) && (hT > wS) && (wS + wH > hT + hH)) {
             $('#result-number').each(function() {
                 var $el = $(this);
-                var max = parseInt($el.text().replace(/\s/g, ''));
+                var max = parseInt(globalUsedAmount);
                 $(this).text('0');
                 var duration = 1000;
                 var refresh = Math.floor((Math.random() * 10));;
@@ -523,7 +430,22 @@ $(document).ready(function() {
     }
 
     if ($('#result-number').length > 0) {
-        $(window).on("scroll", counter);
+        $.ajax({
+            url: "https://app.goodtogo.tw/test/containers/globalUsedAmount",
+            type: "GET",
+            dataType: 'text',
+
+            success: function(data) {
+                globalUsedAmount = data.replace(/\"/g, '');
+                // alert(msg);
+                $(window).on("scroll", counter);
+            },
+
+            error: function(xhr, ajaxOptions, thrownError) {
+                console.error(xhr.status);
+                console.error(thrownError);
+            }
+        });
 
     }
 

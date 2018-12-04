@@ -40,3 +40,7 @@ Thumbs.db
 # Custom files #
 sftp-config.json
 .DS_Store
+
+node_modules
+sublime
+.sass-cache
