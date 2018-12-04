@@ -9,8 +9,8 @@ var gulp = require('gulp'),
     addsrc = require('gulp-add-src'),
     gulpNotify = require("gulp-notify");
 
-gulp.task('js', function () {
-    gulp.src('resources/js/jquery-3.2.1.min.js')
+function js() {
+    return gulp.src('resources/js/jquery-3.2.1.min.js')
         .pipe(addsrc.append('resources/js/bootstrap.min.js'))
         .pipe(addsrc.append('resources/js/jquery.easing.min.js'))
         .pipe(addsrc.append('resources/js/parallax.min.js'))
@@ -26,11 +26,9 @@ gulp.task('js', function () {
         .pipe(sourcemaps.write('source-maps'))
         .pipe(gulp.dest('build/assets/js/'))
         .pipe(gulpNotify("js 檔案混淆成功"));
-});
+}
 
-
-
-gulp.task('css', function () {
+function css() {
     sass('resources/sass/pages/*.sass', {
             sourcemap: true,
             style: 'compressed'
@@ -39,9 +37,9 @@ gulp.task('css', function () {
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('build/assets/css'))
         .pipe(gulpNotify("css 編譯成功"));
-});
+}
 
-gulp.task('browser-sync', ['css', 'js'], function () {
+function browser_sync() {
     connect.server({}, function () {
         browserSync({
             proxy: '127.0.0.1:8000'
@@ -51,10 +49,15 @@ gulp.task('browser-sync', ['css', 'js'], function () {
     gulp.watch(['build/*.*']).on('change', function () {
         browserSync.reload();
     });
+}
 
-});
+function watch() {
+    gulp.watch("resources/sass/**/*.sass", css);
+    gulp.watch("resources/js/*.js", js);
+}
 
-gulp.task('watch', ['css', 'js', 'browser-sync'], function () {
-    gulp.watch("resources/sass/**/*.sass", ['css']);
-    gulp.watch("resources/js/*.js", ['js']);
-});
+const build_assets = gulp.parallel(js, css);
+const develop = gulp.series(build_assets, gulp.parallel(browser_sync, watch));
+
+gulp.task('default', develop);
+gulp.task('build', build_assets);
