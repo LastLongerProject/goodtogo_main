@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-    connect = require('gulp-connect-php'),
     browserSync = require('browser-sync'),
     sass = require('gulp-ruby-sass'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -29,7 +28,7 @@ function js() {
 }
 
 function css() {
-    sass('resources/sass/pages/*.sass', {
+    return sass('resources/sass/pages/*.sass', {
             sourcemap: true,
             style: 'compressed'
         }).on('error', sass.logError)
@@ -40,10 +39,8 @@ function css() {
 }
 
 function browser_sync() {
-    connect.server({}, function () {
-        browserSync({
-            proxy: '127.0.0.1:8000'
-        });
+    browserSync.init({
+        proxy: '127.0.0.1:8000'
     });
 
     gulp.watch(['build/*.*']).on('change', function () {
@@ -57,7 +54,7 @@ function watch() {
 }
 
 const build_assets = gulp.parallel(js, css);
-const develop = gulp.series(build_assets, gulp.parallel(browser_sync, watch));
+const develop = gulp.series(gulp.parallel(js, css), gulp.parallel(browser_sync, watch));
 
 gulp.task('default', develop);
 gulp.task('build', build_assets);
