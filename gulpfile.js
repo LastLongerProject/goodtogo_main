@@ -40,7 +40,9 @@ function css() {
 
 function browser_sync() {
     browserSync.init({
-        proxy: '127.0.0.1:8000'
+        server: {
+            baseDir: "./build/"
+        }
     });
 
     gulp.watch(['build/*.*']).on('change', function () {
