@@ -95,8 +95,6 @@ function initialize() {
 };
 
 function bindMarker() {
-    console.log("start binding")
-
     $('.marker-link').on('mouseenter', function ($e) {
         google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
     });
