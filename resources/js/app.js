@@ -180,7 +180,7 @@ function createMarker(data, map) {
             vendor.push(result);
             markers.push(marker);
             infoBox(map, marker, data, result);
-            appendVendorIntoList(map, result, markerCtr);
+            appendVendorIntoList(map, data, result, markerCtr);
             if (markerCtr === json_length - 1) bindMarker();
             markerCtr++;
         } else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
@@ -200,7 +200,7 @@ function infoBox(map, marker, data, result) {
         // var contentString = '<div class="scrollFix"><span class="place-title">' + '<a href="' + result.url + '">' + result.name + '</a>' + '</span><br>' +
         //     isOpeningString(result) +
         //     '</div>';
-        var contentString = '<div class="scrollFix"><span class="place-title">' + '<a href="' + result.url + '">' + result.name + '</a>' + '</span>' +
+        var contentString = '<div class="scrollFix"><span class="place-title">' + '<a href="' + result.url + '">' + data.name + '</a>' + '</span>' +
             '</div>';
         infoWindow = new google.maps.InfoWindow({
             content: contentString
@@ -227,7 +227,7 @@ function infoBox(map, marker, data, result) {
     })(marker);
 }
 
-function appendVendorIntoList(map, aVendor, venderCtr) {
+function appendVendorIntoList(map, data, aVendor, venderCtr) {
     var $listcontent = '';
     if (aVendor.photos !== undefined) {
         var photos = aVendor.photos[0].getUrl({
@@ -250,7 +250,7 @@ function appendVendorIntoList(map, aVendor, venderCtr) {
     }
     var $listcontent = $listcontent + '<div class="vendorItem marker-link" data-markerid="' + venderCtr + '">' +
         '<div class="vendorPhoto"><img src="' + photos + '"></div>' + '<div class="vendorInfo">' + '<h3 class="vendorName">' +
-        aVendor.name +
+        data.name +
         '</h3>' + '<p class="vendorAddress">' + aVendor.formatted_address +
         '</p>' + '<p class="vendorType">' + vendorType + '</p>' + isOpeningList(aVendor) + '</div>' + '</div>';
 
