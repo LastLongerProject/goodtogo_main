@@ -229,13 +229,16 @@ function infoBox(map, marker, data, result) {
 
 function appendVendorIntoList(map, data, aVendor, venderCtr) {
     var $listcontent = '';
-    if (aVendor.photos !== undefined) {
-        var photos = aVendor.photos[0].getUrl({
+    var photo;
+    if (data.photo !== null) {
+        photo = data.photo;
+    } else if (aVendor.photos !== undefined) {
+        photo = aVendor.photos[0].getUrl({
             maxWidth: 200,
             maxHeight: 150
         });
     } else {
-        var photos = "/assets/img/no-image.jpg";
+        photo = "/assets/img/no-image.jpg";
     };
 
     var vendorType = '';
@@ -249,7 +252,7 @@ function appendVendorIntoList(map, data, aVendor, venderCtr) {
         }
     }
     var $listcontent = $listcontent + '<div class="vendorItem marker-link" data-markerid="' + venderCtr + '">' +
-        '<div class="vendorPhoto"><img src="' + photos + '"></div>' + '<div class="vendorInfo">' + '<h3 class="vendorName">' +
+        '<div class="vendorPhoto"><img src="' + photo + '"></div>' + '<div class="vendorInfo">' + '<h3 class="vendorName">' +
         data.name +
         '</h3>' + '<p class="vendorAddress">' + aVendor.formatted_address +
         '</p>' + '<p class="vendorType">' + vendorType + '</p>' + isOpeningList(aVendor) + '</div>' + '</div>';

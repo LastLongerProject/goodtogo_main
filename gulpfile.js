@@ -45,7 +45,7 @@ function browser_sync() {
         }
     });
 
-    gulp.watch(['build/*.*']).on('change', function () {
+    gulp.watch(['build/**/*.*']).on('change', function () {
         browserSync.reload();
     });
 }

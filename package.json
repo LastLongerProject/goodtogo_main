@@ -6,7 +6,7 @@
   "scripts": {
     "deploy": "bash deploy.sh",
     "build": "gulp build",
-    "test": "gulp"
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
