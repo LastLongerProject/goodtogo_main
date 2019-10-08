@@ -87,7 +87,6 @@ function initialize() {
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
     google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
-
         bounds = new google.maps.LatLngBounds();
         setMarkers(map);
     });
@@ -97,50 +96,6 @@ function bindMarker() {
     $('.marker-link').on('mouseenter', function ($e) {
         google.maps.event.trigger(markers[$(this).data('markerid')], 'click');
     });
-    var $carousel = $('.vendorList');
-
-    function showSliderScreen($widthScreen) {
-        /*
-                if ($widthScreen <= "920") {
-                    if (!$carousel.hasClass('slick-initialized')) {
-                        $carousel.slick({
-                            centerMode: true,
-                            arrows: false,
-                            responsive: [{
-                                    breakpoint: 1024,
-                                    settings: {
-                                        arrows: false,
-                                        centerMode: true,
-                                        slidesToShow: 1
-                                    }
-                                },
-                                {
-                                    breakpoint: 480,
-                                    settings: {
-                                        arrows: false,
-                                        centerMode: true,
-                                        centerPadding: '10px',
-                                        slidesToShow: 1
-                                    }
-                                }
-                            ]
-                        });
-                    }
-                } else {*/
-        // $.scrollify.disable();
-        if ($carousel.hasClass('slick-initialized')) {
-            $carousel.slick('unslick');
-        }
-        // }
-    }
-
-    var widthScreen = $(window).width();
-    $(window).ready(showSliderScreen(widthScreen)).resize(
-        function () {
-            var widthScreen = $(window).width();
-            showSliderScreen(widthScreen);
-        }
-    );
 }
 
 function setMarkers(map) {
@@ -178,7 +133,6 @@ function createMarker(data, map) {
                 icon: {
                     url: icon_url,
                 }
-                // position: result.geometry.location
             });
             vendor.push(result);
             markers.push(marker);
@@ -313,6 +267,19 @@ function toggleBounce() {
     }
 }
 
+function scrollifySwitch() {
+    if (isMobileMode()) {
+        $.scrollify.disable();
+    } else {
+        $.scrollify.enable();
+    }
+}
+
+function isMobileMode() {
+    var $widthScreen = $(window).width();
+    return $widthScreen <= "920";
+}
+
 function isOpeningList(_place) {
     var _isOpening = '';
     var _willOpenAt = '';
@@ -361,6 +328,20 @@ function time0000ToTimeText(time) {
     /*return hour+':'+min+ampm;*/
 };
 
+function debounce(func, delay) {
+    var timer = null;
+    if (typeof func !== "function") return;
+    if (typeof delay !== "number") delay = 200;
+    return function () {
+        var context = this;
+        var args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            func.apply(context, args)
+        }, delay);
+    }
+}
+
 $(document).ready(function () {
     $.scrollify({
         section: ".scrollify",
@@ -369,6 +350,7 @@ $(document).ready(function () {
         easing: "easeOutExpo",
         scrollSpeed: 1000
     });
+    scrollifySwitch();
     $('.vendorList').on('afterChange', function (event, slick, currentSlide, nextSlide) {
         google.maps.event.trigger(markers[currentSlide], 'click');
     });
@@ -428,4 +410,9 @@ $(document).ready(function () {
             naturalWidth: '1920'
         });
     }
+
+    $(window).resize(debounce(function () {
+        $.scrollify.current();
+        scrollifySwitch();
+    }, 200));
 });

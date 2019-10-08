@@ -16,7 +16,6 @@ function js() {
         .pipe(addsrc.append('resources/js/jquery.easing.min.js'))
         .pipe(addsrc.append('resources/js/parallax.min.js'))
         .pipe(addsrc.append('resources/js/scrolling-nav.js'))
-        .pipe(addsrc.append('resources/js/slick.min.js'))
         .pipe(addsrc.append('resources/js/jquery.scrollify.js'))
         .pipe(addsrc.append('resources/js/app.js'))
         .pipe(sourcemaps.init())
