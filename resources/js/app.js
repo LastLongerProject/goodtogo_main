@@ -3,21 +3,20 @@ var markers = new Array();
 
 var today = new Date();
 var todayDay = today.getDay();
-
-var marker_open = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAA8CAMAAAAnktjvAAAAjVBMVEUAAACa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eNfeoJBTVGEs758qLJtkZo5QUUjHyBQY2mLvsua1eMqKiw/OzxaV1iDgYLk4+O6ubl2c3T////Ix8dMSUqRj5Ca1eOfnZ2tq6vW1dVoZWYxLS6a1eMyNjhIWF2a1eOTytfx8fFmhY51nKbdnYjSAAAAK3RSTlMAIGCvz/+/QN8QMO////////////9w//////////////+A//////9Q//+fxh1NpwAAAcdJREFUeAGN1dXCwjAMhuFOMkWDTGCK6/3f3e+Sb1L2HL9YmwyFDNOy6YttmYbqZzoEHFN1cz1q8dyO0Leok+U3y8CjHl7QKEPqFQZDS2z9Zjkajyey/f++cEbT2WjOzIulPLXfciXDdRQnnKYb5hn9W7U/frneZlnORczbctz+CpV8U47qNMs3u312mJNQqU/yN014yxzF8TY+MsMpfJYnks5FvSviQ1QcDheSTh/plYTbuWCOizj6eNfxjYTrRwo3Oi+KbZmU5TY6FtEC7lcpg4RZdM/y8lO9z/IzSYZySVgk2b+UIXWVScK4zASekGCqSpNO8WQxrYen+K5LTN2hqatNCVOlSeG6YK61qdMY7NGheQIw3H5/SoKvcLQeMaY4WDAwU77/l3uGYWluzLz4b5M17ssn3/4f7Xmx+47TrfhVtt/xcLkt1p+7FRc8n3Y9XnC/Js/RhyfslWCShqmAqS2RG1Kn0FUthk0dbKPZ4fnieSI8NDwkXYulpoVSawUTqueJh9QLJpy8XiievS9c5djrnWCatHyxdq848KemVcHlawWfaaAGCeGotCwia2C6gvvXcolcNRCRGspxBqdVNTh1XdXhHZiPQZhUio4OAAAAAElFTkSuQmCC";
-var marker_close = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAA8CAMAAAAnktjvAAAAjVBMVEUAAAC6urq6urq6urq6urq6urq6urq6urq6urq6urq6urq6urqmpaWbmpqysrKwr6+rqqqZl5eRj4+gn5+1tbW6urqUkpKfnZ2tq6vBwMDx8fHd3Ny6ubn////k4+OmpKTIx8e6urrPzs7W1dXq6uqzsrKYlpa6urqWlJSenJy6urq3t7f4+Piop6etra3bnkrLAAAAK3RSTlMAIGCvz/+/QN8QMO////////////9w//////////////+A//////9Q//+fxh1NpwAAAcdJREFUeAGN1dXCwjAMhuFOMkWDTGCK6/3f3e+Sb1L2HL9YmwyFDNOy6YttmYbqZzoEHFN1cz1q8dyO0Leok+U3y8CjHl7QKEPqFQZDS2z9Zjkajyey/f++cEbT2WjOzIulPLXfciXDdRQnnKYb5hn9W7U/frneZlnORczbctz+CpV8U47qNMs3u312mJNQqU/yN014yxzF8TY+MsMpfJYnks5FvSviQ1QcDheSTh/plYTbuWCOizj6eNfxjYTrRwo3Oi+KbZmU5TY6FtEC7lcpg4RZdM/y8lO9z/IzSYZySVgk2b+UIXWVScK4zASekGCqSpNO8WQxrYen+K5LTN2hqatNCVOlSeG6YK61qdMY7NGheQIw3H5/SoKvcLQeMaY4WDAwU77/l3uGYWluzLz4b5M17ssn3/4f7Xmx+47TrfhVtt/xcLkt1p+7FRc8n3Y9XnC/Js/RhyfslWCShqmAqS2RG1Kn0FUthk0dbKPZ4fnieSI8NDwkXYulpoVSawUTqueJh9QLJpy8XiievS9c5djrnWCatHyxdq848KemVcHlawWfaaAGCeGotCwia2C6gvvXcolcNRCRGspxBqdVNTh1XdXhHZiPQZhUio4OAAAAAElFTkSuQmCC";
-
-var globalUsedAmount = 0;
-
 var tomorrowDay = todayDay + 1;
-
 if (tomorrowDay > 6) {
     tomorrowDay = 0;
 };
 
+var marker_open = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAA8CAMAAAAnktjvAAAAjVBMVEUAAACa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eOa1eNfeoJBTVGEs758qLJtkZo5QUUjHyBQY2mLvsua1eMqKiw/OzxaV1iDgYLk4+O6ubl2c3T////Ix8dMSUqRj5Ca1eOfnZ2tq6vW1dVoZWYxLS6a1eMyNjhIWF2a1eOTytfx8fFmhY51nKbdnYjSAAAAK3RSTlMAIGCvz/+/QN8QMO////////////9w//////////////+A//////9Q//+fxh1NpwAAAcdJREFUeAGN1dXCwjAMhuFOMkWDTGCK6/3f3e+Sb1L2HL9YmwyFDNOy6YttmYbqZzoEHFN1cz1q8dyO0Leok+U3y8CjHl7QKEPqFQZDS2z9Zjkajyey/f++cEbT2WjOzIulPLXfciXDdRQnnKYb5hn9W7U/frneZlnORczbctz+CpV8U47qNMs3u312mJNQqU/yN014yxzF8TY+MsMpfJYnks5FvSviQ1QcDheSTh/plYTbuWCOizj6eNfxjYTrRwo3Oi+KbZmU5TY6FtEC7lcpg4RZdM/y8lO9z/IzSYZySVgk2b+UIXWVScK4zASekGCqSpNO8WQxrYen+K5LTN2hqatNCVOlSeG6YK61qdMY7NGheQIw3H5/SoKvcLQeMaY4WDAwU77/l3uGYWluzLz4b5M17ssn3/4f7Xmx+47TrfhVtt/xcLkt1p+7FRc8n3Y9XnC/Js/RhyfslWCShqmAqS2RG1Kn0FUthk0dbKPZ4fnieSI8NDwkXYulpoVSawUTqueJh9QLJpy8XiievS9c5djrnWCatHyxdq848KemVcHlawWfaaAGCeGotCwia2C6gvvXcolcNRCRGspxBqdVNTh1XdXhHZiPQZhUio4OAAAAAElFTkSuQmCC";
+var marker_close = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAA8CAMAAAAnktjvAAAAjVBMVEUAAAC6urq6urq6urq6urq6urq6urq6urq6urq6urq6urq6urqmpaWbmpqysrKwr6+rqqqZl5eRj4+gn5+1tbW6urqUkpKfnZ2tq6vBwMDx8fHd3Ny6ubn////k4+OmpKTIx8e6urrPzs7W1dXq6uqzsrKYlpa6urqWlJSenJy6urq3t7f4+Piop6etra3bnkrLAAAAK3RSTlMAIGCvz/+/QN8QMO////////////9w//////////////+A//////9Q//+fxh1NpwAAAcdJREFUeAGN1dXCwjAMhuFOMkWDTGCK6/3f3e+Sb1L2HL9YmwyFDNOy6YttmYbqZzoEHFN1cz1q8dyO0Leok+U3y8CjHl7QKEPqFQZDS2z9Zjkajyey/f++cEbT2WjOzIulPLXfciXDdRQnnKYb5hn9W7U/frneZlnORczbctz+CpV8U47qNMs3u312mJNQqU/yN014yxzF8TY+MsMpfJYnks5FvSviQ1QcDheSTh/plYTbuWCOizj6eNfxjYTrRwo3Oi+KbZmU5TY6FtEC7lcpg4RZdM/y8lO9z/IzSYZySVgk2b+UIXWVScK4zASekGCqSpNO8WQxrYen+K5LTN2hqatNCVOlSeG6YK61qdMY7NGheQIw3H5/SoKvcLQeMaY4WDAwU77/l3uGYWluzLz4b5M17ssn3/4f7Xmx+47TrfhVtt/xcLkt1p+7FRc8n3Y9XnC/Js/RhyfslWCShqmAqS2RG1Kn0FUthk0dbKPZ4fnieSI8NDwkXYulpoVSawUTqueJh9QLJpy8XiievS9c5djrnWCatHyxdq848KemVcHlawWfaaAGCeGotCwia2C6gvvXcolcNRCRGspxBqdVNTh1XdXhHZiPQZhUio4OAAAAAElFTkSuQmCC";
+
 var infoWindows = [];
 var bounds;
 var json_length;
+var apiErrCount = 0;
+var API_ERR_TIMES_LIMIT = 5;
+var globalUsedAmount = 0;
 
 function initialize() {
     var radius = 8000,
@@ -101,37 +100,38 @@ function bindMarker() {
     var $carousel = $('.vendorList');
 
     function showSliderScreen($widthScreen) {
-        if ($widthScreen <= "920") {
-            if (!$carousel.hasClass('slick-initialized')) {
-                $carousel.slick({
-                    centerMode: true,
-                    arrows: false,
-                    responsive: [{
-                            breakpoint: 1024,
-                            settings: {
-                                arrows: false,
-                                centerMode: true,
-                                slidesToShow: 1
-                            }
-                        },
-                        {
-                            breakpoint: 480,
-                            settings: {
-                                arrows: false,
-                                centerMode: true,
-                                centerPadding: '10px',
-                                slidesToShow: 1
-                            }
-                        }
-                    ]
-                });
-            }
-        } else {
-            $.scrollify.disable();
-            if ($carousel.hasClass('slick-initialized')) {
-                $carousel.slick('unslick');
-            }
+        /*
+                if ($widthScreen <= "920") {
+                    if (!$carousel.hasClass('slick-initialized')) {
+                        $carousel.slick({
+                            centerMode: true,
+                            arrows: false,
+                            responsive: [{
+                                    breakpoint: 1024,
+                                    settings: {
+                                        arrows: false,
+                                        centerMode: true,
+                                        slidesToShow: 1
+                                    }
+                                },
+                                {
+                                    breakpoint: 480,
+                                    settings: {
+                                        arrows: false,
+                                        centerMode: true,
+                                        centerPadding: '10px',
+                                        slidesToShow: 1
+                                    }
+                                }
+                            ]
+                        });
+                    }
+                } else {*/
+        // $.scrollify.disable();
+        if ($carousel.hasClass('slick-initialized')) {
+            $carousel.slick('unslick');
         }
+        // }
     }
 
     var widthScreen = $(window).width();
@@ -147,6 +147,7 @@ function setMarkers(map) {
     var json = placeid_json;
     json_length = json.length;
     for (var i = 0; i < json_length; i++) {
+        if (apiErrCount > API_ERR_TIMES_LIMIT) break;
         var data = json[i];
         createMarker(data, map);
     }
@@ -155,11 +156,13 @@ function setMarkers(map) {
 var markerCtr = 0;
 
 function createMarker(data, map) {
+    if (apiErrCount > API_ERR_TIMES_LIMIT) return;
     var service = new google.maps.places.PlacesService(map);
     service.getDetails({
-        placeId: data.placeid
+        placeId: data.placeid,
+        fields: ['place_id', 'geometry', 'opening_hours', 'formatted_address', 'photos', 'url']
     }, function (result, status) {
-        if (status === google.maps.GeocoderStatus.OK) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
             if (result.opening_hours && result.opening_hours.open_now) {
                 var icon_url = marker_open;
             } else {
@@ -183,13 +186,15 @@ function createMarker(data, map) {
             appendVendorIntoList(map, data, result, markerCtr);
             if (markerCtr === json_length - 1) bindMarker();
             markerCtr++;
-        } else if (status === google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+        } else if (status === google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
             setTimeout(function () {
                 createMarker(data, map);
-            }, 200);
+                // apiErrCount += 0.5;
+            }, 500);
         } else {
             markerCtr++;
-            console.error("Geocode was not successful for the following reason:" + status);
+            apiErrCount += 1;
+            console.error("PlacesService was not successful for the following reason:" + status);
         }
     });
 }
@@ -222,7 +227,6 @@ function infoBox(map, marker, data, result) {
             map.panTo(position);
 
             // if (map.getZoom() != 18) map.setZoom(18);
-
         });
     })(marker);
 }
@@ -309,7 +313,6 @@ function toggleBounce() {
     }
 }
 
-
 function isOpeningList(_place) {
     var _isOpening = '';
     var _willOpenAt = '';
@@ -342,12 +345,8 @@ function isOpeningList(_place) {
             }
         }
     }
-
     return _isOpening;
-
 };
-
-
 
 function time0000ToTimeText(time) {
     var hour = time.slice(0, 2);
@@ -366,16 +365,15 @@ $(document).ready(function () {
     $.scrollify({
         section: ".scrollify",
         interstitialSection: ".footer-section",
+        standardScrollElements: ".non-scrollify",
         easing: "easeOutExpo",
         scrollSpeed: 1000
     });
     $('.vendorList').on('afterChange', function (event, slick, currentSlide, nextSlide) {
-
         google.maps.event.trigger(markers[currentSlide], 'click');
     });
 
     function counter() {
-
         var hT = $('#result-number').offset().top, //元素的最高點
             hH = $('#result-number').outerHeight(), //元素高度
             wH = $(window).height(), //視窗高度
@@ -394,7 +392,6 @@ $(document).ready(function () {
                 var interval = window.setInterval(function () {
                     if (start + step < max) {
                         start += step;
-
                     } else {
                         start = max;
                         clearInterval(interval);
@@ -402,7 +399,6 @@ $(document).ready(function () {
                     $('#result-number').unbind();
                     $el.text(start);
                 }, refresh);
-
             });
             $(this).off('scroll', counter);
         }
@@ -413,23 +409,19 @@ $(document).ready(function () {
             url: "https://app.goodtogo.tw/test/containers/globalUsedAmount",
             type: "GET",
             dataType: 'text',
-
             success: function (data) {
                 globalUsedAmount = data.replace(/\"/g, '');
                 // alert(msg);
                 $(window).on("scroll", counter);
             },
-
             error: function (xhr, ajaxOptions, thrownError) {
                 console.error(xhr.status);
                 console.error(thrownError);
             }
         });
-
     }
 
     if (window.location.pathname == '/') {
-
         $('.intro-section').parallax({
             imageSrc: 'assets/img/intro_bg.jpg',
             naturalHeight: '1440',

@@ -1,12 +1,14 @@
 var gulp = require('gulp'),
     browserSync = require('browser-sync'),
-    sass = require('gulp-ruby-sass'),
+    sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     prefix = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
     addsrc = require('gulp-add-src'),
     gulpNotify = require("gulp-notify");
+
+sass.compiler = require('node-sass');
 
 function js() {
     return gulp.src('resources/js/jquery-3.2.1.min.js')
@@ -15,7 +17,7 @@ function js() {
         .pipe(addsrc.append('resources/js/parallax.min.js'))
         .pipe(addsrc.append('resources/js/scrolling-nav.js'))
         .pipe(addsrc.append('resources/js/slick.min.js'))
-        .pipe(addsrc.append('resources/js/jquery.scrollify.min.js'))
+        .pipe(addsrc.append('resources/js/jquery.scrollify.js'))
         .pipe(addsrc.append('resources/js/app.js'))
         .pipe(sourcemaps.init())
         .pipe(concat('app.min.js'))
@@ -28,10 +30,12 @@ function js() {
 }
 
 function css() {
-    return sass('resources/sass/pages/*.sass', {
+    return gulp.src('resources/sass/pages/*.sass')
+        .pipe(sourcemaps.init())
+        .pipe(sass({
             sourcemap: true,
-            style: 'compressed'
-        }).on('error', sass.logError)
+            outputStyle: 'compressed'
+        }).on('error', sass.logError))
         .pipe(prefix("last 1 version", "> 1%", "ie 8", "ie 7"))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('build/assets/css'))

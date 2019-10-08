@@ -40,8 +40,6 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   padding-left: 20px
   padding-right: 20px
 
-
-
 .navbar-brand
   padding: 10px 15px
 
@@ -120,11 +118,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   letter-spacing: .8vw
   .highlight
     border-bottom: 8px solid #9AD5E3
-    
 
 #map-title .highlight, #result-title .highlight
   border-bottom: 4px solid #9AD5E3
-  
 
 .where-section
   margin: 0
@@ -158,7 +154,6 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
       height: 120px
       transition: all .1s ease-out
 
-      
       &:hover
         background: #9ad5e3
         cursor: default
@@ -293,7 +288,6 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   .highlight
     font-size: calc(30px + .2vw)
 
-
 .services-section
   background-color: #ff0
 
@@ -302,7 +296,6 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   background-color: #9AD5E3
   color: #fff
   padding: 24px 0
-
 
   li
     padding-left: 6px
@@ -361,7 +354,6 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   //   .container-fluid
   //     margin: 0
 
-
 @media screen and (max-width: 767px) and (max-width: 992px)
   .where-section
     .map-list
@@ -387,11 +379,12 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   .map-list
     height: calc(18vh) !important
     .vendorList
-      height: calc(18vh)
+      height: calc(18vh) !important
+      overflow-x: hidden !important
   .footer-section
     margin-top: calc(2vh)
-
-
+  #map-title
+    margin: 40px auto 10px auto
 
 @media screen and (min-width: 375px) and (max-width: 736px) and (orientation: landscape)
   #map-title
@@ -412,9 +405,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
         height: 95px !important
   .footer-section
     margin-top: calc(8vh)
-  
 
 @media(min-width:992px)
 
 @media(min-width:1200px)
-    
