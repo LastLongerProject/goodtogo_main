@@ -14,18 +14,19 @@ var marker_close = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAA8CAMAAA
 var infoWindows = [];
 var bounds;
 var json_length;
+var placeid_json;
 var apiErrCount = 0;
 var API_ERR_TIMES_LIMIT = 5;
 var globalUsedAmount = 0;
 
 function initialize() {
     var radius = 8000,
-        latitude = 51.9315631,
-        longitude = 19.473451,
+        latitude = 22.9934504,
+        longitude = 120.222221,
         center = new google.maps.LatLng(latitude, longitude)
     mapOptions = {
         center: center,
-        zoom: 20,
+        zoom: 7,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         scrollwheel: false,
         styles: [{
@@ -87,8 +88,20 @@ function initialize() {
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
     google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
-        bounds = new google.maps.LatLngBounds();
-        setMarkers(map);
+        $.ajax({
+            url: "http://localhost:3030/stores/list/forOfficialPage",
+            type: "GET",
+            dataType: 'json',
+            success: function (data) {
+                bounds = new google.maps.LatLngBounds();
+                placeid_json = data.storeList;
+                setMarkers(map);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.error(xhr.status);
+                console.error(thrownError);
+            }
+        });
     });
 };
 
@@ -106,60 +119,39 @@ function setMarkers(map) {
         var data = json[i];
         createMarker(data, map);
     }
+    bindMarker();
 }
 
 var markerCtr = 0;
 
 function createMarker(data, map) {
-    if (apiErrCount > API_ERR_TIMES_LIMIT) return;
-    var service = new google.maps.places.PlacesService(map);
-    service.getDetails({
-        placeId: data.placeid,
-        fields: ['place_id', 'geometry', 'opening_hours', 'formatted_address', 'photos', 'url']
-    }, function (result, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-            if (result.opening_hours && result.opening_hours.open_now) {
-                var icon_url = marker_open;
-            } else {
-                var icon_url = marker_close;
-            };
+    if (data.opening_hours && checkIsOpening(data.opening_hours)) {
+        var icon_url = marker_open;
+    } else {
+        var icon_url = marker_close;
+    };
 
-            var marker = new google.maps.Marker({
-                map: map,
-                place: {
-                    placeId: data.placeid,
-                    location: result.geometry.location
-                },
-                icon: {
-                    url: icon_url,
-                }
-            });
-            vendor.push(result);
-            markers.push(marker);
-            infoBox(map, marker, data, result);
-            appendVendorIntoList(map, data, result, markerCtr);
-            if (markerCtr === json_length - 1) bindMarker();
-            markerCtr++;
-        } else if (status === google.maps.places.PlacesServiceStatus.OVER_QUERY_LIMIT) {
-            setTimeout(function () {
-                createMarker(data, map);
-                // apiErrCount += 0.5;
-            }, 500);
-        } else {
-            markerCtr++;
-            apiErrCount += 1;
-            console.error("PlacesService was not successful for the following reason:" + status);
+    var marker = new google.maps.Marker({
+        map: map,
+        place: {
+            placeId: data.placeid,
+            location: data.geometry_location
+        },
+        icon: {
+            url: icon_url,
         }
     });
+    vendor.push(data);
+    markers.push(marker);
+    infoBox(map, marker, data);
+    appendVendorIntoList(map, data, markerCtr);
+    markerCtr++;
 }
 
-function infoBox(map, marker, data, result) {
+function infoBox(map, marker, data) {
     (function (marker) {
         var infoWindow = new google.maps.InfoWindow();
-        // var contentString = '<div class="scrollFix"><span class="place-title">' + '<a href="' + result.url + '">' + result.name + '</a>' + '</span><br>' +
-        //     isOpeningString(result) +
-        //     '</div>';
-        var contentString = '<div class="scrollFix"><span class="place-title">' + '<a href="' + result.url + '">' + data.name + '</a>' + '</span>' +
+        var contentString = '<div class="scrollFix"><span class="place-title">' + '<a href="' + data.url + '">' + data.name + '</a>' + '</span>' +
             '</div>';
         infoWindow = new google.maps.InfoWindow({
             content: contentString
@@ -185,37 +177,21 @@ function infoBox(map, marker, data, result) {
     })(marker);
 }
 
-function appendVendorIntoList(map, data, aVendor, venderCtr) {
+function appendVendorIntoList(map, data, venderCtr) {
     var $listcontent = '';
     var photo;
     if (data.photo !== null) {
         photo = data.photo;
-    } else if (aVendor.photos !== undefined) {
-        photo = aVendor.photos[0].getUrl({
-            maxWidth: 200,
-            maxHeight: 150
-        });
     } else {
         photo = "/assets/img/no-image.jpg";
     };
-
-    var vendorType = '';
-
-    for (var type = 0; type < vendor.length; type++) {
-        if (aVendor.place_id !== window.placeid_json[type].placeid) {
-            continue;
-        } else {
-            vendorType = window.placeid_json[type].type;
-            break;
-        }
-    }
     var $listcontent = $listcontent + '<div class="vendorItem marker-link" data-markerid="' + venderCtr + '">' +
         '<div class="vendorPhoto"><img src="' + photo + '"></div>' + '<div class="vendorInfo">' + '<h3 class="vendorName">' +
         data.name +
-        '</h3>' + '<p class="vendorAddress">' + aVendor.formatted_address +
-        '</p>' + '<p class="vendorType">' + vendorType + '</p>' + isOpeningList(aVendor) + '</div>' + '</div>';
+        '</h3>' + '<p class="vendorAddress">' + data.address +
+        '</p>' + '<p class="vendorType">' + data.type + '</p>' + isOpeningList(data) + '</div>' + '</div>';
 
-    bounds.extend(aVendor.geometry.location);
+    bounds.extend(data.geometry_location);
     map.fitBounds(bounds);
     $('.vendorList').append($listcontent);
 }
@@ -224,39 +200,6 @@ function closeAllInfoWindows() {
     for (var i = 0; i < infoWindows.length; i++) {
         infoWindows[i].close();
     }
-}
-
-function isOpeningString(_place) {
-    var _isOpening = '';
-    var _willOpenAt = '';
-    var _openedAt = '';
-    var _willCloseAt = '';
-    if (_place.opening_hours.open_now) {
-        for (var p = 0; p < _place.opening_hours.periods.length; p++) {
-            if (_place.opening_hours.periods[p].open.day === todayDay) {
-                _openedAt = time0000ToTimeText(_place.opening_hours.periods[p].open.time);
-                _willCloseAt = time0000ToTimeText(_place.opening_hours.periods[p].close.time);
-                break;
-            };
-        };
-        _isOpening = '<span class="highlight-open">營業中</span><br>今日營業到 <span class="highlight-open">' + _willCloseAt + '</span>';
-    } else {
-        for (var p = 0; p < _place.opening_hours.periods.length; p++) {
-            if (_place.opening_hours.periods[p].open.day === tomorrowDay) {
-                _willOpenAt = '明日 ' + time0000ToTimeText(_place.opening_hours.periods[p].open.time);
-                break;
-            } else if (_place.opening_hours.periods[p].open.day === todayDay) {
-                _willOpenAt = '今日 ' + time0000ToTimeText(_place.opening_hours.periods[p].open.time);
-                break;
-            }
-        }
-        if (_willOpenAt === '') {
-            _isOpening = '<span class="highlight-close">休息中</span>';
-        } else {
-            _isOpening = '<span class="highlight-close">休息中</span><br>將在 <span class="highlight-close">' + _willOpenAt + '</span> 開門';
-        }
-    }
-    return _isOpening;
 }
 
 function toggleBounce() {
@@ -289,8 +232,8 @@ function isOpeningList(_place) {
         if (_place.opening_hours.open_now) {
             for (var p = 0; p < _place.opening_hours.periods.length; p++) {
                 if (_place.opening_hours.periods[p].open.day === todayDay) {
-                    _openedAt = time0000ToTimeText(_place.opening_hours.periods[p].open.time);
-                    _willCloseAt = time0000ToTimeText(_place.opening_hours.periods[p].close.time);
+                    _openedAt = _place.opening_hours.periods[p].open.time;
+                    _willCloseAt = _place.opening_hours.periods[p].close.time;
                     break;
                 };
             };
@@ -298,10 +241,10 @@ function isOpeningList(_place) {
         } else {
             for (var p = 0; p < _place.opening_hours.periods.length; p++) {
                 if (_place.opening_hours.periods[p].open.day === tomorrowDay) {
-                    _willOpenAt = '明日 ' + time0000ToTimeText(_place.opening_hours.periods[p].open.time);
+                    _willOpenAt = '明日 ' + _place.opening_hours.periods[p].open.time;
                     break;
                 } else if (_place.opening_hours.periods[p].open.day === todayDay) {
-                    _willOpenAt = '今日 ' + time0000ToTimeText(_place.opening_hours.periods[p].open.time);
+                    _willOpenAt = '今日 ' + _place.opening_hours.periods[p].open.time;
                     break;
                 }
             }
@@ -316,17 +259,35 @@ function isOpeningList(_place) {
 };
 
 function time0000ToTimeText(time) {
-    var hour = time.slice(0, 2);
-    var min = time.slice(2, 4);
-    var ampm = '';
-    if (hour < 12) {
-        ampm = 'AM';
-    } else {
-        ampm = 'PM';
-    }
-    return hour + ':' + min;
-    /*return hour+':'+min+ampm;*/
+    return time;
 };
+
+var now = new Date();
+var now_day = now.getDay();
+var now_hour = now.getHours();
+var now_minute = now.getMinutes();
+
+function checkIsOpening(opening_hours) {
+    var periodsLength = opening_hours.periods.length;
+    if (opening_hours.hasOwnProperty("open_now")) return opening_hours.open_now;
+    for (var index = now_day, ctr = 0; ctr < periodsLength; ctr++) {
+        var thePeriod = opening_hours.periods[index];
+        var reg_open = /(\d*):(\d*)/.exec(thePeriod.open.time);
+        var period_open_hour = parseInt(reg_open[1]);
+        var period_open_minute = parseInt(reg_open[2]);
+        var reg_close = /(\d*):(\d*)/.exec(thePeriod.close.time);
+        var period_close_hour = parseInt(reg_close[1]);
+        var period_close_minute = parseInt(reg_close[2]);
+        if ((thePeriod.open.day < now_day || (thePeriod.open.day === now_day && period_open_hour < now_hour) || (thePeriod.open.day === now_day && period_open_hour === now_hour && period_open_minute <= now_minute)) &&
+            (thePeriod.close.day > now_day || (thePeriod.close.day === now_day && period_close_hour > now_hour) || (thePeriod.close.day === now_day && period_close_hour === now_hour && period_close_minute >= now_minute))) {
+            opening_hours.open_now = true;
+            return true;
+        }
+        index = (index + 1) % periodsLength;
+    }
+    opening_hours.open_now = false;
+    return false;
+}
 
 function debounce(func, delay) {
     var timer = null;
