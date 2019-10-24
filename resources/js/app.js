@@ -89,7 +89,7 @@ function initialize() {
 
     google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
         $.ajax({
-            url: "http://localhost:3030/stores/list/forOfficialPage",
+            url: "https://app.goodtogo.tw/test/stores/list/forOfficialPage",
             type: "GET",
             dataType: 'json',
             success: function (data) {
@@ -270,7 +270,7 @@ var now_minute = now.getMinutes();
 function checkIsOpening(opening_hours) {
     var periodsLength = opening_hours.periods.length;
     if (opening_hours.hasOwnProperty("open_now")) return opening_hours.open_now;
-    for (var index = now_day, ctr = 0; ctr < periodsLength; ctr++) {
+    for (var index = now_day % periodsLength, ctr = 0; ctr < periodsLength; ctr++) {
         var thePeriod = opening_hours.periods[index];
         var reg_open = /(\d*):(\d*)/.exec(thePeriod.open.time);
         var period_open_hour = parseInt(reg_open[1]);
