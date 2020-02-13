@@ -209,7 +209,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
   height: 12vh
   text-align: center
   font-size: calc(22px + .2vw)
-  margin: 50px auto
+  margin: 50px auto 20px auto
 
 #map-subtitle
   height: 6vh
@@ -313,6 +313,8 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
     border-left: 3px #fff solid
   ul
     padding: 10px 0
+  #{$a-tags}
+    color: white
 
 .footer-section-list-title
   font-weight: 700
@@ -320,8 +322,6 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
 
 #copyright
   font-size: 12px
-  #{$a-tags}
-    color: white
 
 @media(max-width:767px)
   .result-section

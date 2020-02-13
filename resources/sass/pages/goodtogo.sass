@@ -200,7 +200,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
         margin-top: 0
 #map-title
   font-size: calc(22px + .2vw)
-  margin: 50px  auto 20px auto
+  margin: 50px auto 20px auto
   text-align: center
   height: 12vh
 
@@ -304,6 +304,8 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
     list-style-type: none
   ul
     padding: 10px 0
+  #{$a-tags}
+    color: white
 
 .footer-section-list-title
   font-weight: 700
@@ -311,8 +313,15 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
 
 #copyright
   font-size: 12px
-  #{$a-tags}
-    color: white
+
+.policy-section
+  padding: 10vh 0 3vh 0
+  .policy-content
+    padding-inline-start: 40px
+    ol, ul
+      padding-inline-start: 0px
+    .fix-inline-start
+      padding-inline-start: 40px !important
 
 .open-dot
   display: inline-block
