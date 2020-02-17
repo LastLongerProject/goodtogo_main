@@ -87,22 +87,51 @@ function initialize() {
 
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
-    google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
-        $.ajax({
-            url: "https://app.goodtogo.tw/test/stores/list/forOfficialPage",
-            type: "GET",
-            dataType: 'json',
-            success: function (data) {
-                bounds = new google.maps.LatLngBounds();
-                placeid_json = data.storeList;
-                setMarkers(map);
-            },
-            error: function (xhr, ajaxOptions, thrownError) {
-                console.error(xhr.status);
-                console.error(thrownError);
-            }
+    if (typeof Promise === "undefined" || typeof Promise.all !== "function") {
+        google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
+            $.ajax({
+                url: "https://app.goodtogo.tw/test/stores/list/forOfficialPage",
+                type: "GET",
+                dataType: 'json',
+                success: function (data) {
+                    bounds = new google.maps.LatLngBounds();
+                    placeid_json = data.storeList;
+                    setMarkers(map);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    console.error(xhr.status);
+                    console.error(thrownError);
+                }
+            });
         });
-    });
+    } else {
+        Promise.all([
+            new Promise(function (resolve, reject) {
+                google.maps.event.addListenerOnce(map, 'tilesloaded', function () {
+                    bounds = new google.maps.LatLngBounds();
+                    resolve();
+                });
+            }),
+            new Promise(function (resolve, reject) {
+                $.ajax({
+                    url: "https://app.goodtogo.tw/test/stores/list/forOfficialPage",
+                    type: "GET",
+                    dataType: 'json',
+                    success: function (data) {
+                        placeid_json = data.storeList;
+                        resolve();
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        console.error(xhr.status);
+                        console.error(thrownError);
+                        reject();
+                    }
+                });
+            })
+        ]).then(function () {
+            setMarkers(map);
+        }).catch(function () {});
+    }
 };
 
 function bindMarker() {
