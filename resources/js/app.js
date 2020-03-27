@@ -345,37 +345,6 @@ $(document).ready(function () {
         google.maps.event.trigger(markers[currentSlide], 'click');
     });
 
-    function counter() {
-        var hT = $('#result-number').offset().top, //元素的最高點
-            hH = $('#result-number').outerHeight(), //元素高度
-            wH = $(window).height(), //視窗高度
-            wS = $(this).scrollTop(); //捲到哪裡
-
-        if (wS > (hT + hH - wH) && (hT > wS) && (wS + wH > hT + hH)) {
-            $('#result-number').each(function () {
-                var $el = $(this);
-                var max = parseInt(globalUsedAmount);
-                $(this).text('0');
-                var duration = 1000;
-                var refresh = Math.floor((Math.random() * 10));;
-                var frames = duration / refresh;
-                var start = 0;
-                var step = Math.max(Math.round(max / frames), 1);
-                var interval = window.setInterval(function () {
-                    if (start + step < max) {
-                        start += step;
-                    } else {
-                        start = max;
-                        clearInterval(interval);
-                    }
-                    $('#result-number').unbind();
-                    $el.text(start);
-                }, refresh);
-            });
-            $(this).off('scroll', counter);
-        }
-    }
-
     if ($('#result-number').length > 0) {
         $.ajax({
             url: "https://app.goodtogo.tw/test/containers/globalUsedAmount",
@@ -383,8 +352,25 @@ $(document).ready(function () {
             dataType: 'text',
             success: function (data) {
                 globalUsedAmount = data.replace(/\"/g, '');
-                // alert(msg);
-                $(window).on("scroll", counter);
+                $('#result-number').waypoint(function (down) {
+                    $('#result-number').each(function () {
+                        var $this = $(this);
+                        $({
+                            Counter: 0
+                        }).animate({
+                            Counter: parseInt(globalUsedAmount)
+                        }, {
+                            duration: 1000,
+                            easing: 'swing',
+                            step: function () {
+                                $this.text(Math.ceil(this.Counter));
+                            }
+                        });
+                    });
+                }, {
+                    offset: '90%',
+                    triggerOnce: true
+                });
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 console.error(xhr.status);

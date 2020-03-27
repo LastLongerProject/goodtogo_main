@@ -17,6 +17,7 @@ function js() {
         .pipe(addsrc.append('resources/js/parallax.min.js'))
         .pipe(addsrc.append('resources/js/scrolling-nav.js'))
         .pipe(addsrc.append('resources/js/jquery.scrollify.js'))
+        .pipe(addsrc.append('resources/js/jquery.waypoints.min.js'))
         .pipe(addsrc.append('resources/js/app.js'))
         .pipe(sourcemaps.init())
         .pipe(concat('app.min.js'))
